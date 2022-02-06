@@ -21,6 +21,7 @@ export default function MapsScreen() {
                             latitude: -12.0684717,
                             longitude: -77.0375371
                         }}
+                        pinColor="black"
                     >
                         <Callout>
                             <View>
