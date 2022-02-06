@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Dimensions, StyleSheet, Text, TextInput, View } from 'react-native';
-import MapView, { Marker } from 'react-native-maps';
+import MapView, { Callout, Circle, Marker } from 'react-native-maps';
 
 
 export default function MapsScreen() {
@@ -21,6 +21,21 @@ export default function MapsScreen() {
                             latitude: -12.0684717,
                             longitude: -77.0375371
                         }}
+                    >
+                        <Callout>
+                            <View>
+                                <Text>CET ABC Kid's</Text>
+                                <Text>Dirección: </Text>
+                                <Text>Horario: </Text>
+                            </View>
+                        </Callout>
+                    </Marker>
+                    <Circle
+                        center={{
+                            latitude: -12.0684717,
+                            longitude: -77.0375371
+                        }}
+                        radius={1000}
                     />
                 </MapView>
             </Text>
