@@ -7,7 +7,8 @@ export default function Login({navigation}: {navigation: any}) {
 
     const login = () => {
         console.log();
-        navigation.navigate('Home');
+        // navigation.navigate('Home');
+        navigation.navigate('Test');
     }
 
     const cancel = () => {

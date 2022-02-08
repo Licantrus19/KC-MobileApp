@@ -7,6 +7,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AddKidsInformationScreen from './screens/kids/add-kid/AddKidsInformationScreen';
 import AddKidsAvatarScreen from './screens/kids/add-kid/AddKidsAvatarScreen';
+import ProfileScreen from './screens/profile/Profile';
+import TestScreen from './screens/test/TestScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,6 +20,8 @@ export default function App() {
         <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
         <Stack.Screen name="AddKidsInformation" component={AddKidsInformationScreen} options={{ headerShown: false }} />
         <Stack.Screen name="AddKidsAvatar" component={AddKidsAvatarScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Profile" component={ProfileScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Test" component={TestScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
