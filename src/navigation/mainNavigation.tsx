@@ -13,22 +13,30 @@ import {
 } from "../screens";
 import { } from "../stores/interfaces";
 import { Label, SettingsApp } from "../components";
-import { Text } from "react-native";
+import { Image, Text } from "react-native";
+import { Button } from "react-native-paper";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const mainScreenOptions: StackNavigationOptions = {
-    /* headerRight: () => { return <View style={{ marginRight: 15 }}><SettingsApp /></View> }, */
+    headerStyle: {
+        elevation: 0,
+        shadowOpacity: 0,
+        height: 70
+    },
+    headerTitleAlign: "center",
+    headerLeft: () => { return <Image style={{ marginHorizontal: 15 }} source={require("../assets/kodomo_icon.png")} /> },
+    headerRight: () => { return <Image style={{ marginHorizontal: 15 }} source={require("../assets/profile_icon.png")} /> }
 }
 
 export const KidsStack = () => {
     return (
         <Stack.Navigator initialRouteName="Kids" screenOptions={mainScreenOptions}>
-            <Stack.Screen name="Kids" component={Kids} />
-            <Stack.Screen name="AddKidAvatar" component={AddKidAvatar} />
-            <Stack.Screen name="AddKidInformation" component={AddKidInformation} />
-            <Stack.Screen name="KidProfileTest" component={KidTestScreen} />
+            <Stack.Screen options={{ headerTitle: "Kodomo Care" }} name="Kids" component={Kids} />
+            <Stack.Screen options={{ headerTitle: "Registro del menor" }} name="AddKidAvatar" component={AddKidAvatar} />
+            <Stack.Screen options={{ headerTitle: "Registro del menor" }} name="AddKidInformation" component={AddKidInformation} />
+            <Stack.Screen options={{ headerTitle: "Kodomo Care" }} name="KidProfileTest" component={KidTestScreen} />
         </Stack.Navigator>
     )
 }
@@ -36,7 +44,7 @@ export const KidsStack = () => {
 export const MapStack = () => {
     return (
         <Stack.Navigator initialRouteName="Map" screenOptions={mainScreenOptions}>
-            <Stack.Screen name="Map" component={Map} />
+            <Stack.Screen options={{ headerTitle: "Mapas CET" }} name="Map" component={Map} />
         </Stack.Navigator>
     )
 }
@@ -44,7 +52,7 @@ export const MapStack = () => {
 export const OutcomesStack = () => {
     return (
         <Stack.Navigator initialRouteName="Outcomes" screenOptions={mainScreenOptions}>
-            <Stack.Screen name="Outcomes" component={Outcomes} />
+            <Stack.Screen options={{ headerTitle: "Resultados" }} name="Outcomes" component={Outcomes} />
         </Stack.Navigator>
     )
 }
