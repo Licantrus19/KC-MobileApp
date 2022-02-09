@@ -76,29 +76,29 @@ const KidTestScreen: FC<IScreenProps> = ({ navigation, route }) => {
 
     return (
         <View style={styles.container}>
-            <View style={{ width: '100%', flexDirection: 'row', height: 80, backgroundColor: colors["primary"], alignItems: 'center', justifyContent: 'center' }}>
+            <View style={styles.headerUser}>
                 <View style={{ position: 'absolute', left: 15, alignItems: 'center' }}>
                     <Image
                         resizeMode='contain'
                         source={require("../../assets/avatars/avatar_1.png")}
-                        style={{ width: 70, height: 70 }}
+                        style={styles.avatarImage}
                     />
                 </View>
-                <View style={{ width: '100%' }}>
-                    <Label center size={22} color="white">
+                <View style={styles.nameUser}>
+                    <Label center size={22} color='white'>
                         {kidData ? kidData.firstname + ' ' + kidData.lastname : ''}
                     </Label>
                 </View>
             </View>
-            <View style={{ width: '90%', flexDirection: 'row', alignSelf: 'center', marginVertical: 20 }}>
-                <View style={{ flex: 1, justifyContent: 'flex-start' }}>
+            <View style={styles.headerTest}>
+                <View style={styles.labelTest}>
                     <Label>
                         Test Psicomotor
                     </Label>
                 </View>
-                <View style={{ flex: 1, alignItems: 'flex-end' }}>
+                <View style={styles.labelAge}>
                     <Label color='primary'>
-                        Edad en meses
+                        48 meses
                     </Label>
                 </View>
             </View>
@@ -120,6 +120,35 @@ export default KidTestScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1
+    },
+    avatarImage: {
+        width: 70,
+        height: 70
+    },
+    headerUser: {
+        width: '100%',
+        flexDirection: 'row',
+        height: 80,
+        backgroundColor: colors["primary"],
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    nameUser: {
+        width: '100%'
+    },
+    headerTest: {
+        width: '90%',
+        flexDirection: 'row',
+        alignSelf: 'center',
+        marginVertical: 20
+    },
+    labelTest: {
+        flex: 1,
+        justifyContent: 'flex-start'
+    },
+    labelAge: {
+        flex: 1,
+        alignItems: 'flex-end'
     },
     title: {
         marginTop: 40,

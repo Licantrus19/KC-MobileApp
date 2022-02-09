@@ -1,18 +1,49 @@
 import { Picker } from '@react-native-picker/picker';
 import React, { useState, FC } from 'react';
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View, Image, Platform } from 'react-native';
+import DateTimePicker from '@react-native-community/datetimepicker';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 interface IScreenProps {
     navigation: any
 }
 
-const AddKidInformationScreen: FC < IScreenProps > = ({ navigation }) => {
+const AddKidInformationScreen: FC<IScreenProps> = ({ navigation }) => {
+
+    //form variables
 
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [identificationNumber, setIdentificationNumber] = useState('');
+    const [birthDate, setBirthDate] = useState('');
     const [gender, setGender] = useState('');
     const [relationship, setRelationship] = useState('');
+
+    // screen events
+
+    const [date, setDate] = useState(new Date());
+    const [mode, setMode] = useState('date');
+    const [show, setShow] = useState(false);
+
+    const onChange = (event: any, selectedDate: any) => {
+        const birthDateSelected = selectedDate || date;
+        setShow(Platform.OS === 'ios');
+        setDate(birthDateSelected);
+
+        let tempDate = new Date(birthDateSelected);
+        let birthDateText = ('0' + tempDate.getDate()).slice(-2) + '/' + ('0' + (tempDate.getMonth() + 1)).slice(-2) + '/' + tempDate.getFullYear();
+
+        setBirthDate(birthDateText);
+        setShow(false);
+    }
+
+    const showMode = (currentMode: any) => {
+        setShow(true);
+        setMode(currentMode);
+    }
+
+    // flow events
 
     const nextStep = () => {
         console.log();
@@ -25,6 +56,16 @@ const AddKidInformationScreen: FC < IScreenProps > = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
+
+            {show && (
+                <DateTimePicker
+                    testID="dateTimePicker"
+                    value={date}
+                    display="default"
+                    onChange={onChange}
+                />
+            )}
+
             <View style={styles.contentContainer}>
                 <View style={styles.firstName}>
                     <Text>Nombres</Text>
@@ -46,12 +87,38 @@ const AddKidInformationScreen: FC < IScreenProps > = ({ navigation }) => {
                 </View>
                 <View style={styles.identificationNumber}>
                     <Text>DNI</Text>
-                    <TextInput
-                        style={styles.inputText}
-                        placeholder="Ingrese DNI"
-                        onChangeText={identificationNumber => setIdentificationNumber(identificationNumber)}
-                        defaultValue={identificationNumber}
-                    />
+                    <View style={styles.identificationNumberContainer}>
+                        <TextInput
+                            style={styles.inputDNIText}
+                            placeholder="Ingrese DNI"
+                            onChangeText={identificationNumber => setIdentificationNumber(identificationNumber)}
+                            defaultValue={identificationNumber}
+                        />
+                        <Image
+                            resizeMode='contain'
+                            style={styles.identificationNumberIcon}
+                            source={require('../../../assets/add_kid/identification_number_icon.jpg')}
+                        />
+                    </View>
+                </View>
+                <View style={styles.birthDate}>
+                    <Text>Fecha de nacimiento</Text>
+                    <View style={styles.birthDateContainer}>
+                        <TextInput
+                            style={styles.inputBirthDateText}
+                            editable={false}
+                            selectTextOnFocus={false}
+                            defaultValue={birthDate} />
+                        <View style={styles.datePickerIcon}>
+                            <TouchableOpacity
+                                onPress={() => showMode('date')} >
+                                <Icon
+                                    style={styles.calendarIcon}
+                                    name="calendar"
+                                ></Icon>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
                 </View>
                 <View style={styles.gender}>
                     <Text>Género</Text>
@@ -119,7 +186,50 @@ const styles = StyleSheet.create({
         marginTop: 10,
         marginBottom: 10,
         marginStart: 50,
+        fontSize: 18,
+    },
+    identificationNumberContainer: {
+        flexDirection: 'row',
+    },
+    inputDNIText: {
+        marginTop: 10,
+        marginEnd: 20,
+        padding: 10,
+        height: 40,
+        borderWidth: 1,
+        borderRadius: 5,
+        flex: 3,
+    },
+    identificationNumberIcon: {
+        flex: 1,
+        alignItems: 'flex-end',
+        marginEnd: 50
+    },
+    birthDate: {
+        marginTop: 10,
+        marginBottom: 10,
+        marginStart: 50,
         fontSize: 18
+    },
+    birthDateContainer: {
+        flexDirection: 'row',
+    },
+    inputBirthDateText: {
+        marginTop: 10,
+        marginEnd: 20,
+        padding: 10,
+        height: 40,
+        borderWidth: 1,
+        borderRadius: 5,
+        flex: 3,
+    },
+    datePickerIcon: {
+        flex: 1,
+        alignItems: 'flex-end',
+        marginEnd: 50,
+    },
+    calendarIcon: {
+
     },
     gender: {
         marginTop: 10,
@@ -164,6 +274,6 @@ const styles = StyleSheet.create({
     cancelButton: {
         marginStart: 50,
         marginEnd: 50,
-        marginBottom: 40
+        marginBottom: 10
     }
 });

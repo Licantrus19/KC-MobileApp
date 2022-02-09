@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import { Image, StyleSheet, View, Text } from "react-native";
 
-export default function TestButton({item}: {item: any}) {
+export default function TestButton({ item }: { item: any }) {
 
     const bgColor = item.backgroundColor;
     const imagePath = item.imageUri;
 
     return (
         <View style={[styleContainer(bgColor).container]}>
-            <Image style={styles.image} source={imagePath}/>
+            <Image
+                resizeMode='contain'
+                style={styles.image}
+                source={imagePath} />
             <Text style={[styles.text]}>{item.text}</Text>
         </View>
     )
@@ -23,8 +26,8 @@ const styleContainer = (bgColor: any) => StyleSheet.create({
         height: 60,
         backgroundColor: bgColor,
         borderRadius: 10,
-        flexDirection:'row',
-        alignItems:'center'
+        flexDirection: 'row',
+        alignItems: 'center'
     }
 });
 

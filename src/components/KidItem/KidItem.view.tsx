@@ -51,7 +51,7 @@ const KidItem: FC<IComponentProps> = ({ width = '50%', position = 1, onPress, ty
                         Apellidos: {data.lastname}
                     </Label>
                     <Label size={13}>
-                        Edad: {data.age} 
+                        Edad: {data.age}
                     </Label>
                 </View>
             </View>
@@ -61,7 +61,6 @@ const KidItem: FC<IComponentProps> = ({ width = '50%', position = 1, onPress, ty
     return (
         <>
             {type == 1 && renderKidAvatar(data)}
-
             {
                 type == 2 && (
                     <View style={[styles.itemContainer, { alignItems: !(position % 2) ? 'flex-start' : 'flex-end' }]}>

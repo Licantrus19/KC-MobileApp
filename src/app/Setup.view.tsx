@@ -8,7 +8,7 @@ interface ISetupProps {
 
 }
 
-const Setup: FC<ISetupProps> = ({  }) => {
+const Setup: FC<ISetupProps> = ({ }) => {
 
     /* useEffect(() => {
         sessionStore?.checkSession();
@@ -31,7 +31,7 @@ const Setup: FC<ISetupProps> = ({  }) => {
 
     return (
         <>
-            <AppNavigation authenticated={false} />
+            <AppNavigation authenticated={true} />
         </>
     )
 }
