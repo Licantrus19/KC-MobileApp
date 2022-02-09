@@ -1,1 +1,2 @@
-# react-native-starter-project
+# KodomoCare
+KodomoCare App Frontend with React Native 0.63
