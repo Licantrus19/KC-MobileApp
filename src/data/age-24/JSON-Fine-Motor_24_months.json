@@ -1,0 +1,223 @@
+{
+    "questions":[
+        {
+        "id":1,
+        "question":"Normalmente, ¿puede su niño meterse la cuchara en la boca sin que se le caiga la comida?",
+        "type":"select",
+        "hasAudio":false,
+        "hasImage":true,
+        "hasExplication":true,
+        "hasConditional":false,
+        "audio":"",
+        "conditional":[],
+        "imageUrls":[
+            {
+                "id":1,
+                "url":"../../assets/questions/firstTest/FineMotor/kidEating.jpg"
+            }
+        ],
+        "explication":"¿Su hijo logra comer con una cuchara sin problemas?",
+        "answer":[
+            {
+                "id":1,
+                "points":10,
+                "value":"Sí"
+            },
+            {
+                "id":2,
+                "points":5,
+                "value":"A veces"
+            }, 
+            {
+                "id":3,
+                "points":0,
+                "value":"No"
+            }
+        ]
+        },
+        {
+            "id":2,
+            "question":"¿Sabe darle la vuelta a las hojas de un libro sin ayuda? (Tal vez pase más de una hoja a la vez.)",
+            "type":"select",
+            "hasAudio":false,
+            "hasImage":true,
+            "hasExplication":true,
+            "hasConditional":false,
+            "imageUrls":[
+                {
+                    "id":1,
+                    "url":"../../assets/questions/firstTest/FineMotor/kidReading.jpg"
+                }
+            ],
+            "audio":"",
+            "explication":"¿Su hijo es capaz de cambiar las hojas de un libro solo?",
+            "answer":[
+                {
+                    "id":1,
+                    "points":10,
+                    "value":"Sí"
+                },
+                {
+                    "id":2,
+                    "points":5,
+                    "value":"A veces"
+                }, 
+                {
+                    "id":3,
+                    "points":0,
+                    "value":"No"
+                }
+
+            ]
+        },
+        {
+            "id":3,
+            "question":"¿Rota (gira) la mano su niña al intentar abrir una puerta, darle cuerda a un juguete, jugar con un trompo, o poner y quitar una tapa de un frasco?",
+            "type":"select",
+            "hasAudio":false,
+            "hasImage":true,
+            "hasExplication":true,
+            "hasConditional":false,
+            "imageUrls":[
+                {
+                    "id":1,
+                    "url":"../../assets/questions/firstTest/FineMotor/kidOpenDoor.jpg"
+                },
+                {
+                    "id":2,
+                    "url":"../../assets/questions/firstTest/FineMotor/toys.jpg"
+                },
+                {
+                    "id":3,
+                    "url":"../../assets/questions/firstTest/FineMotor/kidPlayingToys.jpg"
+                },
+                {
+                    "id":4,
+                    "url":"../../assets/questions/firstTest/FineMotor/angryKid.jpg"
+                }
+            ],
+            "audio":"",
+            "explication":"¿Su hijo logra darle cuerda a sus juguetes?",
+            "answer":[
+                {
+                    "id":1,
+                    "points":10,
+                    "value":"Sí"
+                },
+                {
+                    "id":2,
+                    "points":5,
+                    "value":"A veces"
+                }, 
+                {
+                    "id":3,
+                    "points":0,
+                    "value":"No"
+                }
+            ]
+        },
+        {
+            "id":4,
+            "question":"¿Su niño prende y apaga interruptores (como el de la luz)?",
+            "type":"select",
+            "hasAudio":false,
+            "hasImage":true,
+            "hasExplication":true,
+            "hasConditional":false,
+            "imageUrls":[
+                {
+                    "id":1,
+                    "url":"../../assets/questions/firstTest/FineMotor/kidPressingSwitch.jpg"
+                }
+            ],
+            "audio":"",
+            "explication":"¿Su hijo sabe prender y apagar la luz?",
+            "answer":[
+                {
+                    "id":1,
+                    "points":10,
+                    "value":"Sí"
+                },
+                {
+                    "id":2,
+                    "points":5,
+                    "value":"A veces"
+                }, 
+                {
+                    "id":3,
+                    "points":0,
+                    "value":"No"
+                }
+
+            ]
+        },
+        {
+            "id":5,
+            "question":"¿Puede su niña poner siete cubitos o juguetes uno sobre otro sin ayuda? (También puede usar carretes de hilo, cajitas, o juguetes que midan aproximadamente 1 pulgada, o 3 centímetros.)",
+            "type":"select",
+            "hasAudio":false,
+            "hasImage":true,
+            "hasExplication":true,
+            "hasConditional":false,
+            "imageUrls":[
+                {
+                    "id":1,
+                    "url":"../../assets/questions/firstTest/FineMotor/kidCubes.jpg"
+                }
+            ],
+            "audio":"",
+            "explication":"¿Su hijo apila objetos sin ayuda?",
+            "answer":[
+                {
+                    "id":1,
+                    "points":10,
+                    "value":"Sí"
+                },
+                {
+                    "id":2,
+                    "points":5,
+                    "value":"A veces"
+                }, 
+                {
+                    "id":3,
+                    "points":0,
+                    "value":"No"
+                }
+            ]
+        },
+        {
+            "id":6,
+            "question":"¿Sabe meter un cordón (o agujeta) por el agujero de objetos pequeños como cuentas de madera, sopa de macarrones o de rueditas, o por los agujeros de los zapatos?",
+            "type":"select",
+            "hasAudio":false,
+            "hasImage":true,
+            "hasExplication":true,
+            "hasConditional":false,
+            "imageUrls":[
+                {
+                    "id":1,
+                    "url":"../../assets/questions/firstTest/FineMotor/kidPlayingManualToys.jpg"
+                }
+            ],
+            "audio":"",
+            "explication":"¿Su hijo es capaz de meter objetos pequeños por un cuerda?",
+            "answer":[
+                {
+                    "id":1,
+                    "points":10,
+                    "value":"Sí"
+                },
+                {
+                    "id":2,
+                    "points":5,
+                    "value":"A veces"
+                }, 
+                {
+                    "id":3,
+                    "points":0,
+                    "value":"No"
+                }
+            ]
+        }
+    ]
+}

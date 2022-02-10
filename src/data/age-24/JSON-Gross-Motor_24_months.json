@@ -1,0 +1,211 @@
+{
+    "questions":[
+        {
+        "id":1,
+        "question":" ¿Su niño puede bajar las escaleras si usted lo lleva de la mano? Puede agarrarse de la pared o de la barandilla también. (Ud. puede hacer esta observación en la tienda, en el parque, o en casa.)",
+        "type":"select",
+        "hasAudio":false,
+        "hasImage":true,
+        "hasExplication":true,
+        "hasConditional":false,
+        "audio":"",
+        "conditional":[],
+        "imageUrls":[
+            {
+                "id":1,
+                "url":"../../assets/questions/firstTest/GrossMotor/babyUpStairs.jpg"
+            }
+        ],
+        "explication":"¿Su hijo baja las escaleras con ayuda suya?",
+        "answer":[
+            {
+                "id":1,
+                "points":10,
+                "value":"Sí"
+            },
+            {
+                "id":2,
+                "points":5,
+                "value":"A veces"
+            }, 
+            {
+                "id":3,
+                "points":0,
+                "value":"No"
+            }
+        ]
+        },
+        {
+            "id":2,
+            "question":"Al enseñarle cómo se da una patada a un balón, ¿intenta su niño dar la patada moviendo la pierna hacia adelante o caminando hasta tocar el balón? (Si ya sabe dar una patada al balón, marque “sí” en esta pregunta.)",
+            "type":"select",
+            "hasAudio":false,
+            "hasImage":true,
+            "hasExplication":true,
+            "hasConditional":false,
+            "imageUrls":[
+                {
+                    "id":1,
+                    "url":"../../assets/questions/firstTest/GrossMotor/kidWithBall.jpg"
+                }
+            ],
+            "audio":"",
+            "explication":"¿Su hijo es capaz de patear un balón?",
+            "answer":[
+                {
+                    "id":1,
+                    "points":10,
+                    "value":"Sí"
+                },
+                {
+                    "id":2,
+                    "points":5,
+                    "value":"A veces"
+                }, 
+                {
+                    "id":3,
+                    "points":0,
+                    "value":"No"
+                }
+
+            ]
+        },
+        {
+            "id":3,
+            "question":"¿Su niño sube o baja al menos dos escalones sin ayuda? Puede agarrarse de la pared o de la barandilla.",
+            "type":"select",
+            "hasAudio":false,
+            "hasImage":true,
+            "hasExplication":true,
+            "hasConditional":false,
+            "imageUrls":[
+                {
+                    "id":1,
+                    "url":"../../assets/questions/firstTest/GrossMotor/kidAloneStairs.jpg"
+                }
+            ],
+            "audio":"",
+            "explication":"¿Su hijo sube o baja las escaleras sin ayuda?",
+            "answer":[
+                {
+                    "id":1,
+                    "points":10,
+                    "value":"Sí"
+                },
+                {
+                    "id":2,
+                    "points":5,
+                    "value":"A veces"
+                }, 
+                {
+                    "id":3,
+                    "points":0,
+                    "value":"No"
+                }
+            ]
+        },
+        {
+            "id":4,
+            "question":"¿Su niña corre bien y sabe detenerse sin chocar con las cosas o caerse?",
+            "type":"select",
+            "hasAudio":false,
+            "hasImage":true,
+            "hasExplication":true,
+            "hasConditional":false,
+            "imageUrls":[
+                {
+                    "id":1,
+                    "url":"../../assets/questions/firstTest/GrossMotor/kidWalking.jpg"
+                }
+            ],
+            "audio":"",
+            "explication":"¿Su hijo es capaz de correr sin caerse o tropesar",
+            "answer":[
+                {
+                    "id":1,
+                    "points":10,
+                    "value":"Sí"
+                },
+                {
+                    "id":2,
+                    "points":5,
+                    "value":"A veces"
+                }, 
+                {
+                    "id":3,
+                    "points":0,
+                    "value":"No"
+                }
+
+            ]
+        },
+        {
+            "id":5,
+            "question":"¿Puede saltar su niño, levantando ambos pies del suelo a la vez?",
+            "type":"select",
+            "hasAudio":false,
+            "hasImage":true,
+            "hasExplication":true,
+            "hasConditional":false,
+            "imageUrls":[
+                {
+                    "id":1,
+                    "url":"../../assets/questions/firstTest/GrossMotor/kidJumping.jpg"
+                }
+            ],
+            "audio":"",
+            "explication":"¿Su hijo salta con los pies juntos?",
+            "answer":[
+                {
+                    "id":1,
+                    "points":10,
+                    "value":"Sí"
+                },
+                {
+                    "id":2,
+                    "points":5,
+                    "value":"A veces"
+                }, 
+                {
+                    "id":3,
+                    "points":0,
+                    "value":"No"
+                }
+            ]
+        },
+        {
+            "id":6,
+            "question":"Sin apoyarse en ningún objeto, ¿sabe su niño dar una patada a un balón moviendo la pierna hacia atrás y luego hacia adelante?",
+            "type":"select",
+            "hasAudio":false,
+            "hasImage":true,
+            "hasExplication":true,
+            "hasConditional":true,
+            "imageUrls":[
+                {
+                    "id":1,
+                    "url":"../../assets/questions/firstTest/GrossMotor/kidPlayingSoccer.jpg"
+                }
+            ],
+            "audio":"",
+            "explication":"¿Su hijo es capaz de patear un balón sin necesidad de apoyarse de algún objeto?",
+            "answer":[
+                {
+                    "id":1,
+                    "points":10,
+                    "value":"Sí"
+                },
+                {
+                    "id":2,
+                    "points":5,
+                    "value":"A veces"
+                }, 
+                {
+                    "id":3,
+                    "points":0,
+                    "value":"No"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,215 @@
+{
+    "questions":[
+        {
+        "id":1,
+        "question":"¿Sabe su niño beber de un vaso y bajarlo nuevamente sin que se le caiga mucho del contenido?",
+        "type":"select",
+        "hasAudio":false,
+        "hasImage":true,
+        "hasExplication":true,
+        "hasConditional":false,
+        "audio":"",
+        "conditional":[],
+        "imageUrls":[
+            {
+                "id":1,
+                "url":"../../assets/questions/firstTest/SocioIndividual/kidDrinking.jpg"
+            }
+        ],
+        "explication":"¿Su hijo sabe beber de un vaso correctamente?",
+        "answer":[
+            {
+                "id":1,
+                "points":10,
+                "value":"Sí"
+            },
+            {
+                "id":2,
+                "points":5,
+                "value":"A veces"
+            }, 
+            {
+                "id":3,
+                "points":0,
+                "value":"No"
+            }
+        ]
+        },
+        {
+            "id":2,
+            "question":"¿Lo/la imita a Ud. su niña, haciendo las mismas actividades que Ud. hace, por ejemplo limpiar algo que se le ha caído, pasar la aspiradora, afeitarse, o peinarse?",
+            "type":"select",
+            "hasAudio":false,
+            "hasImage":true,
+            "hasExplication":true,
+            "hasConditional":false,
+            "imageUrls":[
+                {
+                    "id":1,
+                    "url":"../../assets/questions/firstTest/SocioIndividual/kidTalkingPhone.jpg"
+                },
+                {
+                    "id":2,
+                    "url":"../../assets/questions/firstTest/SocioIndividual/kidShaving.jpg"
+                }
+            ],
+            "audio":"",
+            "explication":"¿Su hijo es capaz de imitarlo?",
+            "answer":[
+                {
+                    "id":1,
+                    "points":10,
+                    "value":"Sí"
+                },
+                {
+                    "id":2,
+                    "points":5,
+                    "value":"A veces"
+                }, 
+                {
+                    "id":3,
+                    "points":0,
+                    "value":"No"
+                }
+
+            ]
+        },
+        {
+            "id":3,
+            "question":"¿Come con un tenedor?",
+            "type":"select",
+            "hasAudio":false,
+            "hasImage":true,
+            "hasExplication":true,
+            "hasConditional":false,
+            "imageUrls":[
+                {
+                    "id":1,
+                    "url":"../../assets/questions/firstTest/SocioIndividual/kidWithFork.jpg"
+                }
+            ],
+            "audio":"",
+            "explication":"¿Su hijo come con un tenedor?",
+            "answer":[
+                {
+                    "id":1,
+                    "points":10,
+                    "value":"Sí"
+                },
+                {
+                    "id":2,
+                    "points":5,
+                    "value":"A veces"
+                }, 
+                {
+                    "id":3,
+                    "points":0,
+                    "value":"No"
+                }
+            ]
+        },
+        {
+            "id":4,
+            "question":"Al jugar con un animalito de peluche o con una muñeca, ¿lo mece, le da de comer, le cambia los pañales, lo acuesta, etc.?",
+            "type":"select",
+            "hasAudio":false,
+            "hasImage":true,
+            "hasExplication":true,
+            "hasConditional":false,
+            "imageUrls":[
+                {
+                    "id":1,
+                    "url":"../../assets/questions/firstTest/SocioIndividual/kidWithBabyToy.jpg"
+                }
+            ],
+            "audio":"",
+            "explication":"¿Su hijo es capaz de tratar a sus juguetes como si fuesen bebés?",
+            "answer":[
+                {
+                    "id":1,
+                    "points":10,
+                    "value":"Sí"
+                },
+                {
+                    "id":2,
+                    "points":5,
+                    "value":"A veces"
+                }, 
+                {
+                    "id":3,
+                    "points":0,
+                    "value":"No"
+                }
+
+            ]
+        },
+        {
+            "id":5,
+            "question":"¿Su niño empuja un carrito con ruedas, un cochecito de bebé, u otro juguete con ruedas, evitando chocar con las cosas y saliéndose en reversa de un rincón si no puede girar?",
+            "type":"select",
+            "hasAudio":false,
+            "hasImage":true,
+            "hasExplication":true,
+            "hasConditional":false,
+            "imageUrls":[
+                {
+                    "id":1,
+                    "url":"../../assets/questions/firstTest/SocioIndividual/kidWithToyCar.jpg"
+                }
+            ],
+            "audio":"",
+            "explication":"¿Su hijo es capaz de empujar un objeto con ruedas sin chocar?",
+            "answer":[
+                {
+                    "id":1,
+                    "points":10,
+                    "value":"Sí"
+                },
+                {
+                    "id":2,
+                    "points":5,
+                    "value":"A veces"
+                }, 
+                {
+                    "id":3,
+                    "points":0,
+                    "value":"No"
+                }
+            ]
+        },
+        {
+            "id":6,
+            "question":"¿Su niña se refiere a sí misma diciendo “yo” más que su propio nombre? Por ejemplo, suele decir “yo lo hago” en lugar de “Susana lo hace”.",
+            "type":"select",
+            "hasAudio":false,
+            "hasImage":true,
+            "hasExplication":true,
+            "hasConditional":false,
+            "imageUrls":[
+                {
+                    "id":1,
+                    "url":"../../assets/questions/firstTest/SocioIndividual/kidMe"
+                }
+            ],
+            "audio":"",
+            "explication":"¿Su hijo formula frases con el pronombre “yo?”",
+            "answer":[
+                {
+                    "id":1,
+                    "points":10,
+                    "value":"Sí"
+                },
+                {
+                    "id":2,
+                    "points":5,
+                    "value":"A veces"
+                }, 
+                {
+                    "id":3,
+                    "points":0,
+                    "value":"No"
+                }
+            ]
+        }
+    ]
+}

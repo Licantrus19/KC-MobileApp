@@ -1,0 +1,275 @@
+{
+    "questions":[
+        {
+        "id":1,
+        "question":"Sin enseñarle primero, ¿puede señalar con el dedo el dibujo correcto cuando Ud. le dice, “Enséñame dónde está el gatito”, o le pregunta, “¿Dónde está el perro?” (Solamente tiene que identificar un dibujo correctamente en la pantalla.)",
+        "type":"select",
+        "hasAudio":false,
+        "hasImage":true,
+        "hasExplication":true,
+        "hasConditional":false,
+        "audio":"",
+        "conditional":[],
+        "imageUrls":[
+            {
+                "id":1,
+                "url":"../../assets/questions/firstTest/Communication/dog.jpg"
+            },
+            {
+                "id":2,
+                "url":"../../assets/questions/firstTest/Communication/gingerCat.jpg"
+            }
+        ],
+        "explication":"¿Puede el menor señalar al perro o gato sin que usted se lo haya enseñado antes?",
+        "answer":[
+            {
+                "id":1,
+                "points":10,
+                "value":"Sí"
+            },
+            {
+                "id":2,
+                "points":5,
+                "value":"A veces"
+            }, 
+            {
+                "id":3,
+                "points":0,
+                "value":"No"
+            }
+        ]
+        },
+        {
+            "id":2,
+            "question":"¿Imita su niña una oración de dos palabras? Por ejemplo, cuando Ud. dice “Mamá juega”, “Papá come”, o “¿Qué es?”, repite ella la misma frase? (Marque “sí” aun si sus palabras sean difíciles de entender).",
+            "type":"select",
+            "hasAudio":true,
+            "hasImage":true,
+            "hasExplication":true,
+            "hasConditional":false,
+            "imageUrls":[
+                {
+                    "id":1,
+                    "url":"../../assets/questions/firstTest/Communication/kidPlaying.jpg"
+                },
+                {
+                    "id":2,
+                    "url":"../../assets/questions/firstTest/Communication/kidEatingPizza.jpg"
+                }
+            ],
+            "audio":"[FALTA]",
+            "explication":"¿Su hijo repite las frases dichas por usted anteriormente?",
+            "answer":[
+                {
+                    "id":1,
+                    "points":10,
+                    "value":"Sí"
+                },
+                {
+                    "id":2,
+                    "points":5,
+                    "value":"A veces"
+                }, 
+                {
+                    "id":3,
+                    "points":0,
+                    "value":"No"
+                }
+
+            ]
+        },
+        {
+            "id":3,
+            "question":"Sin darle pistas señalándole o usando gestos, ¿puede su niño seguir almenos tres de las siguientes instrucciones?",
+            "type":"checklist",
+            "hasAudio":false,
+            "hasImage":true,
+            "hasExplication":false,
+            "hasConditional":false,
+            "imageUrls":[
+                {
+                    "id":1,
+                    "url":"../../assets/questions/firstTest/Communication/kidWithToys.jpg"
+                },
+                {
+                    "id":2,
+                    "url":"../../assets/questions/firstTest/Communication/kidClosingDoor.jpg"
+                },
+                {
+                    "id":3,
+                    "url":"../../assets/questions/firstTest/Communication/kidBringTowel.jpg"
+                },
+                {
+                    "id":4,
+                    "url":"../../assets/questions/firstTest/Communication/kidsJacket.jpg"
+                },
+                {
+                    "id":5,
+                    "url":"../../assets/questions/firstTest/Communication/kidsHoldingHands.jpg"
+                },
+                {
+                    "id":6,
+                    "url":"../../assets/questions/firstTest/Communication/kidWithBooks.jpg"
+                }
+            ],
+            "audio":"",
+            "explication":"¿Su hijo es capaz de  seguir instrucciones?",
+            "answer":[
+                {
+                    "id":1,
+                    "points":50,
+                    "value":"Pon el juguete en la mesa"
+                },
+                {
+                    "id":2,
+                    "points":50,
+                    "value":"Cierra la puerta"
+                }, 
+                {
+                    "id":3,
+                    "points":50,
+                    "value":"Tráeme una toalla"
+                }, 
+                {
+                    "id":4,
+                    "points":50,
+                    "value":"Busca tu abrigo"
+                }, 
+                {
+                    "id":5,
+                    "points":50,
+                    "value":"Dame la mano"
+                }, 
+                {
+                    "id":6,
+                    "points":50,
+                    "value":"Agarra tu libro"
+                }
+
+            ]
+        },
+        {
+            "id":4,
+            "question":"Si Ud. señala un dibujo de una pelota (gatito, vaso, gorro, etc.) y le pregunta a su niña “¿qué es?”, ¿puede identificar y nombrar al menos un dibujo?",
+            "type":"select",
+            "hasAudio":false,
+            "hasImage":true,
+            "hasExplication":true,
+            "hasConditional":false,
+            "imageUrls":[
+                {
+                    "id":1,
+                    "url":"../../assets/questions/firstTest/Communication/ball.jpg"
+                },
+                {
+                    "id":2,
+                    "url":"../../assets/questions/firstTest/Communication/grayCat.jpg"
+                },
+                {
+                    "id":3,
+                    "url":"../../assets/questions/firstTest/Communication/glass.jpg"
+                },
+                {
+                    "id":4,
+                    "url":"../../assets/questions/firstTest/Communication/hat.jpg"
+                }
+            ],
+            "audio":"",
+            "explication":"¿Si usted señala un objeto, su hijo es capaz de indentificarlo?",
+            "answer":[
+                {
+                    "id":1,
+                    "points":10,
+                    "value":"Sí"
+                },
+                {
+                    "id":2,
+                    "points":5,
+                    "value":"A veces"
+                }, 
+                {
+                    "id":3,
+                    "points":0,
+                    "value":"No"
+                }
+
+            ]
+        },
+        {
+            "id":5,
+            "question":"¿Puede decir dos o tres palabras juntas que representen ideas diferentes, como: “Veo perro”, “Mamá llega casa”, o “¿Se fue gatito”? (No cuente las combinaciones de palabras que expresen una sóla idea como “se acabó”, “está bien”, y “¿qué es?”)",
+            "type":"select",
+            "hasAudio":true,
+            "hasImage":true,
+            "hasExplication":true,
+            "hasConditional":false,
+            "imageUrls":[
+                {
+                    "id":1,
+                    "url":"../../assets/questions/firstTest/Communication/lookDog.jpg"
+                },
+                {
+                    "id":2,
+                    "url":"../../assets/questions/firstTest/Communication/whiteBlackCat"
+                },
+                {
+                    "id":3,
+                    "url":"../../assets/questions/firstTest/Communication/momBack"
+                }
+            ],
+            "audio":"[FALTA]",
+            "explication":"¿Su hijo formula frases que representen acciones?",
+            "answer":[
+                {
+                    "id":1,
+                    "points":10,
+                    "value":"Sí"
+                },
+                {
+                    "id":2,
+                    "points":5,
+                    "value":"A veces"
+                }, 
+                {
+                    "id":3,
+                    "points":0,
+                    "value":"No"
+                }
+            ]
+        },
+        {
+            "id":6,
+            "question":"¿Puede usar correctamente al menos dos palabras como “mi”, “yo”,“mía”, o “tú”?",
+            "type":"select",
+            "hasAudio":true,
+            "hasImage":true,
+            "hasExplication":true,
+            "hasConditional":false,
+            "imageUrls":[
+                {
+                    "id":1,
+                    "url":"../../assets/questions/firstTest/Communication/babyTalking.jpg"
+                }
+            ],
+            "audio":"[FALTA]",
+            "explication":"¿Su hijo usa correctamente los pronombres?",
+            "answer":[
+                {
+                    "id":1,
+                    "points":10,
+                    "value":"Sí"
+                },
+                {
+                    "id":2,
+                    "points":5,
+                    "value":"A veces"
+                }, 
+                {
+                    "id":3,
+                    "points":0,
+                    "value":"No"
+                }
+            ]
+        }
+    ]
+}
