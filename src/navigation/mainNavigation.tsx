@@ -9,15 +9,22 @@ import {
     Kids,
     AddKidAvatar,
     AddKidInformation,
-    KidTestScreen
+    KidTestScreen,
+    Profile
 } from "../screens";
 import { } from "../stores/interfaces";
 import { Label, SettingsApp } from "../components";
-import { Image, Text } from "react-native";
+import { Image, Text, TouchableOpacity } from "react-native";
 import { Button } from "react-native-paper";
+import * as RootNavigation from './rootNavigation';
+
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
+
+const goToProfile: any = () => {
+    RootNavigation.navigate('Profile', {})
+}
 
 const mainScreenOptions: StackNavigationOptions = {
     headerStyle: {
@@ -27,7 +34,9 @@ const mainScreenOptions: StackNavigationOptions = {
     },
     headerTitleAlign: "center",
     headerLeft: () => { return <Image style={{ marginHorizontal: 15 }} source={require("../assets/kodomo_icon.png")} /> },
-    headerRight: () => { return <Image style={{ marginHorizontal: 15 }} source={require("../assets/profile_icon.png")} /> }
+    headerRight: () => {
+        return <TouchableOpacity activeOpacity={.5} onPress={goToProfile}><Image style={{ marginHorizontal: 15 }} source={require("../assets/profile_icon.png")} /></TouchableOpacity>
+    }
 }
 
 export const KidsStack = () => {
@@ -149,6 +158,15 @@ const MainTabNavigation: FC<IMainNavProps> = ({ }) => {
                         )
                     },
                 }}
+            />
+
+            <Tab.Screen
+                name="Profile"
+                component={Profile}
+                options={({ }) => ({
+                    tabBarVisible: false,
+                    tabBarButton: (props) => null
+                })}
             />
 
         </Tab.Navigator>

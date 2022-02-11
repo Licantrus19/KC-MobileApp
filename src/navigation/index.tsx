@@ -3,6 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { PublicStack } from "./publicNavigation";
 import { default as MainTabNavigation } from "./mainNavigation";
+import { navigationRef } from './rootNavigation';
 
 const Stack = createStackNavigator();
 
@@ -34,7 +35,7 @@ export const AppNavigation: FC<INavigationProps> = ({ authenticated }) => {
     }
 
     return (
-        <NavigationContainer>
+        <NavigationContainer ref={navigationRef}>
             <Stack.Navigator>
                 {renderApp()}
             </Stack.Navigator>
