@@ -1,21 +1,28 @@
-import React, { useState } from "react";
-import { Image, StyleSheet, View, Text } from "react-native";
+import React, { FC } from "react";
+import { Image, StyleSheet, View, Text, TouchableOpacity } from "react-native";
 
-export default function TestButton({ item }: { item: any }) {
+interface IScreenProps {
+    onPress: () => void;
+    item: any
+}
+
+const TestButton: FC<IScreenProps> = ({ onPress, item }) => {
 
     const bgColor = item.backgroundColor;
     const imagePath = item.imageUri;
 
     return (
-        <View style={[styleContainer(bgColor).container]}>
+        <TouchableOpacity onPress={onPress} activeOpacity={0.7} style={[styleContainer(bgColor).container]}>
             <Image
                 resizeMode='contain'
                 style={styles.image}
                 source={imagePath} />
             <Text style={[styles.text]}>{item.text}</Text>
-        </View>
+        </TouchableOpacity>
     )
 };
+
+export default TestButton
 
 const styleContainer = (bgColor: any) => StyleSheet.create({
     container: {

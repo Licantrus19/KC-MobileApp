@@ -10,7 +10,10 @@ import {
     AddKidAvatar,
     AddKidInformation,
     KidTestScreen,
-    Profile
+    Profile,
+    TestInformation,
+    TestQuestion,
+    ResultTest
 } from "../screens";
 import { } from "../stores/interfaces";
 import { Label, SettingsApp } from "../components";
@@ -46,6 +49,9 @@ export const KidsStack = () => {
             <Stack.Screen options={{ headerTitle: "Registro del menor" }} name="AddKidAvatar" component={AddKidAvatar} />
             <Stack.Screen options={{ headerTitle: "Registro del menor" }} name="AddKidInformation" component={AddKidInformation} />
             <Stack.Screen options={{ headerTitle: "Kodomo Care" }} name="KidProfileTest" component={KidTestScreen} />
+            <Stack.Screen options={{ headerTitle: "Kodomo Care" }} name="TestInformation" component={TestInformation} />
+            <Stack.Screen options={{ headerTitle: "Kodomo Care" }} name="TestQuestion" component={TestQuestion} />
+            <Stack.Screen options={{ headerTitle: "Kodomo Care" }} name="ResultTest" component={ResultTest} />
         </Stack.Navigator>
     )
 }

@@ -9,31 +9,41 @@ const TEST_DATA = [
         id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
         text: 'Comunicación',
         imageUri: require('../../assets/test/communication.png'),
-        backgroundColor: '#f37c0e'
+        backgroundColor: '#f37c0e',
+        caution: 'Una vez comenzada la prueba ya no podrá detenerla. Asegurese de tener un tiempo moderado',
+        data: require('../../data/age-24/JSON-Communication_24_months.json')
     },
     {
         id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
         text: 'Motora Gruesa',
         imageUri: require('../../assets/test/gross_motor.png'),
-        backgroundColor: '#1179a6'
+        backgroundColor: '#1179a6',
+        caution: 'En algunas pruebas se deberá interactuar con el menor y el aplicativo para el desarrollo de la pregunta.',
+        data: require('../../data/age-24/JSON-Fine-Motor_24_months.json')
     },
     {
         id: '58694a0f-3da1-471f-bd96-145571e29d72',
         text: 'Motora Fina',
         imageUri: require('../../assets/test/fine_motor.png'),
-        backgroundColor: '#fb2626'
+        backgroundColor: '#fb2626',
+        caution: 'En algunas pruebas se deberá interactuar con el menor y el aplicativo para el desarrollo de la pregunta.',
+        data: require('../../data/age-24/JSON-Gross-Motor_24_months.json')
     },
     {
         id: '58694a0f-3da1-471f-bd96-145571e29d73',
         text: 'Resolución de Problemas',
         imageUri: require('../../assets/test/problem_solving.png'),
-        backgroundColor: '#87029c'
+        backgroundColor: '#87029c',
+        caution: 'En algunas pruebas se deberá interactuar con el menor y el aplicativo para el desarrollo de la pregunta.',
+        data: require('../../data/age-24/JSON-Problem-Solving_24_months.json')
     },
     {
         id: '58694a0f-3da1-471f-bd96-145571e29d74',
         text: 'Socio-Individual',
         imageUri: require('../../assets/test/individual_social.png'),
-        backgroundColor: '#0e972c'
+        backgroundColor: '#0e972c',
+        caution: 'En algunas pruebas se deberá interactuar con el menor y el aplicativo para el desarrollo de la pregunta.',
+        data: require('../../data/age-24/JSON-Socio-Individual_24_months.json')
     },
 ];
 
@@ -46,30 +56,11 @@ const KidTestScreen: FC<IScreenProps> = ({ navigation, route }) => {
 
     const kidData = route.params ? route.params.kidData : {};
 
-    const comunicationTest = () => {
-        console.log();
-    }
-
-    const grossMotorTest = () => {
-        console.log();
-    }
-
-    const fineMotorTest = () => {
-        console.log();
-    }
-
-    const problemSolvingTest = () => {
-        console.log();
-    }
-
-    const individualSocialTest = () => {
-        console.log();
-    }
-
     const renderItem = ({ item }: { item: any }) => {
         return (
             <TestButton
                 item={item}
+                onPress={() => { navigation.navigate("TestInformation", { test: item }) }}
             />
         );
     };

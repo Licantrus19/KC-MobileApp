@@ -3,10 +3,10 @@ import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 import { Container, Label } from "../../components";
 
 interface IScreenProps {
-
+    navigation: any
 }
 
-const ProfileScreen: FC<IScreenProps> = ({  }) => {
+const ProfileScreen: FC<IScreenProps> = ({ navigation }) => {
 
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -17,7 +17,7 @@ const ProfileScreen: FC<IScreenProps> = ({  }) => {
     }
 
     const cancelChanges = () => {
-        console.log();
+        navigation.goBack();
     }
 
     const logout = () => {
@@ -51,9 +51,9 @@ const ProfileScreen: FC<IScreenProps> = ({  }) => {
                     defaultValue={'00000000'}
                     />
                 </View>
-                <View style={styles.avatar}>
+                {/* <View style={styles.avatar}>
                     <Text style={styles.boldText}>Avatar</Text>
-                </View>
+                </View> */}
             </View>
             <View style={styles.bottomButtons}>
                 <View style={styles.nextButton}>

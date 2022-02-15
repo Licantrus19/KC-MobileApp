@@ -1,6 +1,6 @@
 import { Picker } from '@react-native-picker/picker';
 import React, { useState, FC } from 'react';
-import { Button, StyleSheet, Text, TextInput, View, Image, Platform } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View, Image, Platform, ScrollView } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/FontAwesome5';
@@ -66,7 +66,7 @@ const AddKidInformationScreen: FC<IScreenProps> = ({ navigation }) => {
                 />
             )}
 
-            <View style={styles.contentContainer}>
+            <ScrollView style={styles.contentContainer}>
                 <View style={styles.firstName}>
                     <Text>Nombres</Text>
                     <TextInput
@@ -142,21 +142,22 @@ const AddKidInformationScreen: FC<IScreenProps> = ({ navigation }) => {
                         defaultValue={relationship}
                     />
                 </View>
-            </View>
-            <View style={styles.bottomButtons}>
-                <View style={styles.nextButton}>
-                    <Button
-                        onPress={nextStep}
-                        title="Siguiente"
-                        color="#5680E9"></Button>
+                <View style={styles.bottomButtons}>
+                    <View style={styles.nextButton}>
+                        <Button
+                            onPress={nextStep}
+                            title="Siguiente"
+                            color="#5680E9"></Button>
+                    </View>
+                    <View style={styles.cancelButton}>
+                        <Button
+                            onPress={cancel}
+                            title="Cancelar"
+                            color="#E95656"></Button>
+                    </View>
                 </View>
-                <View style={styles.cancelButton}>
-                    <Button
-                        onPress={cancel}
-                        title="Cancelar"
-                        color="#E95656"></Button>
-                </View>
-            </View>
+            </ScrollView>
+
         </View>
     );
 }
@@ -165,10 +166,12 @@ export default AddKidInformationScreen;
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        backgroundColor: 'white'
     },
     contentContainer: {
-        flex: 1
+        flex: 1,
+        marginBottom: 10
     },
     firstName: {
         marginTop: 20,
@@ -260,7 +263,7 @@ const styles = StyleSheet.create({
         borderColor: "#000"
     },
     bottomButtons: {
-        marginBottom: 30
+        marginTop: 10
     },
     forgotPasswordText: {
         color: '#727377',

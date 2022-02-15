@@ -73,6 +73,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
+        backgroundColor: 'white'
     },
     tipIcon: {
         width: 172,
