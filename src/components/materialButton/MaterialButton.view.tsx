@@ -9,8 +9,8 @@ interface IComponentProps {
     buttonColor?: 'primary' | 'black' | 'red' | 'secondary' | 'gray' | 'white',
     titleColor?: 'primary' | 'black' | 'red' | 'secondary' | 'gray' | 'white',
     type?: 'contained' | 'outlined',
-    center?: boolean,
     outlined?: boolean,
+    uppercase?: boolean,
     title?: string,
     onPress: () => void,
     titleStyle?: TextStyle,
@@ -25,7 +25,7 @@ const MaterialButton: FC<IComponentProps> =
         titleColor = 'white',
         buttonColor = 'primary',
         font = 'regular',
-        center = false,
+        uppercase = false,
         title = '',
         outlined = false,
         onPress,
@@ -52,6 +52,7 @@ const MaterialButton: FC<IComponentProps> =
             <>
                 {
                     <ButtonPaper
+                        uppercase={false}
                         style={[ButtonStyle, buttonStyle]}
                         labelStyle={[TitleStyle, titleStyle]}
                         onPress={onPress}>
