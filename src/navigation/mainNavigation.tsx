@@ -36,9 +36,9 @@ const mainScreenOptions: StackNavigationOptions = {
         height: 70
     },
     headerTitleAlign: "center",
-    headerLeft: () => { return <Image style={{ marginHorizontal: 15 }} source={require("../assets/kodomo_icon.png")} /> },
+    headerLeft: () => { return <Image style={{ marginHorizontal: 15, width: 40, height: 40 }} source={require("../assets/logo/logo_komodocare_blue.png")} /> },
     headerRight: () => {
-        return <TouchableOpacity activeOpacity={.5} onPress={goToProfile}><Image style={{ marginHorizontal: 15 }} source={require("../assets/profile_icon.png")} /></TouchableOpacity>
+        return <TouchableOpacity activeOpacity={.5} onPress={goToProfile}><Image style={{ marginHorizontal: 15, width: 40, height: 40 }} source={require("../assets/profile_icons/profile_icon_1.png")} /></TouchableOpacity>
     }
 }
 

@@ -17,25 +17,25 @@ export const TabIcon: FC<ITabIconProps> = ({ focused = false, color = "gray", si
     const getIcon = () => {
         switch (icon) {
             case 'home':
-                return require('../../assets/home.png');
+                return require('../../assets/tabs/home.png');
             case 'maps':
-                return require('../../assets/maps.png');
+                return require('../../assets/tabs/maps.png');
             case 'outcomes':
-                return require('../../assets/outcomes.png');
+                return require('../../assets/tabs/outcomes.png');
             case 'tips':
-                return require('../../assets/tips.png');
+                return require('../../assets/tabs/tips.png');
         }
     }
     const getIconFocused = () => {
         switch (icon) {
             case 'home':
-                return require('../../assets/home_focused.png');
+                return require('../../assets/tabs/home_focused.png');
             case 'maps':
-                return require('../../assets/maps_focused.png');
+                return require('../../assets/tabs/maps_focused.png');
             case 'outcomes':
-                return require('../../assets/outcomes_focused.png');
+                return require('../../assets/tabs/outcomes_focused.png');
             case 'tips':
-                return require('../../assets/tips_focused.png');
+                return require('../../assets/tabs/tips_focused.png');
         }
     }
     return (

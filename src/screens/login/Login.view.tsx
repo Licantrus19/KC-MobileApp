@@ -133,6 +133,17 @@ const LoginScreen: FC<IScreenProps> = ({ navigation }) => {
                     style={styles.imageBackground}
                 />
             </Animated.View>
+            <Animated.View>
+                <Image
+                    source={require('../../assets/logo/logo_komodocare_white.png')}
+                    style={styles.imageLogo}
+                >
+
+                </Image>
+                <Text style={styles.welcomeText}>
+                    Bienvenidos {"\n"}A{"\n"}KodomoCare!
+                </Text>
+            </Animated.View>
             <Animated.View style={{ ...styles.bottomAnimationContent, transform: [{ translateY: bgY }] }}>
                 <TapGestureHandler onHandlerStateChange={onStateChange}>
                     <Animated.View
@@ -229,6 +240,20 @@ const styles = StyleSheet.create({
     imageBackground: {
         height: height,
         width: width
+    },
+    welcomeText: {
+        top: height / 3 + 40,
+        fontSize: 45,
+        color: 'white',
+        position: 'absolute',
+        marginStart: 10
+    },
+    imageLogo: {
+        marginTop: 10,
+        marginStart: 10,
+        width: 40,
+        height: 40,
+        position: 'absolute'
     },
     bottomAnimationContent: {
         top: 2 * height / 3,

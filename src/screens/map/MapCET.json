@@ -1,0 +1,254 @@
+[
+  {
+    "id": 1,
+    "name": "\"Amore Mio\" Centro de Estimulación Temprana",
+    "address": "Zeus 490, Lima 15022",
+    "latitude": -12.06981266496127,
+    "longitude": -76.97460294815481,
+    "phone": "943212735",
+    "officeHours": "\n\tL-V: 8:45 – 13:30"
+  },
+  {
+    "id": 2,
+    "name": "Miss Tracy - Estimulación Temprana \n(Santa Catalina)",
+    "address": "Municipalidad Metropolitana de, \nCalle, Julio Faldini 375, La Victoria LIMA 13",
+    "latitude": -12.079918347780442,
+    "longitude": -77.0223379730696,
+    "phone": "960501397",
+    "officeHours": "\n\tL-V: 9:00 – 13:00, 14:00 – 21:00 \n\tS: 9:00 – 18:00 \n\tD: 9:00 - 13:00"
+  },
+  {
+    "id": 3,
+    "name": "Miss Tracy - Estimulación Temprana \n(Surco)",
+    "address": "Av. Caminos del Inca 3484, \nCercado de Lima 15039",
+    "latitude": -12.146048129480283,
+    "longitude": -76.98578174436537,
+    "phone": "(01) 2745374",
+    "officeHours": "\n\tL-V: 9:00 – 13:00, 14:00 – 21:00 \n\tS: 9:00 – 18:00 \n\tD: 9:00 - 13:00"
+  },
+  {
+    "id": 4,
+    "name": "El Alba Centro de Psicología Integral \ny Estimulación Temprana",
+    "address": "Jr., Av. el Parque 306, Lima",
+    "latitude": -12.144076106259385,
+    "longitude": -76.9899767501578,
+    "phone": "941560221",
+    "officeHours": "\n\tL-V: 8:30 – 18:00"
+  },
+  {
+    "id": 5,
+    "name": "Centro de Estimulación Temprana \nChiquitines Creativos",
+    "address": "Avenida Los Proceres 1009, \nCercado de Lima 15056",
+    "latitude": -12.158463169871986,
+    "longitude": -76.98863700162926,
+    "phone": "2577623",
+    "officeHours": "\n\tL-S: 8:00 – 18:30"
+  },
+  {
+    "id": 6,
+    "name": "Centro de estimulación - \nGuardería \"Baby King\"",
+    "address": "0051, José Gálvez 191, \nSantiago de Surco",
+    "latitude": -12.145320694940727,
+    "longitude": -77.00518614443544,
+    "phone": "946257973",
+    "officeHours": "\n\tL-S: 8:00 – 19:30"
+  },
+  {
+    "id": 7,
+    "name": "Déjalo Ser - Surco",
+    "address": "Av. Guardia Civil Sur, Lima 15054",
+    "latitude": -12.163677380843833,
+    "longitude": -76.99106798790051,
+    "phone": "996377501",
+    "officeHours": "\n\tL-S: 8:30 – 17:00"
+  },
+  {
+    "id": 8,
+    "name": "\"Mis Siguientes Pasos\" \nCentro De Estimulación Temprana",
+    "address": "Almirante Miguel Grau Mz. Z3 Lote 24, \nSan Juan de Miraflores 15806",
+    "latitude": -12.137856511089367,
+    "longitude": -76.96504857346743,
+    "phone": "988442000",
+    "officeHours": "\n\tL-V: Todo el día \n\tD: Todo el día"
+  },
+  {
+    "id": 9,
+    "name": "Déjalo ser - San Juan de Miraflores",
+    "address": "Calle Pedro Zelaya 831, \nZona D, Lima 15801",
+    "latitude": -12.15733890345955,
+    "longitude": -76.97029600210713,
+    "phone": "998292339",
+    "officeHours": "\n\tL-S: 8:00 - 17:00"
+  },
+  {
+    "id": 10,
+    "name": "Déjalo ser - San Borja",
+    "address": "Calle Donatello 225, \nLima 15037, Perú",
+    "latitude": -12.091056493306322,
+    "longitude": -77.00000001559992,
+    "phone": "996377501",
+    "officeHours": "\n\tL-S: 8:00 - 17:00"
+  },
+  {
+    "id": 11,
+    "name": "Déjalo ser - Los Olivos",
+    "address": "Jirón Las Hiedras, Lima 15301",
+    "latitude": -11.988722805437423,
+    "longitude": -77.07121200395987,
+    "phone": "7198453",
+    "officeHours": "\n\tL-V: 8:00 - 19:30 \n\tS: 8:30 - 17:00"
+  },
+  {
+    "id": 12,
+    "name": "Centro de Estimulación Temprana - \nDulce Crecer",
+    "address": "Gobierno Regional de, \nJr, Perlas 2749 Urb, \nSan Juan de Lurigancho LIMA 36",
+    "latitude": -11.986086108265852,
+    "longitude": -77.00597745978031,
+    "phone": "980996861",
+    "officeHours": "\n\tL-V: 10:00 - 17:00"
+  },
+  {
+    "id": 13,
+    "name": "Pekes Home - \nCentro de Estimulación Temprana",
+    "address": "Urb. Sagitario Jr. Apolo \nMz. A9 Lt. 44, Lima 15054",
+    "latitude": -12.166588222173843,
+    "longitude": -76.99481498676339,
+    "phone": "997335500",
+    "officeHours": "\n\tL-V: 8:00 - 24:00"
+  },
+  {
+    "id": 14,
+    "name": "Centro De Estimulación Temprana \n“Pequeños Genios”",
+    "address": "Mz J Lote 3A, \nAv. Carlos Izaguirre, \nLos Olivos 15301",
+    "latitude": -11.990383561589871,
+    "longitude": -77.08118717609389,
+    "phone": "6208550",
+    "officeHours": "\n\tL-V: 8:00 - 17:00 \n\tS: 8:00 - 13:00"
+  },
+  {
+    "id": 15,
+    "name": "Baby Kids \nCentro de Estimulación Temprana",
+    "address": "Urb. Santo Tomás de Garagay, \nCalle Manuel M. Valle 385, \nSan Martín de Porres 15108",
+    "latitude": -12.00648999432821,
+    "longitude": -77.08421674984761,
+    "phone": "6622154",
+    "officeHours": "\n\tL-V: 9:00 - 13:00"
+  },
+  {
+    "id": 16,
+    "name": "Estimulación Temprana CERES",
+    "address": "Calle Santa Inés 195 \nLima 21 Lima, Perú",
+    "latitude": -12.076351354813786,
+    "longitude": -77.0675992599585,
+    "phone": "990430781",
+    "officeHours": "\n\tL-V: 8:00 - 17:00 \n\tS: 9:00 - 13:00"
+  },
+  {
+    "id": 17,
+    "name": "Centro de Estimulación \nTemprana Huellitas",
+    "address": "Jr. Victor Navarro 575 \nSan Martin de Porres LIMA, 31",
+    "latitude": -12.020105852209499,
+    "longitude": -77.07891204328932,
+    "phone": "933583009",
+    "officeHours": "No especifica"
+  },
+  {
+    "id": 18,
+    "name": "Auditorio de Centro de \nEstimulación Temprana Carmelin",
+    "address": "Jirón Alhelí 621, \nCercado de Lima 15102",
+    "latitude": -12.018270036160382,
+    "longitude": -77.05359524018456,
+    "phone": "3824543",
+    "officeHours": "\n\tL-V: 8:00 - 17:00"
+  },
+  {
+    "id": 19,
+    "name": "KIDS Centro de Estimulación \nTemprana y Terapias",
+    "address": "Av. Próceres, Los Olivos 15307",
+    "latitude": -11.938125997924665,
+    "longitude": -77.07733527894383,
+    "phone": "991121653",
+    "officeHours": "\n\tL-V: 9:00 - 18:00"
+  },
+  {
+    "id": 20,
+    "name": "Centro de Estimulación \nTemprana Learning Playing",
+    "address": "Jirón Union 1136, \nVilla María del Triunfo 15809",
+    "latitude": -12.160158203987072,
+    "longitude": -76.94520472835404,
+    "phone": "4960854",
+    "officeHours": "\n\tL-V: 8:00 - 13:00"
+  },
+  {
+    "id": 21,
+    "name": "Centro de Estimulación \nTemprana PATATINES",
+    "address": "15442 Lima, \nSan Juan de Lurigancho 15408",
+    "latitude": -11.96029401919555,
+    "longitude": -76.98250254569398,
+    "phone": "968376257",
+    "officeHours": "\n\tL-V: 8:00 - 18:00 \n\tS: 8:00 - 13:00"
+  },
+  {
+    "id": 22,
+    "name": "Gardner House - \nEstimulación Temprana, \nPsicología y Terapias Integrales",
+    "address": "Jr. Santa Eulalia 377, \nLima 15302",
+    "latitude": -12.002812416739827,
+    "longitude": -77.07934685389158,
+    "phone": "959713897",
+    "officeHours": "\n\tL-V: 8:00 - 20:00 \n\tS: 9:00 - 14:00"
+  },
+  {
+    "id": 23,
+    "name": "Vive Aprendiendo - \nCentro de Desarrollo Psicológico, \nGuardería y Estimulación Temprana",
+    "address": "Prosperidad, Los Olivos 15302",
+    "latitude": -12.003597751096313,
+    "longitude": -77.07339423114215,
+    "phone": "932345199",
+    "officeHours": "\n\tL-V: 8:00 – 13:30, 15:00 – 19:00 \n\tS: 9:30 - 15:00"
+  },
+  {
+    "id": 24,
+    "name": "DULCES SONRISITAS",
+    "address": "C. 14 Mz F Lote 19, \nSanta Anita 15011",
+    "latitude": -12.027037097872922,
+    "longitude": -76.94765304687012,
+    "phone": "984702701",
+    "officeHours": "\n\tL-S: 7:00 – 20:00"
+  },
+  {
+    "id": 25,
+    "name": "Centro de terapia integral \nAlterna Vida | Psicología y \nEstimulación Temprana",
+    "address": "Jirón Carabaya 1119, \nCercado de Lima 15001",
+    "latitude": -12.0509436055667,
+    "longitude": -77.0353356119737,
+    "phone": "957461576",
+    "officeHours": "\n\tL-V: 10:00 – 18:00 \n\tJ: Cerrado \n\tS: 7:00 - 18:00"
+  },
+  {
+    "id": 26,
+    "name": "Centro Psicológico \nTrascender Perú",
+    "address": "Av. Miguel Grau \nMz D2 lote 32, \nSan Juan de Miraflores",
+    "latitude": -12.138582078563072,
+    "longitude": -76.96605774646248,
+    "phone": "947279639",
+    "officeHours": "\n\tL-S: 9:00 – 17:00"
+  },
+  {
+    "id": 27,
+    "name": "La Casita de Nany - \nBabycenter / Kindergarten",
+    "address": "Av. de los Patriotas 257 - \nSan Miguel, Calle 418, \nSan Miguel 15087",
+    "latitude": -12.076474115180991,
+    "longitude": -77.0982867869489,
+    "phone": "2647961",
+    "officeHours": "\n\tL-V: 8:00 – 18:00 \n\tS: 9:00 - 13:00"
+  },
+  {
+    "id": 28,
+    "name": "Estimulación Prenatal y \nTemprana MamaCasa",
+    "address": "Manzana A, Lote 4 \nAvenida Huaylas Los Olivos, \nCercado de Lima 15306",
+    "latitude": -11.972763730558732,
+    "longitude": -77.07974980976088,
+    "phone": "986637036",
+    "officeHours": "\n\tL-V: 8:45 – 17:00 \n\tS: 9:00 - 13:00"
+  }
+]

@@ -2,10 +2,44 @@ import React, { FC, useEffect, useState } from "react";
 import { Button, Dimensions, StyleSheet, Text, TextInput, View } from 'react-native';
 import MapView, { Callout, Circle, Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import { Container, Label } from "../../components";
+import mapsCET from "./MapCET.json";
 
 interface IScreenProps {
 
 }
+
+const stimulationCenters = mapsCET;
+
+const stimulationCentersView = stimulationCenters.map((stimulationCenter) => {
+    return (
+        <View
+            key={stimulationCenter.id}>
+            <Marker
+                coordinate={{
+                    latitude: stimulationCenter.latitude,
+                    longitude: stimulationCenter.longitude
+                }}
+                pinColor="black"
+            >
+                <Callout>
+                    <View>
+                        <Text style={{ fontWeight: 'bold' }}>{stimulationCenter.name}</Text>
+                        <Text>Dirección: {stimulationCenter.address}</Text>
+                        <Text>Horario: {stimulationCenter.officeHours}</Text>
+                        <Text>Teléfono: {stimulationCenter.phone}</Text>
+                    </View>
+                </Callout>
+            </Marker>
+            <Circle
+                center={{
+                    latitude: stimulationCenter.latitude,
+                    longitude: stimulationCenter.longitude
+                }}
+                radius={500}
+            />
+        </View>
+    )
+});
 
 const MapScreen: FC<IScreenProps> = ({ }) => {
 
@@ -17,38 +51,16 @@ const MapScreen: FC<IScreenProps> = ({ }) => {
                 initialRegion={{
                     latitude: -12.0684717,
                     longitude: -77.0375371,
-                    latitudeDelta: 0.0922,
-                    longitudeDelta: 0.0421,
+                    latitudeDelta: 0.1922,
+                    longitudeDelta: 0.1421,
                 }}
             >
-                <Marker
-                    coordinate={{
-                        latitude: -12.0684717,
-                        longitude: -77.0375371
-                    }}
-                    pinColor="black"
-                >
-                    <Callout>
-                        <View>
-                            <Text>CET ABC Kid's</Text>
-                            <Text>Dirección: </Text>
-                            <Text>Horario: </Text>
-                        </View>
-                    </Callout>
-                </Marker>
-                <Circle
-                    center={{
-                        latitude: -12.0684717,
-                        longitude: -77.0375371
-                    }}
-                    radius={1000}
-                />
+                {stimulationCentersView}
             </MapView>
         </View>
     );
 }
 
-/* export default inject('sessionStore')(observer(MapScreen)); */
 export default MapScreen;
 
 const styles = StyleSheet.create({

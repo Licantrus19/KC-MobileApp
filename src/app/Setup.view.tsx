@@ -31,7 +31,7 @@ const Setup: FC<ISetupProps> = ({ }) => {
 
     return (
         <>
-            <AppNavigation authenticated={false} />
+            <AppNavigation authenticated={true} />
         </>
     )
 }
