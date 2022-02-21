@@ -1,4 +1,5 @@
 export { default as Login } from './login/Login.view';
+export { default as Register } from './registration/Register.view';
 export { default as Kids } from './kids/KidsScreen.view';
 export { default as KidTestScreen } from './kids/KidTestScreen.view';
 export { default as AddKidAvatar } from './kids/add-kid/AddKidAvatarScreen';

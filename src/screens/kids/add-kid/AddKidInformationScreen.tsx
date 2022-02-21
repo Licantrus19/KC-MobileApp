@@ -97,7 +97,7 @@ const AddKidInformationScreen: FC<IScreenProps> = ({ navigation }) => {
                         <Image
                             resizeMode='contain'
                             style={styles.identificationNumberIcon}
-                            source={require('../../../assets/add_kid/identification_number_icon.jpg')}
+                            source={require('../../../assets/add_kid/identification_number_kid_icon.png')}
                         />
                     </View>
                 </View>
@@ -206,7 +206,10 @@ const styles = StyleSheet.create({
     identificationNumberIcon: {
         flex: 1,
         alignItems: 'flex-end',
-        marginEnd: 50
+        marginEnd: 50,
+        width: 80,
+        height: 40,
+        marginTop: 10
     },
     birthDate: {
         marginTop: 10,

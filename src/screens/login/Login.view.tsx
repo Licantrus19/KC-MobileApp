@@ -65,6 +65,10 @@ const LoginScreen: FC<IScreenProps> = ({ navigation }) => {
         console.log('logiiin!');
     }
 
+    const register = () => {
+        navigation.navigate("Register")
+    }
+
     const [buttonOpacity, setButtonOpacity] = useState(new Animated.Value(1))
 
     const onStateChange = event([
@@ -157,17 +161,19 @@ const LoginScreen: FC<IScreenProps> = ({ navigation }) => {
                         <Text style={styles.textButton}>Iniciar Sesión</Text>
                     </Animated.View>
                 </TapGestureHandler>
-                <Animated.View
-                    style={{
-                        ...styles.button,
-                        opacity: buttonOpacity,
-                        transform: [{ translateY: buttonY }]
-                    }}
-                >
-                    <Text style={styles.textButton}>
-                        Registrarse
-                    </Text>
-                </Animated.View>
+                <TapGestureHandler onHandlerStateChange={register}>
+                    <Animated.View
+                        style={{
+                            ...styles.button,
+                            opacity: buttonOpacity,
+                            transform: [{ translateY: buttonY }]
+                        }}
+                    >
+                        <Text style={styles.textButton}>
+                            Registrarse
+                        </Text>
+                    </Animated.View>
+                </TapGestureHandler>
 
                 <Animated.View
                     style={{
