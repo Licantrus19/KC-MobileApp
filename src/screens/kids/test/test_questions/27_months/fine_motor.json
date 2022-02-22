@@ -18,19 +18,19 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/second_test_2/fine_motor/kid_open_door_1_1.jpg"
+                    "url":"../../../assets/questions/2nd_test/fine_motor/kid_open_door_1_1.jpg"
                 },
                 {
                     "id":2,
-                    "url":"../../../assets/questions/second_test_2/fine_motor/kid_toys_1_2.jpg"
+                    "url":"../../../assets/questions/2nd_test/fine_motor/kid_toys_1_2.jpg"
                 },
                 {
                     "id":3,
-                    "url":"../../../assets/questions/second_test_2/fine_motor/kid_wood_toys_1_3.jpg"
+                    "url":"../../../assets/questions/2nd_test/fine_motor/kid_wood_toys_1_3.jpg"
                 },
                 {
                     "id":4,
-                    "url":"../../../assets/questions/second_test_2/fine_motor/kid_strenght_1_4.jpg"
+                    "url":"../../../assets/questions/2nd_test/fine_motor/kid_strenght_1_4.jpg"
                 }
             ],
             "explication":"¿Su hijo logra darle cuerda a sus juguetes?",
@@ -70,7 +70,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/second_test_2/fine_motor/kid_switch_on_2_1.jpg"
+                    "url":"../../../assets/questions/2nd_test/fine_motor/kid_switch_on_2_1.jpg"
                 }
             ],
             "audio":"",
@@ -112,11 +112,11 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/second_test_2/fine_motor/first_line_3_1.jpg"
+                    "url":"../../../assets/questions/2nd_test/fine_motor/first_line_3_1.jpg"
                 },
                 {
                     "id":2,
-                    "url":"../../../assets/questions/second_test_2/fine_motor/second_line_3_2.jpg"
+                    "url":"../../../assets/questions/2nd_test/fine_motor/second_line_3_2.jpg"
                 }
             ],
             "audio":"",
@@ -157,7 +157,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/second_test_2/fine_motor/kids_playing_cubes_4_1.jpg"
+                    "url":"../../../assets/questions/2nd_test/fine_motor/kids_playing_cubes_4_1.jpg"
                 }
             ],
             "audio":"",
@@ -199,7 +199,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/second_test_2/fine_motor/girl_playing_5_1.jpg"
+                    "url":"../../../assets/questions/2nd_test/fine_motor/girl_playing_5_1.jpg"
                 }
             ],
             "audio":"",
@@ -240,7 +240,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/second_test_2/fine_motor/third_line_6_1.jpg"
+                    "url":"../../../assets/questions/2nd_test/fine_motor/third_line_6_1.jpg"
                 },
                 {
                     "id":2,

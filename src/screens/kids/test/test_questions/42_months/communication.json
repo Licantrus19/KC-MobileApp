@@ -18,11 +18,11 @@
         "imageUrls":[
             {
                 "id":1,
-                "url":"../../../assets/questions/sixth_test_6/communication/living_room_1_1.jpg"
+                "url":"../../../assets/questions/6th_test/communication/living_room_1_1.jpg"
             },
             {
                 "id":2,
-                "url":"../../../assets/questions/sixth_test_6/communication/chair_shoes_1_2.jpg"
+                "url":"../../../assets/questions/6th_test/communication/chair_shoes_1_2.jpg"
             }
         ],
         "explication":"¿Su hijo es capaz de seguir 2 instrucciones al mismo tiempo?",
@@ -62,7 +62,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/sixth_test_6/communication/kids_mother_2_1.jpg"
+                    "url":"../../../assets/questions/6th_test/communication/kids_mother_2_1.jpg"
                 }
             ],
             "audio":"",
@@ -102,7 +102,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/sixth_test_6/communication/boy_jacket_3_1.jpg"
+                    "url":"../../../assets/questions/6th_test/communication/boy_jacket_3_1.jpg"
                 }
             ],
             "audio":"",
@@ -143,7 +143,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/sixth_test_6/communication/boy_name_4_1.jpg"
+                    "url":"../../../assets/questions/6th_test/communication/boy_name_4_1.jpg"
                 }
             ],
             "audio":"",
@@ -184,15 +184,15 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/sixth_test_6/communication/girl_red_hair_5_1.jpg"
+                    "url":"../../../assets/questions/6th_test/communication/girl_red_hair_5_1.jpg"
                 },
                 {
                     "id":2,
-                    "url":"../../../assets/questions/sixth_test_6/communication/boy_sit_5_2.jpg"
+                    "url":"../../../assets/questions/6th_test/communication/boy_sit_5_2.jpg"
                 },
                 {
                     "id":3,
-                    "url":"../../../assets/questions/sixth_test_6/communication/boy_door_5_3.jpg"
+                    "url":"../../../assets/questions/6th_test/communication/boy_door_5_3.jpg"
                 }
             ],
             "audio":"",
@@ -232,7 +232,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/sixth_test_6/communication/parents_boy_6_1.jpg"
+                    "url":"../../../assets/questions/6th_test/communication/parents_boy_6_1.jpg"
                 }
             ],
             "audio":"[Falta]",

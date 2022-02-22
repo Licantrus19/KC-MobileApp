@@ -18,7 +18,7 @@
         "imageUrls":[
             {
                 "id":1,
-                "url":"../../../assets/questions/seventh_test_7/individual_social/girl_eating_salad_1_1.jpg"
+                "url":"../../../assets/questions/7th_test/individual_social/girl_eating_salad_1_1.jpg"
             }
         ],
         "explication":"¿Su hijo utiliza cubiertos y es capaz de trasladar comida de un recipiente a otro?",
@@ -58,27 +58,27 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/seventh_test_7/individual_social/kids_name_2_1.jpg"
+                    "url":"../../../assets/questions/7th_test/individual_social/kids_name_2_1.jpg"
                 },
                 {
                     "id":2,
-                    "url":"../../../assets/questions/seventh_test_7/individual_social/kid_age_2_2.jpg"
+                    "url":"../../../assets/questions/7th_test/individual_social/kid_age_2_2.jpg"
                 },
                 {
                     "id":3,
-                    "url":"../../../assets/questions/seventh_test_7/individual_social/kid_city_2_3.jpg"
+                    "url":"../../../assets/questions/7th_test/individual_social/kid_city_2_3.jpg"
                 },
                 {
                     "id":4,
-                    "url":"../../../assets/questions/seventh_test_7/individual_social/kid_last_name_2_4.jpeg"
+                    "url":"../../../assets/questions/7th_test/individual_social/kid_last_name_2_4.jpeg"
                 },
                 {
                     "id":5,
-                    "url":"../../../assets/questions/seventh_test_7/individual_social/kid_boy_girl_2_5.jpg"
+                    "url":"../../../assets/questions/7th_test/individual_social/kid_boy_girl_2_5.jpg"
                 },
                 {
                     "id":6,
-                    "url":"../../../assets/questions/seventh_test_7/individual_social/kid_phone_2_6.jpg"
+                    "url":"../../../assets/questions/7th_test/individual_social/kid_phone_2_6.jpg"
                 }
             ],
             "audio":"",
@@ -151,7 +151,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/seventh_test_7/individual_social/boy_wash_hands_3_1.jpg"
+                    "url":"../../../assets/questions/7th_test/individual_social/boy_wash_hands_3_1.jpg"
                 }
             ],
             "audio":"",
@@ -192,7 +192,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/seventh_test_7/individual_social/boy_counting_4_1.jpg"
+                    "url":"../../../assets/questions/7th_test/individual_social/boy_counting_4_1.jpg"
                 }
             ],
             "audio":"",
@@ -234,7 +234,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/seventh_test_7/individual_social/boy_brush_teeth_5_1.jpg"
+                    "url":"../../../assets/questions/7th_test/individual_social/boy_brush_teeth_5_1.jpg"
                 }
             ],
             "audio":"",
@@ -275,7 +275,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/seventh_test_7/individual_social/boy_clothes_6_1.jpg"
+                    "url":"../../../assets/questions/7th_test/individual_social/boy_clothes_6_1.jpg"
                 }
             ],
             "audio":"",

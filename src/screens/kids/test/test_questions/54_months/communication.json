@@ -18,7 +18,7 @@
         "imageUrls":[
             {
                 "id":1,
-                "url":"../../../assets/questions/eighth_test_8/communication/white_shirt_1_1.jpg"
+                "url":"../../../assets/questions/8th_test/communication/white_shirt_1_1.jpg"
             }
         ],
         "explication":"¿Su hijo logra mencionar 2 características de objetos?",
@@ -58,7 +58,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/eighth_test_8/communication/girl_mother_talking_2_1.jpg"
+                    "url":"../../../assets/questions/8th_test/communication/girl_mother_talking_2_1.jpg"
                 }
             ],
             "audio":"",
@@ -99,7 +99,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/eighth_test_8/communication/family_talking_3_1.jpg"
+                    "url":"../../../assets/questions/8th_test/communication/family_talking_3_1.jpg"
                 }
             ],
             "audio":"[Falta]",
@@ -141,15 +141,15 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/eighth_test_8/communication/kid_reading_4_1.jpg"
+                    "url":"../../../assets/questions/8th_test/communication/kid_reading_4_1.jpg"
                 },
                 {
                     "id":2,
-                    "url":"../../../assets/questions/eighth_test_8/communication/girl_talking_4_2.jpg"
+                    "url":"../../../assets/questions/8th_test/communication/girl_talking_4_2.jpg"
                 },
                 {
                     "id":3,
-                    "url":"../../../assets/questions/eighth_test_8/communication/boy_smiling_4_3.jpg"
+                    "url":"../../../assets/questions/8th_test/communication/boy_smiling_4_3.jpg"
                 }
             ],
             "audio":"",
@@ -195,7 +195,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/eighth_test_8/communication/boy_father_talking_5_1.jpg"
+                    "url":"../../../assets/questions/8th_test/communication/boy_father_talking_5_1.jpg"
                 }
             ],
             "audio":"[Falta]",
@@ -243,7 +243,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/eighth_test_8/communication/boy_mother_talking_6_1.jpg"
+                    "url":"../../../assets/questions/8th_test/communication/boy_mother_talking_6_1.jpg"
                 }
             ],
             "audio":"[Falta]",

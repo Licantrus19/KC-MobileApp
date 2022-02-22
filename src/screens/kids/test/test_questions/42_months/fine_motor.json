@@ -18,11 +18,11 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/sixth_test_6/fine_motor/first_line_1_1.jpg"
+                    "url":"../../../assets/questions/6th_test/fine_motor/first_line_1_1.jpg"
                 },
                 {
                     "id":2,
-                    "url":"../../../assets/questions/sixth_test_6/fine_motor/second_line_1_2.jpg"
+                    "url":"../../../assets/questions/6th_test/fine_motor/second_line_1_2.jpg"
                 }
             ],
             "explication":"¿Su hijo logra dibujar círculos luego de enseñarle cómo hacerlo?",
@@ -62,11 +62,11 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/sixth_test_6/fine_motor/third_line_2_1.jpg"
+                    "url":"../../../assets/questions/6th_test/fine_motor/third_line_2_1.jpg"
                 },
                 {
                     "id":2,
-                    "url":"../../../assets/questions/sixth_test_6/fine_motor/fourth_line_2_2.jpg"
+                    "url":"../../../assets/questions/6th_test/fine_motor/fourth_line_2_2.jpg"
                 }
             ],
             "audio":"",
@@ -108,7 +108,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/sixth_test_6/fine_motor/girl_cutting_3_1.jpg"
+                    "url":"../../../assets/questions/6th_test/fine_motor/girl_cutting_3_1.jpg"
                 }
             ],
             "audio":"",
@@ -149,7 +149,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/sixth_test_6/fine_motor/boy_drawing_4_1.jpg"
+                    "url":"../../../assets/questions/6th_test/fine_motor/boy_drawing_4_1.jpg"
                 }
             ],
             "audio":"",
@@ -191,7 +191,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/sixth_test_6/fine_motor/girl_puzzle_5_1.jpg"
+                    "url":"../../../assets/questions/6th_test/fine_motor/girl_puzzle_5_1.jpg"
                 }
             ],
             "audio":"",
@@ -232,7 +232,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/sixth_test_6/fine_motor/girl_puzzle_5_1.jpg"
+                    "url":"../../../assets/questions/6th_test/fine_motor/girl_puzzle_5_1.jpg"
                 }
             ],
             "audio":"",

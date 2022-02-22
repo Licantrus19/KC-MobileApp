@@ -18,27 +18,27 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/second_test_2/communication/kid_room_playing_1_1.jpg"
+                    "url":"../../../assets/questions/2nd_test/communication/kid_room_playing_1_1.jpg"
                 },
                 {
                     "id":2,
-                    "url":"../../../assets/questions/second_test_2/communication/kid_closing_door_1_2.jpg"
+                    "url":"../../../assets/questions/2nd_test/communication/kid_closing_door_1_2.jpg"
                 },
                 {
                     "id":3,
-                    "url":"../../../assets/questions/second_test_2/communication/kid_towels_1_3.jpg"
+                    "url":"../../../assets/questions/2nd_test/communication/kid_towels_1_3.jpg"
                 },
                 {
                     "id":4,
-                    "url":"../../../assets/questions/second_test_2/communication/kid_jacket_1_4.jpg"
+                    "url":"../../../assets/questions/2nd_test/communication/kid_jacket_1_4.jpg"
                 },
                 {
                     "id":5,
-                    "url":"../../../assets/questions/second_test_2/communication/kid_and_mom_1_5.jpg"
+                    "url":"../../../assets/questions/2nd_test/communication/kid_and_mom_1_5.jpg"
                 },
                 {
                     "id":6,
-                    "url":"../../../assets/questions/second_test_2/communication/kid_books_1_6.jpg"
+                    "url":"../../../assets/questions/2nd_test/communication/kid_books_1_6.jpg"
                 }
             ],
             "explication":"",
@@ -109,19 +109,19 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/second_test_2/communication/kid_red_ball_2_1.jpg"
+                    "url":"../../../assets/questions/2nd_test/communication/kid_red_ball_2_1.jpg"
                 },
                 {
                     "id":2,
-                    "url":"../../../assets/questions/second_test_2/communication/cat_sit_gray_2_2.jpg"
+                    "url":"../../../assets/questions/2nd_test/communication/cat_sit_gray_2_2.jpg"
                 },
                 {
                     "id":3,
-                    "url":"../../../assets/questions/second_test_2/communication/glass_water_2_3.jpg"
+                    "url":"../../../assets/questions/2nd_test/communication/glass_water_2_3.jpg"
                 },
                 {
                     "id":4,
-                    "url":"../../../assets/questions/second_test_2/communication/black_hat_2_4.jpg"
+                    "url":"../../../assets/questions/2nd_test/communication/black_hat_2_4.jpg"
                 }
             ],
             "audio":"",
@@ -163,7 +163,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/second_test_2/communication/kid_nose_3_1.jpg"
+                    "url":"../../../assets/questions/2nd_test/communication/kid_nose_3_1.jpg"
                 }
             ],
             "audio":"",
@@ -204,7 +204,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/second_test_2/communication/kid_talking_4_1.jpg"
+                    "url":"../../../assets/questions/2nd_test/communication/kid_talking_4_1.jpg"
                 }
             ],
             "audio":"[Falta]",
@@ -251,7 +251,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/second_test_2/communication/kid_coach_potato_5_1.jpg"
+                    "url":"../../../assets/questions/2nd_test/communication/kid_coach_potato_5_1.jpg"
                 }
             ],
             "audio":"",
@@ -291,11 +291,11 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/second_test_2/communication/kid_shoes_6_1.jpg"
+                    "url":"../../../assets/questions/2nd_test/communication/kid_shoes_6_1.jpg"
                 },
                 {
                     "id":2,
-                    "url":"../../../assets/questions/second_test_2/communication/chair_books_6_2.jpg"
+                    "url":"../../../assets/questions/2nd_test/communication/chair_books_6_2.jpg"
                 }
             ],
             "audio":"",

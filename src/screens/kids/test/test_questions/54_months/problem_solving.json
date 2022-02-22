@@ -18,27 +18,27 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/eighth_test_8/problem_solving/red_ball_1_1.jpg"
+                    "url":"../../../assets/questions/8th_test/problem_solving/red_ball_1_1.jpg"
                 },
                 {
                     "id":2,
-                    "url":"../../../assets/questions/eighth_test_8/problem_solving/hammer_1_2.jpg"
+                    "url":"../../../assets/questions/8th_test/problem_solving/hammer_1_2.jpg"
                 },
                 {
                     "id":3,
-                    "url":"../../../assets/questions/eighth_test_8/problem_solving/sofa_yellow_1_3.jpg"
+                    "url":"../../../assets/questions/8th_test/problem_solving/sofa_yellow_1_3.jpg"
                 },
                 {
                     "id":4,
-                    "url":"../../../assets/questions/eighth_test_8/problem_solving/orange_1_4.jpg"
+                    "url":"../../../assets/questions/8th_test/problem_solving/orange_1_4.jpg"
                 },
                 {
                     "id":5,
-                    "url":"../../../assets/questions/eighth_test_8/problem_solving/black_1_5.jpg"
+                    "url":"../../../assets/questions/8th_test/problem_solving/black_1_5.jpg"
                 },
                 {
                     "id":6,
-                    "url":"../../../assets/questions/eighth_test_8/problem_solving/pink_1_6.jpg"
+                    "url":"../../../assets/questions/8th_test/problem_solving/pink_1_6.jpg"
                 }
             ],
             "explication":"¿Su hijo sabe identificar los colores?",
@@ -78,7 +78,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/eighth_test_8/problem_solving/white_2_1.jpg"
+                    "url":"../../../assets/questions/8th_test/problem_solving/white_2_1.jpg"
                 }
             ],
             "audio":"",
@@ -120,7 +120,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/eighth_test_8/problem_solving/kid_order_3_1.jpg"
+                    "url":"../../../assets/questions/8th_test/problem_solving/kid_order_3_1.jpg"
                 }
             ],
             "audio":"",
@@ -161,7 +161,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/eighth_test_8/problem_solving/circle_lines_4_1.jpg"
+                    "url":"../../../assets/questions/8th_test/problem_solving/circle_lines_4_1.jpg"
                 }
             ],
             "audio":"",
@@ -203,7 +203,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/eighth_test_8/problem_solving/kid_hands_5_1.jpg"
+                    "url":"../../../assets/questions/8th_test/problem_solving/kid_hands_5_1.jpg"
                 }
             ],
             "audio":"",
@@ -244,7 +244,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/eighth_test_8/problem_solving/numbers_6_1.jpg"
+                    "url":"../../../assets/questions/8th_test/problem_solving/numbers_6_1.jpg"
                 }
             ],
             "audio":"",

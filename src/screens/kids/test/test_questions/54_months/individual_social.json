@@ -18,7 +18,7 @@
         "imageUrls":[
             {
                 "id":1,
-                "url":"../../../assets/questions/eighth_test_8/individual_social/boy_washing_hands_1_1.jpg"
+                "url":"../../../assets/questions/8th_test/individual_social/boy_washing_hands_1_1.jpg"
             }
         ],
         "explication":"¿Su hijo es capaz de lavarse las manos y secarlas sin ayuda?",
@@ -58,7 +58,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/eighth_test_8/individual_social/friends_2_1.jpg"
+                    "url":"../../../assets/questions/8th_test/individual_social/friends_2_1.jpg"
                 }
             ],
             "audio":"",
@@ -100,7 +100,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/eighth_test_8/individual_social/washing_teeth_3_1.jpg"
+                    "url":"../../../assets/questions/8th_test/individual_social/washing_teeth_3_1.jpg"
                 }
             ],
             "audio":"",
@@ -141,7 +141,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/eighth_test_8/individual_social/kids_reunited_4_1.jpg"
+                    "url":"../../../assets/questions/8th_test/individual_social/kids_reunited_4_1.jpg"
                 }
             ],
             "audio":"",
@@ -183,27 +183,27 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/eighth_test_8/individual_social/kids_name_5_1.jpg"
+                    "url":"../../../assets/questions/8th_test/individual_social/kids_name_5_1.jpg"
                 },
                 {
                     "id":2,
-                    "url":"../../../assets/questions/eighth_test_8/individual_social/kid_age_5_2.jpg"
+                    "url":"../../../assets/questions/8th_test/individual_social/kid_age_5_2.jpg"
                 },
                 {
                     "id":3,
-                    "url":"../../../assets/questions/eighth_test_8/individual_social/kid_city_5_3.jpg"
+                    "url":"../../../assets/questions/8th_test/individual_social/kid_city_5_3.jpg"
                 },
                 {
                     "id":4,
-                    "url":"../../../assets/questions/eighth_test_8/individual_social/kid_last_name_5_4.jpg"
+                    "url":"../../../assets/questions/8th_test/individual_social/kid_last_name_5_4.jpg"
                 },
                 {
                     "id":5,
-                    "url":"../../../assets/questions/eighth_test_8/individual_social/kid_boy_girl_5_5.jpg"
+                    "url":"../../../assets/questions/8th_test/individual_social/kid_boy_girl_5_5.jpg"
                 },
                 {
                     "id":6,
-                    "url":"../../../assets/questions/eighth_test_8/individual_social/kid_phone_5_6.jpg"
+                    "url":"../../../assets/questions/8th_test/individual_social/kid_phone_5_6.jpg"
                 }
             ],
             "audio":"",
@@ -275,7 +275,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/eighth_test_8/individual_social/boy_jacket_6_1.jpg"
+                    "url":"../../../assets/questions/8th_test/individual_social/boy_jacket_6_1.jpg"
                 }
             ],
             "audio":"",

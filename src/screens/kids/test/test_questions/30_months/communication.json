@@ -18,19 +18,19 @@
         "imageUrls":[
             {
                 "id":1,
-                "url":"../../../assets/questions/third_test_3/communication/red_ballon_1_1.jpg"
+                "url":"../../../assets/questions/3rd_test/communication/red_ballon_1_1.jpg"
             },
             {
                 "id":2,
-                "url":"../../../assets/questions/third_test_3/communication/cat_gray_sit_1_2.jpg"
+                "url":"../../../assets/questions/3rd_test/communication/cat_gray_sit_1_2.jpg"
             },
             {
                 "id":3,
-                "url":"../../../assets/questions/third_test_3/communication/glass_water_1_3.jpg"
+                "url":"../../../assets/questions/3rd_test/communication/glass_water_1_3.jpg"
             },
             {
                 "id":4,
-                "url":"../../../assets/questions/third_test_3/communication/black_hat_1_4.jpg"
+                "url":"../../../assets/questions/3rd_test/communication/black_hat_1_4.jpg"
             }
         ],
         "explication":"¿Su hijo es capaz de identificar objetos?",
@@ -70,27 +70,27 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/third_test_3/communication/boy_playing_2_1.jpg"
+                    "url":"../../../assets/questions/3rd_test/communication/boy_playing_2_1.jpg"
                 },
                 {
                     "id":2,
-                    "url":"../../../assets/questions/third_test_3/communication/girl_open_door_2_2.jpg"
+                    "url":"../../../assets/questions/3rd_test/communication/girl_open_door_2_2.jpg"
                 },
                 {
                     "id":3,
-                    "url":"../../../assets/questions/third_test_3/communication/boy_towels_2_3.jpg"
+                    "url":"../../../assets/questions/3rd_test/communication/boy_towels_2_3.jpg"
                 },
                 {
                     "id":4,
-                    "url":"../../../assets/questions/third_test_3/communication/boy_tshirt_2_4.jpg"
+                    "url":"../../../assets/questions/3rd_test/communication/boy_tshirt_2_4.jpg"
                 },
                 {
                     "id":5,
-                    "url":"../../../assets/questions/third_test_3/communication/family_hand_2_5.jpg"
+                    "url":"../../../assets/questions/3rd_test/communication/family_hand_2_5.jpg"
                 },
                 {
                     "id":6,
-                    "url":"../../../assets/questions/third_test_3/communication/kid_reading_2_6.jpg"
+                    "url":"../../../assets/questions/3rd_test/communication/kid_reading_2_6.jpg"
                 }
             ],
             "audio":"",
@@ -162,7 +162,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/third_test_3/communication/girl_eyes_3_1.jpg"
+                    "url":"../../../assets/questions/3rd_test/communication/girl_eyes_3_1.jpg"
                 }
             ],
             "audio":"",
@@ -208,7 +208,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/third_test_3/communication/girl_writing_4_1.jpg"
+                    "url":"../../../assets/questions/3rd_test/communication/girl_writing_4_1.jpg"
                 }
             ],
             "audio":"",
@@ -249,11 +249,11 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/third_test_3/communication/living_room_5_1.jpg"
+                    "url":"../../../assets/questions/3rd_test/communication/living_room_5_1.jpg"
                 },
                 {
                     "id":2,
-                    "url":"../../../assets/questions/third_test_3/communication/chair_shoes_5_2.jpg"
+                    "url":"../../../assets/questions/3rd_test/communication/chair_shoes_5_2.jpg"
                 }
             ],
             "audio":"",
@@ -294,7 +294,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/third_test_3/communication/baby_reading_6_1.jpg"
+                    "url":"../../../assets/questions/3rd_test/communication/baby_reading_6_1.jpg"
                 }
             ],
             "audio":"",

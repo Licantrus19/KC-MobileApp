@@ -18,19 +18,19 @@
         "imageUrls":[
             {
                 "id":1,
-                "url":"../../../assets/questions/third_test_3/individual_social/open_close_mouth_kid_1_1.jpg"
+                "url":"../../../assets/questions/3rd_test/individual_social/open_close_mouth_kid_1_1.jpg"
             },
             {
                 "id":2,
-                "url":"../../../assets/questions/third_test_3/individual_social/open_close_eyes_1_2.jpg"
+                "url":"../../../assets/questions/3rd_test/individual_social/open_close_eyes_1_2.jpg"
             },
             {
                 "id":3,
-                "url":"../../../assets/questions/third_test_3/individual_social/boys_ears_1_3.jpg"
+                "url":"../../../assets/questions/3rd_test/individual_social/boys_ears_1_3.jpg"
             },
             {
                 "id":4,
-                "url":"../../../assets/questions/third_test_3/individual_social/boy_check_1_4.jpg"
+                "url":"../../../assets/questions/3rd_test/individual_social/boy_check_1_4.jpg"
             }
         ],
         "explication":"¿Su hijo sabe beber de un vaso correctamente?",
@@ -91,7 +91,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/third_test_3/individual_social/baby_smiling_2_1.jpg"
+                    "url":"../../../assets/questions/3rd_test/individual_social/baby_smiling_2_1.jpg"
                 }
             ],
             "audio":"",
@@ -133,7 +133,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/third_test_3/individual_social/boy_pushing_car_3_1.jpg"
+                    "url":"../../../assets/questions/3rd_test/individual_social/boy_pushing_car_3_1.jpg"
                 }
             ],
             "audio":"",
@@ -174,7 +174,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/third_test_3/individual_social/girl_jacket_4_1.jpg"
+                    "url":"../../../assets/questions/3rd_test/individual_social/girl_jacket_4_1.jpg"
                 }
             ],
             "audio":"",
@@ -216,7 +216,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/third_test_3/individual_social/girl_dressing_5_1.jpg"
+                    "url":"../../../assets/questions/3rd_test/individual_social/girl_dressing_5_1.jpg"
                 }
             ],
             "audio":"",
@@ -257,7 +257,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/third_test_3/individual_social/boy_mirror_6_1.jpg"
+                    "url":"../../../assets/questions/3rd_test/individual_social/boy_mirror_6_1.jpg"
                 }
             ],
             "audio":"",

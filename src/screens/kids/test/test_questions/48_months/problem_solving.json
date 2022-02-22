@@ -18,7 +18,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/seventh_test_7/problem_solving/boy_choosing_mom_1_1.jpg"
+                    "url":"../../../assets/questions/7th_test/problem_solving/boy_choosing_mom_1_1.jpg"
                 }
             ],
             "explication":"¿Su hijo repite los 3 números dichos anteriomente por usted en el mismo orden?",
@@ -58,7 +58,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/seventh_test_7/problem_solving/circle_line_2_1.jpg"
+                    "url":"../../../assets/questions/7th_test/problem_solving/circle_line_2_1.jpg"
                 }
             ],
             "audio":"",
@@ -100,15 +100,15 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/seventh_test_7/problem_solving/clothes_kids_3_1.jpg"
+                    "url":"../../../assets/questions/7th_test/problem_solving/clothes_kids_3_1.jpg"
                 },
                 {
                     "id":2,
-                    "url":"../../../assets/questions/seventh_test_7/problem_solving/chair_balls_3_2.jpg"
+                    "url":"../../../assets/questions/7th_test/problem_solving/chair_balls_3_2.jpg"
                 },
                 {
                     "id":3,
-                    "url":"../../../assets/questions/seventh_test_7/problem_solving/books_cafe_3_3.jpg"
+                    "url":"../../../assets/questions/7th_test/problem_solving/books_cafe_3_3.jpg"
                 }
             ],
             "audio":"",
@@ -149,27 +149,27 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/seventh_test_7/problem_solving/red_ball_4_1.jpg"
+                    "url":"../../../assets/questions/7th_test/problem_solving/red_ball_4_1.jpg"
                 },
                 {
                     "id":2,
-                    "url":"../../../assets/questions/seventh_test_7/problem_solving/hammer_4_2.jpg"
+                    "url":"../../../assets/questions/7th_test/problem_solving/hammer_4_2.jpg"
                 },
                 {
                     "id":3,
-                    "url":"../../../assets/questions/seventh_test_7/problem_solving/sofa_yellow_4_3.jpg"
+                    "url":"../../../assets/questions/7th_test/problem_solving/sofa_yellow_4_3.jpg"
                 },
                 {
                     "id":4,
-                    "url":"../../../assets/questions/seventh_test_7/problem_solving/orange_4_4.jpg"
+                    "url":"../../../assets/questions/7th_test/problem_solving/orange_4_4.jpg"
                 },
                 {
                     "id":5,
-                    "url":"../../../assets/questions/seventh_test_7/problem_solving/black_4_5.jpg"
+                    "url":"../../../assets/questions/7th_test/problem_solving/black_4_5.jpg"
                 },
                 {
                     "id":6,
-                    "url":"../../../assets/questions/seventh_test_7/problem_solving/pink_4_6.jpg"
+                    "url":"../../../assets/questions/7th_test/problem_solving/pink_4_6.jpg"
                 }
             ],
             "audio":"",
@@ -211,7 +211,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/seventh_test_7/problem_solving/white_tshirt_5_1.jpg"
+                    "url":"../../../assets/questions/7th_test/problem_solving/white_tshirt_5_1.jpg"
                 }
             ],
             "audio":"",
@@ -252,7 +252,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/seventh_test_7/problem_solving/kid_playing_cubes_6_1.jpg"
+                    "url":"../../../assets/questions/7th_test/problem_solving/kid_playing_cubes_6_1.jpg"
                 }
             ],
             "audio":"",

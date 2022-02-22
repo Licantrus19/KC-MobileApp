@@ -18,19 +18,19 @@
         "imageUrls":[
             {
                 "id":1,
-                "url":"../../../assets/questions/second_test_2/individual_social/open_close_mouth_kid_1_1.jpg"
+                "url":"../../../assets/questions/2nd_test/individual_social/open_close_mouth_kid_1_1.jpg"
             },
             {
                 "id":2,
-                "url":"../../../assets/questions/second_test_2/individual_social/open_close_eyes_1_2.jpg"
+                "url":"../../../assets/questions/2nd_test/individual_social/open_close_eyes_1_2.jpg"
             },
             {
                 "id":3,
-                "url":"../../../assets/questions/second_test_2/individual_social/boy_ears_1_3.jpg"
+                "url":"../../../assets/questions/2nd_test/individual_social/boy_ears_1_3.jpg"
             },
             {
                 "id":4,
-                "url":"../../../assets/questions/second_test_2/individual_social/boy_check_1_4.jpg"
+                "url":"../../../assets/questions/2nd_test/individual_social/boy_check_1_4.jpg"
             }
         ],
         "explication":"",
@@ -91,7 +91,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/second_test_2/individual_social/kid_eating_2_1.jpg"
+                    "url":"../../../assets/questions/2nd_test/individual_social/kid_eating_2_1.jpg"
                 }
             ],
             "audio":"",
@@ -133,7 +133,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/second_test_2/individual_social/girl_happy_3_1.jpg"
+                    "url":"../../../assets/questions/2nd_test/individual_social/girl_happy_3_1.jpg"
                 }
             ],
             "audio":"",
@@ -174,7 +174,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/second_test_2/individual_social/girl_pushing_car_4_1.jpg"
+                    "url":"../../../assets/questions/2nd_test/individual_social/girl_pushing_car_4_1.jpg"
                 }
             ],
             "audio":"",
@@ -216,7 +216,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/second_test_2/individual_social/family_5_1.jpg"
+                    "url":"../../../assets/questions/2nd_test/individual_social/family_5_1.jpg"
                 }
             ],
             "audio":"",
@@ -257,7 +257,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/second_test_2/individual_social/boy_jacket_6_1.jpg"
+                    "url":"../../../assets/questions/2nd_test/individual_social/boy_jacket_6_1.jpg"
                 }
             ],
             "audio":"",

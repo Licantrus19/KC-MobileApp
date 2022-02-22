@@ -18,23 +18,23 @@
         "imageUrls":[
             {
                 "id":1,
-                "url":"../../../assets/questions/fourth_test_4/communication/boys_nose_1_1.jpg"
+                "url":"../../../assets/questions/4th_test/communication/boys_nose_1_1.jpg"
             },
             {
                 "id":2,
-                "url":"../../../assets/questions/fourth_test_4/communication/boys_eyes_1_2.jpg"
+                "url":"../../../assets/questions/4th_test/communication/boys_eyes_1_2.jpg"
             },
             {
                 "id":3,
-                "url":"../../../assets/questions/fourth_test_4/communication/girl_hair_1_3.jpg"
+                "url":"../../../assets/questions/4th_test/communication/girl_hair_1_3.jpg"
             },
             {
                 "id":4,
-                "url":"../../../assets/questions/fourth_test_4/communication/kid_feet_1_4.jpg"
+                "url":"../../../assets/questions/4th_test/communication/kid_feet_1_4.jpg"
             },
             {
                 "id":5,
-                "url":"../../../assets/questions/fourth_test_4/communication/boy_ears_1_5.jpg"
+                "url":"../../../assets/questions/4th_test/communication/boy_ears_1_5.jpg"
             }
         ],
         "explication":"¿Su hijo logra identificar al menos 7 partes de su cuerpo?",
@@ -79,7 +79,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/fourth_test_4/communication/family_talking_2_1.jpg"
+                    "url":"../../../assets/questions/4th_test/communication/family_talking_2_1.jpg"
                 }
             ],
             "audio":"",
@@ -120,11 +120,11 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/fourth_test_4/communication/living_room_3_1.jpg"
+                    "url":"../../../assets/questions/4th_test/communication/living_room_3_1.jpg"
                 },
                 {
                     "id":2,
-                    "url":"../../../assets/questions/fourth_test_4/communication/chair_shoes_3_2.jpg"
+                    "url":"../../../assets/questions/4th_test/communication/chair_shoes_3_2.jpg"
                 }
             ],
             "audio":"",
@@ -165,7 +165,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/fourth_test_4/communication/mother_kid_reading_4_1.jpg"
+                    "url":"../../../assets/questions/4th_test/communication/mother_kid_reading_4_1.jpg"
                 }
             ],
             "audio":"",
@@ -206,7 +206,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/fourth_test_4/communication/boy_jacket_5_1.jpg"
+                    "url":"../../../assets/questions/4th_test/communication/boy_jacket_5_1.jpg"
                 }
             ],
             "audio":"",
@@ -247,7 +247,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/fourth_test_4/communication/girls_talking_6_1.jpg"
+                    "url":"../../../assets/questions/4th_test/communication/girls_talking_6_1.jpg"
                 }
             ],
             "audio":"",

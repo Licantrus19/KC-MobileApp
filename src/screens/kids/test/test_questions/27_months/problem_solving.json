@@ -18,11 +18,11 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/second_test_2/problem_solving/kid_talking_kid_1_1.jpg"
+                    "url":"../../../assets/questions/2nd_test/problem_solving/kid_talking_kid_1_1.jpg"
                 },
                 {
                     "id":2,
-                    "url":"../../../assets/questions/second_test_2/problem_solving/kid_rocket_1_2.jpg"
+                    "url":"../../../assets/questions/2nd_test/problem_solving/kid_rocket_1_2.jpg"
                 }
             ],
             "explication":"¿Su hijo utiliza su imaginación al jugar?",
@@ -62,11 +62,11 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/second_test_2/problem_solving/girl_cleaning_2_1.jpg"
+                    "url":"../../../assets/questions/2nd_test/problem_solving/girl_cleaning_2_1.jpg"
                 },
                 {
                     "id":2,
-                    "url":"../../../assets/questions/second_test_2/problem_solving/boy_cleaning_2_2.jpg"
+                    "url":"../../../assets/questions/2nd_test/problem_solving/boy_cleaning_2_2.jpg"
                 }
             ],
             "audio":"",
@@ -108,7 +108,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/second_test_2/problem_solving/boy_mirror_3_1.jpeg"
+                    "url":"../../../assets/questions/2nd_test/problem_solving/boy_mirror_3_1.jpeg"
                 }
             ],
             "audio":"",
@@ -149,7 +149,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/second_test_2/problem_solving/boy_kitchen_4_1.jpg"
+                    "url":"../../../assets/questions/2nd_test/problem_solving/boy_kitchen_4_1.jpg"
                 }
             ],
             "audio":"",
@@ -191,7 +191,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/second_test_2/problem_solving/crayols_5_1.jpg"
+                    "url":"../../../assets/questions/2nd_test/problem_solving/crayols_5_1.jpg"
                 }
             ],
             "audio":"",
@@ -237,7 +237,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/second_test_2/problem_solving/drawing_6_1.jpg"
+                    "url":"../../../assets/questions/2nd_test/problem_solving/drawing_6_1.jpg"
                 }
             ],
             "audio":"",

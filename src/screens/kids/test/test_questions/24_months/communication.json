@@ -18,11 +18,11 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/first_test_1/communication/dog_sit_1_1.jpg"
+                    "url":"../../../assets/questions/1st_test/communication/dog_sit_1_1.jpg"
                 },
                 {
                     "id":2,
-                    "url":"../../../assets/questions/first_test_1/communication/cat_sit_1_2.jpg"
+                    "url":"../../../assets/questions/1st_test/communication/cat_sit_1_2.jpg"
                 }
             ],
             "explication":"¿Su hijo identifca un objeto mencionado previamente sin necesidad de señalarlo?",
@@ -62,11 +62,11 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/first_test_1/communication/family_playing_2_1.jpg"
+                    "url":"../../../assets/questions/1st_test/communication/family_playing_2_1.jpg"
                 },
                 {
                     "id":2,
-                    "url":"../../../assets/questions/first_test_1/communication/family_eating_pizza_2_2.jpg"
+                    "url":"../../../assets/questions/1st_test/communication/family_eating_pizza_2_2.jpg"
                 }
             ],
             "audio":"[FALTA]",
@@ -108,27 +108,27 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/first_test_1/communication/family_playing_legos_3_1.jpg"
+                    "url":"../../../assets/questions/1st_test/communication/family_playing_legos_3_1.jpg"
                 },
                 {
                     "id":2,
-                    "url":"../../../assets/questions/first_test_1/communication/kid_closing_door_3_2.jpg"
+                    "url":"../../../assets/questions/1st_test/communication/kid_closing_door_3_2.jpg"
                 },
                 {
                     "id":3,
-                    "url":"../../../assets/questions/first_test_1/communication/towel_3_3.jpg"
+                    "url":"../../../assets/questions/1st_test/communication/towel_3_3.jpg"
                 },
                 {
                     "id":4,
-                    "url":"../../../assets/questions/first_test_1/communication/jacket_3_4.jpg"
+                    "url":"../../../assets/questions/1st_test/communication/jacket_3_4.jpg"
                 },
                 {
                     "id":5,
-                    "url":"../../../assets/questions/first_test_1/communication/family_walking_3_5.jpg"
+                    "url":"../../../assets/questions/1st_test/communication/family_walking_3_5.jpg"
                 },
                 {
                     "id":6,
-                    "url":"../../../assets/questions/first_test_1/communication/kid_books_3_6.jpg"
+                    "url":"../../../assets/questions/1st_test/communication/kid_books_3_6.jpg"
                 }
             ],
             "audio":"",
@@ -200,19 +200,19 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/first_test_1/communication/red_ball_4_1.jpg"
+                    "url":"../../../assets/questions/1st_test/communication/red_ball_4_1.jpg"
                 },
                 {
                     "id":2,
-                    "url":"../../../assets/questions/first_test_1/communication/cat_sit_gray_4_2.jpg"
+                    "url":"../../../assets/questions/1st_test/communication/cat_sit_gray_4_2.jpg"
                 },
                 {
                     "id":3,
-                    "url":"../../../assets/questions/first_test_1/communication/glass_water_4_3.jpg"
+                    "url":"../../../assets/questions/1st_test/communication/glass_water_4_3.jpg"
                 },
                 {
                     "id":4,
-                    "url":"../../../assets/questions/first_test_1/communication/black_hat_4_4.jpg"
+                    "url":"../../../assets/questions/1st_test/communication/black_hat_4_4.jpg"
                 }
             ],
             "audio":"",
@@ -254,15 +254,15 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/first_test_1/communication/kid_and_dog_5_1.jpg"
+                    "url":"../../../assets/questions/1st_test/communication/kid_and_dog_5_1.jpg"
                 },
                 {
                     "id":2,
-                    "url":"../../../assets/questions/first_test_1/communication/cat_watching_5_2.jpg"
+                    "url":"../../../assets/questions/1st_test/communication/cat_watching_5_2.jpg"
                 },
                 {
                     "id":3,
-                    "url":"../../../assets/questions/first_test_1/communication/family_hug_5_3.jpg"
+                    "url":"../../../assets/questions/1st_test/communication/family_hug_5_3.jpg"
                 }
             ],
             "audio":"[FALTA]",
@@ -303,7 +303,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/first_test_1/communication/baby_surprised_6_1.jpg"
+                    "url":"../../../assets/questions/1st_test/communication/baby_surprised_6_1.jpg"
                 }
             ],
             "audio":"[FALTA]",

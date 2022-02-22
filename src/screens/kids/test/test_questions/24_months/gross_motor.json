@@ -18,7 +18,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/first_test_1/gross_motor/kid_up_stair_1_1.jpg"
+                    "url":"../../../assets/questions/1st_test/gross_motor/kid_up_stair_1_1.jpg"
                 }
             ],
             "explication":"¿Su hijo baja las escaleras con ayuda suya?",
@@ -58,7 +58,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/first_test_1/gross_motor/kid_kicking_ball_2_1.jpg"
+                    "url":"../../../assets/questions/1st_test/gross_motor/kid_kicking_ball_2_1.jpg"
                 }
             ],
             "audio":"",
@@ -100,7 +100,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/first_test_1/gross_motor/kid_alone_stairs_3_1.jpg"
+                    "url":"../../../assets/questions/1st_test/gross_motor/kid_alone_stairs_3_1.jpg"
                 }
             ],
             "audio":"",
@@ -141,7 +141,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/first_test_1/gross_motor/kid_beach_4_1.jpg"
+                    "url":"../../../assets/questions/1st_test/gross_motor/kid_beach_4_1.jpg"
                 }
             ],
             "audio":"",
@@ -183,7 +183,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/first_test_1/gross_motor/kid_jumping_5_1.jpg"
+                    "url":"../../../assets/questions/1st_test/gross_motor/kid_jumping_5_1.jpg"
                 }
             ],
             "audio":"",
@@ -234,7 +234,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/first_test_1/gross_motor/kid_soccer_6_1.jpg"
+                    "url":"../../../assets/questions/1st_test/gross_motor/kid_soccer_6_1.jpg"
                 }
             ],
             "audio":"",

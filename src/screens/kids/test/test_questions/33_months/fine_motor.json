@@ -18,11 +18,11 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/fourth_test_4/fine_motor/first_line_1_1.jpg"
+                    "url":"../../../assets/questions/4th_test/fine_motor/first_line_1_1.jpg"
                 },
                 {
                     "id":2,
-                    "url":"../../../assets/questions/fourth_test_4/fine_motor/second_line_1_2.jpg"
+                    "url":"../../../assets/questions/4th_test/fine_motor/second_line_1_2.jpg"
                 }
             ],
             "explication":"¿Su hijo logra dibujar líneas verticales luego de enseñarle cómo hacerlo?",
@@ -62,7 +62,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/fourth_test_4/fine_motor/girl_playing_wood_toys_2_1.jpg"
+                    "url":"../../../assets/questions/4th_test/fine_motor/girl_playing_wood_toys_2_1.jpg"
                 }
             ],
             "audio":"",
@@ -104,11 +104,11 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/fourth_test_4/fine_motor/third_line_3_1.jpg"
+                    "url":"../../../assets/questions/4th_test/fine_motor/third_line_3_1.jpg"
                 },
                 {
                     "id":2,
-                    "url":"../../../assets/questions/fourth_test_4/fine_motor/fourth_line_3_2.jpg"
+                    "url":"../../../assets/questions/4th_test/fine_motor/fourth_line_3_2.jpg"
                 }
             ],
             "audio":"",
@@ -149,11 +149,11 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/fourth_test_4/fine_motor/fifth_line_4_1.jpg"
+                    "url":"../../../assets/questions/4th_test/fine_motor/fifth_line_4_1.jpg"
                 },
                 {
                     "id":2,
-                    "url":"../../../assets/questions/fourth_test_4/fine_motor/six_line_4_2.jpg"
+                    "url":"../../../assets/questions/4th_test/fine_motor/six_line_4_2.jpg"
                 }
             ],
             "audio":"",
@@ -195,7 +195,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/fourth_test_4/fine_motor/kid_reading_5_1.jpg"
+                    "url":"../../../assets/questions/4th_test/fine_motor/kid_reading_5_1.jpg"
                 }
             ],
             "audio":"",
@@ -236,7 +236,7 @@
             "imageUrls":[
                 {
                     "id":1,
-                    "url":"../../../assets/questions/fourth_test_4/fine_motor/girl_cutting_6_1.jpg"
+                    "url":"../../../assets/questions/4th_test/fine_motor/girl_cutting_6_1.jpg"
                 }
             ],
             "audio":"",
