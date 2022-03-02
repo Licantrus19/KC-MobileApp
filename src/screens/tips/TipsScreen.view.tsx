@@ -2,21 +2,10 @@ import React, { FC, useEffect, useState, useRef } from "react";
 import { Text, StyleSheet, Image, View, FlatList, Animated } from 'react-native';
 import { Container, Label, TipItem } from "../../components";
 
-const TIPS_DATA = [
-    {
-        id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-        text: '1. Para practicar la escritura con su niña(o), escriba los nombres de amigos, juguetes, o parientes en una hoja. Puede ser que al principio su niña necesite trazar las letras de los nombres por encima. Asegúrese de escribir usando letra de molde grande',
-    },
-    {
-        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-        text: '2. Para practicar la escritura con su niña(o), escriba los nombres de amigos, juguetes, o parientes en una hoja. Puede ser que al principio su niña necesite trazar las letras de los nombres por encima. Asegúrese de escribir usando letra de molde grande',
-    },
-    {
-        id: '58694a0f-3da1-471f-bd96-145571e29d72',
-        text: '3. Para practicar la escritura con su niña(o), escriba los nombres de amigos, juguetes, o parientes en una hoja. Puede ser que al principio su niña necesite trazar las letras de los nombres por encima. Asegúrese de escribir usando letra de molde grande',
-    },
-];
-
+import { tips as TIPS_DATA_24 } from "./tips_24_30_months.json";
+import { tips as TIPS_DATA_30 } from "./tips_30_36_months.json";
+import { tips as TIPS_DATA_36 } from "./tips_36_48_months.json";
+import { tips as TIPS_DATA_48 } from "./tips_24_30_months.json";
 
 interface IScreenProps {
     navigation: any
@@ -36,6 +25,16 @@ const ResultsScreen: FC<IScreenProps> = ({ navigation }) => {
     const scrollX = useRef(new Animated.Value(0)).current;
     const slidesRef = useRef(null);
 
+    var randomNumber = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
+    var TIPS_DATA_SELECTED, months;
+    switch (randomNumber) {
+        case 1: TIPS_DATA_SELECTED = TIPS_DATA_24; months = 24; break;
+        case 2: TIPS_DATA_SELECTED = TIPS_DATA_30; months = 30; break;
+        case 3: TIPS_DATA_SELECTED = TIPS_DATA_36; months = 36; break;
+        case 4: TIPS_DATA_SELECTED = TIPS_DATA_48; months = 48; break;
+        default: TIPS_DATA_SELECTED = TIPS_DATA_24; break;
+    }
+
     const viewableItemsChanged = useRef(({ viewableItems }: { viewableItems: any }) => {
         setCurrentIndex(viewableItems[0].index);
     }).current;
@@ -46,16 +45,16 @@ const ResultsScreen: FC<IScreenProps> = ({ navigation }) => {
         <View style={styles.container}>
             <Image style={styles.tipIcon} source={require('../../assets/tips/tips_icon.png')} />
             <Text style={styles.dayTip}>Tip del día</Text>
-            <Text style={styles.ageTip}>Edad: 48 meses</Text>
+            <Text style={styles.ageTip}>Edad: {months} meses</Text>
             <View style={styles.flatListView}>
                 <FlatList
-                    data={TIPS_DATA}
+                    data={TIPS_DATA_SELECTED}
                     renderItem={renderItem}
                     horizontal
                     showsHorizontalScrollIndicator
                     pagingEnabled
                     bounces={false}
-                    keyExtractor={item => item.id}
+                    keyExtractor={item => item.id.toString()}
                     scrollEventThrottle={32}
                     onViewableItemsChanged={viewableItemsChanged}
                     viewabilityConfig={viewConfig}
@@ -76,10 +75,11 @@ const styles = StyleSheet.create({
         backgroundColor: 'white'
     },
     tipIcon: {
-        width: 172,
-        height: 200,
+        width: 108,
+        height: 125,
         marginTop: 30,
         alignItems: 'center',
+        resizeMode: 'contain'
     },
     item: {
         padding: 20,
@@ -93,7 +93,8 @@ const styles = StyleSheet.create({
     ageTip: {
         color: '#5680E9',
         marginTop: 20,
-        fontSize: 20
+        fontSize: 20,
+        fontWeight: 'bold'
     },
     flatListView: {
         marginTop: 40,

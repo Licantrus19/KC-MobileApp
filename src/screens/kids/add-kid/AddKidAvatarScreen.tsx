@@ -1,9 +1,37 @@
 import React, { useState, FC } from 'react';
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { AvatarItem } from '../../../components';
 
 interface IScreenProps {
     navigation: any
 }
+
+const AVATAR_IMAGES_DATA: any = [
+    {
+        id: 1,
+        imageUri: require('../../../assets/avatars/kids/avatar_kid_1.png')
+    },
+    {
+        id: 2,
+        imageUri: require('../../../assets/avatars/kids/avatar_kid_2.png')
+    },
+    {
+        id: 3,
+        imageUri: require('../../../assets/avatars/kids/avatar_kid_3.png')
+    },
+    {
+        id: 4,
+        imageUri: require('../../../assets/avatars/kids/avatar_kid_4.png')
+    },
+    {
+        id: 5,
+        imageUri: require('../../../assets/avatars/kids/avatar_kid_5.png')
+    },
+    {
+        id: 6,
+        imageUri: require('../../../assets/avatars/kids/avatar_kid_6.png')
+    }
+]
 
 const AddKidAvatarScreen: FC<IScreenProps> = ({ navigation }) => {
 
@@ -16,10 +44,27 @@ const AddKidAvatarScreen: FC<IScreenProps> = ({ navigation }) => {
         navigation.navigate('AddKidInformation');
     }
 
+    const user = {
+        firstName: 'Marcelo',
+        lastName: 'Rios',
+        identificationNumber: '00000000',
+        selectedAvatar: 1
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.contentContainer}>
-                <Text>Hola</Text>
+                <View style={styles.avatar}>
+                    <Text style={styles.boldText}>Avatar del menor:</Text>
+                    <ScrollView
+                        horizontal={true}
+                        showsHorizontalScrollIndicator={false}>
+                        <AvatarItem
+                            data={AVATAR_IMAGES_DATA}
+                            selectedItem={user.selectedAvatar}
+                        />
+                    </ScrollView>
+                </View>
             </View>
             <View style={styles.bottomButtons}>
                 <View style={styles.nextButton}>
@@ -46,53 +91,18 @@ const styles = StyleSheet.create({
         flex: 1
     },
     contentContainer: {
-        flex: 1
+        flex: 1,
+        backgroundColor: 'white'
     },
-    firstName: {
-        marginTop: 20,
-        marginBottom: 20,
-        marginStart: 50,
+    boldText: {
+        fontWeight: 'bold',
         fontSize: 18
     },
-    lastName: {
+    avatar: {
         marginTop: 10,
-        marginBottom: 20,
-        marginStart: 50,
+        marginBottom: 10,
+        marginStart: 25,
         fontSize: 18
-    },
-    identificationNumber: {
-        marginTop: 10,
-        marginBottom: 20,
-        marginStart: 50,
-        fontSize: 18
-    },
-    gender: {
-        marginTop: 10,
-        marginBottom: 20,
-        marginStart: 50,
-        fontSize: 18
-    },
-    relationship: {
-        marginTop: 10,
-        marginBottom: 20,
-        marginStart: 50,
-        fontSize: 18
-    },
-    inputText: {
-        marginTop: 10,
-        marginEnd: 50,
-        padding: 10,
-        height: 40,
-        borderWidth: 1,
-        borderRadius: 5
-    },
-    picker: {
-        marginTop: 10,
-        marginEnd: 50,
-        padding: 10,
-        borderWidth: 1,
-        borderRadius: 5,
-        borderColor: "#000",
     },
     bottomButtons: {
         marginBottom: 30

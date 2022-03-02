@@ -18,7 +18,7 @@ const KidItem: FC<IComponentProps> = ({ width = '50%', position = 1, onPress, ty
             <TouchableOpacity activeOpacity={0.7} onPress={onPress} style={styles.buttonContainer}>
                 <View>
                     <Image
-                        source={require('../../assets/add.png')}
+                        source={require('../../assets/icons/add_icon.png')}
                         style={styles.image}
                     />
                     <Label center color='white' size={16}>

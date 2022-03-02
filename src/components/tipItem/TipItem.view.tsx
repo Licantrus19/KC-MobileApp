@@ -11,7 +11,7 @@ const TipItem: FC<IScreenProps> = ({ item }) => {
 
     return (
         <View style={[styles.container, { width }]}>
-            <Text style={[styles.text]}>{item.text}</Text>
+            <Text style={[styles.text]}>{item.textTip}</Text>
         </View>
     )
 };

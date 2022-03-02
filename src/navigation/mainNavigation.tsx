@@ -42,6 +42,14 @@ const mainScreenOptions: StackNavigationOptions = {
     }
 }
 
+export const ProfileStack = () => {
+    return (
+        <Stack.Navigator initialRouteName="Profile" screenOptions={mainScreenOptions}>
+            <Stack.Screen options={{ headerTitle: "Profile" }} name="Profile" component={Profile} />
+        </Stack.Navigator>
+    )
+}
+
 export const KidsStack = () => {
     return (
         <Stack.Navigator initialRouteName="Kids" screenOptions={mainScreenOptions}>
@@ -168,7 +176,7 @@ const MainTabNavigation: FC<IMainNavProps> = ({ }) => {
 
             <Tab.Screen
                 name="Profile"
-                component={Profile}
+                component={ProfileStack}
                 options={({ }) => ({
                     tabBarVisible: false,
                     tabBarButton: (props) => null

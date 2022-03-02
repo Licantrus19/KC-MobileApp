@@ -66,7 +66,10 @@ const AddKidInformationScreen: FC<IScreenProps> = ({ navigation }) => {
                 />
             )}
 
-            <ScrollView style={styles.contentContainer}>
+            <ScrollView
+                style={styles.contentContainer}
+                showsVerticalScrollIndicator={false}
+            >
                 <View style={styles.firstName}>
                     <Text>Nombres</Text>
                     <TextInput
@@ -112,10 +115,10 @@ const AddKidInformationScreen: FC<IScreenProps> = ({ navigation }) => {
                         <View style={styles.datePickerIcon}>
                             <TouchableOpacity
                                 onPress={() => showMode('date')} >
-                                <Icon
+                                <Image
+                                    source={require('../../../assets/icons/calendar_icon.png')}
                                     style={styles.calendarIcon}
-                                    name="calendar"
-                                ></Icon>
+                                ></Image>
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -228,6 +231,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 5,
         flex: 3,
+        color: 'black'
     },
     datePickerIcon: {
         flex: 1,
@@ -235,7 +239,11 @@ const styles = StyleSheet.create({
         marginEnd: 50,
     },
     calendarIcon: {
-
+        alignItems: 'flex-end',
+        marginEnd: 20,
+        width: 40,
+        height: 40,
+        marginTop: 10
     },
     gender: {
         marginTop: 10,
@@ -263,7 +271,7 @@ const styles = StyleSheet.create({
         padding: 10,
         borderWidth: 1,
         borderRadius: 5,
-        borderColor: "#000"
+        borderColor: "black",
     },
     bottomButtons: {
         marginTop: 10
