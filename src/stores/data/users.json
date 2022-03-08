@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Admin",
+        "genre": "M",
+        "email": "admin@admin.com",
+        "passsword": "12345",
+        "kids": []
+    },
+    {
+        "name": "Admin2",
+        "genre": "M",
+        "email": "admin2@admin.com",
+        "passsword": "12345",
+        "kids": []
+    },
+    {
+        "name": "Admin3",
+        "genre": "F",
+        "email": "admin3@admin.com",
+        "passsword": "12345",
+        "kids": []
+    }
+]

@@ -1,9 +1,14 @@
 import React, { FC, useEffect, useState } from "react";
-import { Button, StyleSheet, Dimensions, Text, TextInput, View, Image } from 'react-native';
-import { Container, Label, MaterialButton } from "../../components";
-
+import { Button, StyleSheet, Dimensions, Text, TextInput, View, Image, PanResponder, Platform, GestureResponderEvent, PanResponderGestureState } from 'react-native';
+import { Container, Label, Loading, MaterialButton } from "../../components";
 import Animated, { Easing } from 'react-native-reanimated';
-import { TapGestureHandler, State } from 'react-native-gesture-handler';
+import { TapGestureHandler, State, TouchableOpacity } from 'react-native-gesture-handler';
+import { colors } from "../../common/constants";
+import { ISessionStore } from "../../stores/interfaces";
+import { ToastAndroid } from "react-native";
+import { observer } from "mobx-react-lite";
+import { inject } from "mobx-react";
+
 const { width, height } = Dimensions.get('window');
 
 const {
@@ -53,17 +58,26 @@ function runTiming(clock: any, value: any, dest: any) {
 }
 
 interface IScreenProps {
-    navigation: any
+    navigation: any,
+    sessionStore: ISessionStore
 }
 
-const LoginScreen: FC<IScreenProps> = ({ navigation }) => {
+const LoginScreen: FC<IScreenProps> = ({ navigation, sessionStore }) => {
 
     const [user, setUser] = useState('');
     const [password, setPassword] = useState('');
 
     const login = () => {
         console.log('logiiin!');
+        sessionStore.login(user, password);
     }
+
+    useEffect(() => {
+        if (sessionStore.error) {
+            ToastAndroid.show(sessionStore.error.message, ToastAndroid.SHORT);
+            sessionStore.cleanError();
+        }
+    }, [sessionStore.error]);
 
     const register = () => {
         navigation.navigate("Register")
@@ -215,9 +229,18 @@ const LoginScreen: FC<IScreenProps> = ({ navigation }) => {
                         </Animated.View>
                         <Animated.View style={styles.bottomButtons}>
                             <Animated.View style={styles.loginButton}>
-                                <MaterialButton
+                                {/* <MaterialButton
                                     onPress={login}
-                                    title="Iniciar Sesión" />
+                                    title="Iniciar Sesión" /> */}
+                                <TouchableOpacity disabled={sessionStore.loading} activeOpacity={0.7} onPress={login} style={styles.loginButtonAction}>
+                                    {!sessionStore.loading && (
+                                        <Text style={{ color: 'white' }}>Iniciar Sesión</Text>
+                                    )}
+                                    {sessionStore.loading && (
+                                        <Loading color={colors.white} />
+                                    )}
+                                </TouchableOpacity>
+
                             </Animated.View>
                             <Animated.View>
                                 <TapGestureHandler onHandlerStateChange={onCloseState}>
@@ -237,7 +260,7 @@ const LoginScreen: FC<IScreenProps> = ({ navigation }) => {
     );
 }
 
-export default LoginScreen;
+export default inject('sessionStore')(observer(LoginScreen));
 
 const styles = StyleSheet.create({
     container: {
@@ -327,6 +350,15 @@ const styles = StyleSheet.create({
         marginStart: 50,
         marginEnd: 50,
         marginBottom: 10
+    },
+    loginButtonAction: {
+        backgroundColor: colors.primary,
+        color: colors.white,
+        borderRadius: 4,
+        height: 40,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginVertical: 5
     },
     cancelButton: {
         marginStart: 50,

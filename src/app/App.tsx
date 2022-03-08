@@ -19,7 +19,7 @@ const App = () => {
     return (
         <>
             <Provider
-                /* sessionStore={stores.session} */
+                sessionStore={stores.session}
             >
                 <RNPaperProvider theme={theme}>
                     <Setup />

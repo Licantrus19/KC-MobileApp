@@ -1,21 +1,21 @@
 import React, { FC, useEffect } from "react";
 import { AppNavigation } from '../navigation';
-/* import { observer } from "mobx-react-lite";
+import { observer } from "mobx-react-lite";
 import { inject } from "mobx-react";
-import { ISessionStore, IUserStore } from "../stores/interfaces"; */
+import { ISessionStore } from "../stores/interfaces";
+import { Loading } from "../components";
 
 interface ISetupProps {
-
+    sessionStore: ISessionStore
 }
 
-const Setup: FC<ISetupProps> = ({ }) => {
+const Setup: FC<ISetupProps> = ({ sessionStore }) => {
 
-    /* useEffect(() => {
-        sessionStore?.checkSession();
+    useEffect(() => {
+        sessionStore.checkSession();
     }, [])
 
     if (sessionStore?.token) {
-        userStore?.getMyFavourites();
         return (
             <>
                 <AppNavigation authenticated={true} />
@@ -27,14 +27,14 @@ const Setup: FC<ISetupProps> = ({ }) => {
         return (
             <Loading />
         )
-    } */
+    }
 
     return (
         <>
-            <AppNavigation authenticated={true} />
+            <AppNavigation authenticated={false} />
         </>
     )
 }
 
-/* export default inject('sessionStore', 'userStore')(observer(Setup)); */
-export default Setup;
+export default inject('sessionStore')(observer(Setup));
+/* export default Setup; */
