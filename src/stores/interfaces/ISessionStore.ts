@@ -9,7 +9,7 @@ export interface ISessionStore {
     setToken: (token: string) => void,
     setUser: (user: any) => void,
     cleanError: () => void,
-    login: (username: string, password: string) => Promise<any>,
+    loginUser: (username: string, password: string) => Promise<any>,
     setError: (error: any) => void,
     logout: () => Promise<any>,
     checkSession: () => Promise<any>,

@@ -20,15 +20,19 @@ const RegisterScreen: FC<IScreenProps> = ({ navigation }) => {
     const isNextButtonDisabled = !termsAccepted;
 
     const saveChanges = () => {
-        console.log();
+        const profileData = {
+            firstName: firstName,
+            lastName: lastName,
+            identificationNumber: identificationNumber,
+            emailAddress: emailAddress,
+            password: password,
+            avatarImage: 1
+        }
+        navigation.push("RegisterAvatar", profileData);
     }
 
     const cancelChanges = () => {
         navigation.goBack();
-    }
-
-    const logout = () => {
-        console.log();
     }
 
     return (

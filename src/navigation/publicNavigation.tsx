@@ -1,7 +1,7 @@
 import React from "react";
 import { Image } from "react-native";
 import { } from "../components";
-import { Login, Register } from "../screens";
+import { Login, RegisterInformation, RegisterAvatar } from "../screens";
 import { createStackNavigator, StackNavigationOptions } from "@react-navigation/stack";
 
 const Stack = createStackNavigator();
@@ -20,7 +20,8 @@ export const PublicStack = () => {
     return (
         <Stack.Navigator screenOptions={registerScreenOptions} initialRouteName="Login">
             <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
-            <Stack.Screen name="Register" component={Register} options={{ headerShown: true, headerTitle: "Registrar Usuario" }} />
+            <Stack.Screen name="RegisterInformation" component={RegisterInformation} options={{ headerShown: true, headerTitle: "Registrar Usuario" }} />
+            <Stack.Screen name="RegisterAvatar" component={RegisterAvatar} options={{ headerShown: true, headerTitle: "Registrar Usuario" }} />
         </Stack.Navigator>
     )
 }

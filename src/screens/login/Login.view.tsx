@@ -68,8 +68,7 @@ const LoginScreen: FC<IScreenProps> = ({ navigation, sessionStore }) => {
     const [password, setPassword] = useState('');
 
     const login = () => {
-        console.log('logiiin!');
-        sessionStore.login(user, password);
+        sessionStore.loginUser(user, password);
     }
 
     useEffect(() => {
@@ -80,7 +79,7 @@ const LoginScreen: FC<IScreenProps> = ({ navigation, sessionStore }) => {
     }, [sessionStore.error]);
 
     const register = () => {
-        navigation.navigate("Register")
+        navigation.navigate("RegisterInformation")
     }
 
     const [buttonOpacity, setButtonOpacity] = useState(new Animated.Value(1))
