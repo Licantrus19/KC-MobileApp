@@ -17,7 +17,7 @@ class SessionStore implements ISessionStore {
         login(email, password).then(async (result: any) => {
             if (result.data.token != null) {
                 this.token = result.data.token;
-                await setTokenData(JSON.stringify(result.data.token));
+                await setTokenData(result.data.token);
             } else {
                 this.error = {
                     message: "Usuario o contraseña incorrecta"

@@ -1,32 +1,51 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useCallback, useEffect, useState } from "react";
 import { Button, FlatList, StyleSheet, Text, TextInput, View } from 'react-native';
+import { kidsFromUser } from "../../api/kids.api";
 import { KidItem, Container, Label } from "../../components";
 
 interface IScreenProps {
     navigation: any
 }
 
-const KIDS_DATA = [
-    {
-        id: 'a',
-        type: 1,
-        data: {
-            firstname: 'Pedro',
-            lastname: 'Pachas Perez',
-            age: '48 meses'
-        }
-    }
-]
-
-const mainKidItem = {
-    id: 'abc',
-    type: 2,
-    data: {}
-}
-
 const KidsScreen: FC<IScreenProps> = ({ navigation }) => {
 
-    const [kids, setKids] = useState([...KIDS_DATA, mainKidItem]);
+    const [kids, setKids] = useState<any>();
+
+    const kidsFromUserArray = useCallback(async () => {
+        let kidsArray: any[] = [];
+        kidsFromUser().then((result) => {
+            result.data.map((item: any) => {
+                const kid = {
+                    id: item.id,
+                    type: 1,
+                    data: {
+                        firstName: item.firstName,
+                        lastName: item.lastName,
+                        avatarImage: item.avatarImage,
+                        months: item.months
+                    }
+                };
+                kidsArray.push(kid);
+            });
+        }).finally(() => {
+            let kidsAddElement = {
+                id: '000',
+                type: 2,
+                data: {
+                    firstName: '',
+                    lastName: '',
+                    avatarImage: '',
+                    months: 0
+                }
+            }
+            kidsArray.push(kidsAddElement);
+            setKids(kidsArray);
+        });
+    }, []);
+
+    useEffect(() => {
+        kidsFromUserArray();
+    }, [kidsFromUserArray]);
 
     const addKid = () => {
         navigation.navigate('AddKidInformation');

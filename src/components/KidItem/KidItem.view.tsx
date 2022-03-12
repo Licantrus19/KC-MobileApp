@@ -45,13 +45,13 @@ const KidItem: FC<IComponentProps> = ({ width = '50%', position = 1, onPress, ty
                 </View>
                 <View style={{ marginHorizontal: 20 }}>
                     <Label size={13}>
-                        Nombres: {data.firstname}
+                        Nombres: {data.firstName}
                     </Label>
                     <Label size={13}>
-                        Apellidos: {data.lastname}
+                        Apellidos: {data.lastName}
                     </Label>
                     <Label size={13}>
-                        Edad: {data.age}
+                        Edad: {data.months} meses
                     </Label>
                 </View>
             </View>
