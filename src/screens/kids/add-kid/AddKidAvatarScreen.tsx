@@ -1,9 +1,11 @@
 import React, { useState, FC } from 'react';
 import { Button, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { addKid } from '../../../api/kids.api';
 import { AvatarItem } from '../../../components';
 
 interface IScreenProps {
-    navigation: any
+    navigation: any,
+    route: any
 }
 
 const AVATAR_IMAGES_DATA: any = [
@@ -33,22 +35,40 @@ const AVATAR_IMAGES_DATA: any = [
     }
 ]
 
-const AddKidAvatarScreen: FC<IScreenProps> = ({ navigation }) => {
-
-    const registerKid = () => {
-        navigation.navigate('Kids');
-    }
+const AddKidAvatarScreen: FC<IScreenProps> = ({ navigation, route }) => {
 
     const goBack = () => {
         console.log();
         navigation.navigate('AddKidInformation');
     }
 
-    const user = {
-        firstName: 'Marcelo',
-        lastName: 'Rios',
-        identificationNumber: '00000000',
-        selectedAvatar: 1
+    const kid = route.params;
+
+    const buildKidDTO = (kid: any) => {
+        const kidDTO = {
+            firstName: kid.firstName,
+            lastName: kid.lastName,
+            identificationNumber: kid.identificationNumber,
+            birthdate: kid.birthDate,
+            gender: kid.gender,
+            relationship: kid.relationship,
+            avatarImage: "avatar_kid_" + kid.avatarImage + ".png"
+        };
+        return kidDTO;
+    }
+
+    const registerKid = () => {
+        // create kid
+        const kidDTO = buildKidDTO(kid);
+
+        addKid(kidDTO).then((result) => {
+            if (result.data != null) {
+                // go back to kids page
+                navigation.navigate('Kids');
+            } else {
+                // show error message
+            }
+        });
     }
 
     return (
@@ -61,7 +81,7 @@ const AddKidAvatarScreen: FC<IScreenProps> = ({ navigation }) => {
                         showsHorizontalScrollIndicator={false}>
                         <AvatarItem
                             data={AVATAR_IMAGES_DATA}
-                            selectedItem={user.selectedAvatar}
+                            selectedItem={kid.avatarImage}
                         />
                     </ScrollView>
                 </View>

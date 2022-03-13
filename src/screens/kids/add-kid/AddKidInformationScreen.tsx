@@ -46,12 +46,21 @@ const AddKidInformationScreen: FC<IScreenProps> = ({ navigation }) => {
     // flow events
 
     const nextStep = () => {
-        console.log();
-        navigation.navigate('AddKidAvatar');
+        const kidData = {
+            firstName: firstName,
+            lastName: lastName,
+            identificationNumber: identificationNumber,
+            birthDate: birthDate,
+            gender: gender,
+            relationship: relationship,
+            avatarImage: 1
+        }
+        navigation.push("AddKidAvatar", kidData);
     }
 
     const cancel = () => {
         console.log();
+        navigation.goBack();
     }
 
     return (
@@ -132,8 +141,8 @@ const AddKidInformationScreen: FC<IScreenProps> = ({ navigation }) => {
                         style={styles.picker}
                     >
                         <Picker.Item label="Seleccione sexo del menor" value="Unknown" />
-                        <Picker.Item label="Niña" value="female" />
-                        <Picker.Item label="Niño" value="male" />
+                        <Picker.Item label="Niña" value="Niña" />
+                        <Picker.Item label="Niño" value="Niño" />
                     </Picker>
                 </View>
                 <View style={styles.relationship}>

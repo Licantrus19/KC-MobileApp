@@ -2,6 +2,7 @@ import React, { FC, useCallback, useEffect, useState } from "react";
 import { Button, FlatList, StyleSheet, Text, TextInput, View } from 'react-native';
 import { kidsFromUser } from "../../api/kids.api";
 import { KidItem, Container, Label } from "../../components";
+import { useIsFocused } from "@react-navigation/native";
 
 interface IScreenProps {
     navigation: any
@@ -10,6 +11,8 @@ interface IScreenProps {
 const KidsScreen: FC<IScreenProps> = ({ navigation }) => {
 
     const [kids, setKids] = useState<any>();
+
+    const isFocused = useIsFocused();
 
     const kidsFromUserArray = useCallback(async () => {
         let kidsArray: any[] = [];
@@ -41,7 +44,7 @@ const KidsScreen: FC<IScreenProps> = ({ navigation }) => {
             kidsArray.push(kidsAddElement);
             setKids(kidsArray);
         });
-    }, []);
+    }, [navigation, isFocused]);
 
     useEffect(() => {
         kidsFromUserArray();

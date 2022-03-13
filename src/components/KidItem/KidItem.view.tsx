@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { Image, View, TouchableOpacity, StyleSheet } from 'react-native';
 import { Label } from '..';
 import { colors, fonts } from '../../common/constants';
+import { Util } from '../../common/utils';
 
 interface IComponentProps {
     width?: number | string,
@@ -37,7 +38,7 @@ const KidItem: FC<IComponentProps> = ({ width = '50%', position = 1, onPress, ty
                         <View style={{ width: '80%', height: '85%' }}>
                             <Image
                                 resizeMode='stretch'
-                                source={require('../../assets/avatars/avatar_1.png')}
+                                source={Util.avatarImage(data.avatarImage)}
                                 style={{ width: '100%', height: '100%' }}
                             />
                         </View>
