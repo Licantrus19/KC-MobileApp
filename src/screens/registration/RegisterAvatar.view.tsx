@@ -42,6 +42,8 @@ const RegisterAvatar: FC<IScreenProps> = ({ navigation, route, sessionStore }) =
 
     const user = route.params;
 
+    const [avatarImage, setAvatarImage] = useState(1);
+
     const buildUserDTO = (user: any) => {
         const userDTO = {
             username: user.emailAddress,
@@ -50,7 +52,7 @@ const RegisterAvatar: FC<IScreenProps> = ({ navigation, route, sessionStore }) =
             firstName: user.firstName,
             lastName: user.lastName,
             identificationNumber: user.identificationNumber,
-            avatarImage: "avatar_profile_" + user.avatarImage + ".png"
+            avatarImage: "avatar_profile_" + avatarImage + ".png"
         };
         return userDTO;
     }
@@ -73,6 +75,10 @@ const RegisterAvatar: FC<IScreenProps> = ({ navigation, route, sessionStore }) =
         navigation.goBack();
     }
 
+    const selectAvatarImage = (val: any) => {
+        setAvatarImage(val);
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.contentContainer}>
@@ -84,6 +90,7 @@ const RegisterAvatar: FC<IScreenProps> = ({ navigation, route, sessionStore }) =
                         <AvatarItem
                             data={AVATAR_IMAGES_DATA}
                             selectedItem={user.avatarImage}
+                            onPress={selectAvatarImage}
                         />
                     </ScrollView>
                 </View>

@@ -19,18 +19,26 @@ import { colors } from "../../common/constants";
 interface IAvatarItemProps {
     data?: any;
     selectedItem?: number;
+    onPress: (val: any) => void,
 }
 
-const AvatarItem: FC<IAvatarItemProps> = ({ data, selectedItem }) => {
+const AvatarItem: FC<IAvatarItemProps> = ({ data, selectedItem, onPress }) => {
 
     const [selectedAvatar, setSelectedAvatar] = useState(selectedItem);
+
+    const handleChooseAvatarImage = (avatar: any) => {
+        setSelectedAvatar(avatar.id)
+        onPress(avatar.id);
+    }
 
     return data.map((avatar: any) => {
         return (
             <View
                 key={avatar.id}
                 style={avatar.id != selectedAvatar ? styles.avatarBox : styles.avatarSelectedBox}>
-                <TouchableOpacity activeOpacity={0.7} onPress={() => setSelectedAvatar(avatar.id)}>
+                <TouchableOpacity
+                    activeOpacity={0.7}
+                    onPress={() => handleChooseAvatarImage(avatar)}>
                     <Image
                         resizeMode='contain'
                         style={styles.avatarImage}

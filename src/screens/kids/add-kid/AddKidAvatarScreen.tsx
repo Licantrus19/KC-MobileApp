@@ -37,6 +37,8 @@ const AVATAR_IMAGES_DATA: any = [
 
 const AddKidAvatarScreen: FC<IScreenProps> = ({ navigation, route }) => {
 
+    const [avatarImage, setAvatarImage] = useState(1);
+
     const goBack = () => {
         console.log();
         navigation.navigate('AddKidInformation');
@@ -52,7 +54,7 @@ const AddKidAvatarScreen: FC<IScreenProps> = ({ navigation, route }) => {
             birthdate: kid.birthDate,
             gender: kid.gender,
             relationship: kid.relationship,
-            avatarImage: "avatar_kid_" + kid.avatarImage + ".png"
+            avatarImage: "avatar_kid_" + avatarImage + ".png"
         };
         return kidDTO;
     }
@@ -71,6 +73,10 @@ const AddKidAvatarScreen: FC<IScreenProps> = ({ navigation, route }) => {
         });
     }
 
+    const selectAvatarImage = (val: any) => {
+        setAvatarImage(val);
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.contentContainer}>
@@ -82,6 +88,7 @@ const AddKidAvatarScreen: FC<IScreenProps> = ({ navigation, route }) => {
                         <AvatarItem
                             data={AVATAR_IMAGES_DATA}
                             selectedItem={kid.avatarImage}
+                            onPress={selectAvatarImage}
                         />
                     </ScrollView>
                 </View>
