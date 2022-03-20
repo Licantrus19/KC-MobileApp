@@ -12,3 +12,11 @@ export const setTokenData = (token: string) => {
 export const cleanTokenData = () => {
     return AsyncStorage.removeItem(storageKeys.AUTH_TOKEN);
 }
+
+export const getProfileImageData = () => {
+    return AsyncStorage.getItem(storageKeys.PROFILE_IMAGE);
+}
+
+export const setProfileImageData = (profileImage: string) => {
+    return AsyncStorage.setItem(storageKeys.PROFILE_IMAGE, profileImage);
+}

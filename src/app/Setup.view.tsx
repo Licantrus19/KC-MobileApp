@@ -37,4 +37,3 @@ const Setup: FC<ISetupProps> = ({ sessionStore }) => {
 }
 
 export default inject('sessionStore')(observer(Setup));
-/* export default Setup; */

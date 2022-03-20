@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import { TabIcon } from "./components";
 import { createStackNavigator, StackNavigationOptions } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -15,11 +15,14 @@ import {
     TestQuestion,
     ResultTest
 } from "../screens";
-import { } from "../stores/interfaces";
 import { Label, SettingsApp } from "../components";
 import { Image, Text, TouchableOpacity } from "react-native";
 import { Button } from "react-native-paper";
 import * as RootNavigation from './rootNavigation';
+import { getUserInformationAsync } from "../api/user.api";
+import { Util } from "../common/utils";
+import { ISessionStore } from "../stores/interfaces";
+import stores from "../stores";
 
 
 const Stack = createStackNavigator();
@@ -38,7 +41,7 @@ const mainScreenOptions: StackNavigationOptions = {
     headerTitleAlign: "center",
     headerLeft: () => { return <Image style={{ marginHorizontal: 15, width: 40, height: 40 }} source={require("../assets/logo/logo_komodocare_blue.png")} /> },
     headerRight: () => {
-        return <TouchableOpacity activeOpacity={.5} onPress={goToProfile}><Image style={{ marginHorizontal: 15, width: 40, height: 40 }} source={require("../assets/profile_icons/profile_icon_1.png")} /></TouchableOpacity>
+        return <TouchableOpacity activeOpacity={.5} onPress={goToProfile}><Image style={{ marginHorizontal: 15, width: 40, height: 40 }} source={Util.avatarImage(stores.session.profileImage)} /></TouchableOpacity>
     }
 }
 

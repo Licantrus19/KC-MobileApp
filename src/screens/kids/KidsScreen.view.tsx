@@ -1,8 +1,9 @@
 import React, { FC, useCallback, useEffect, useState } from "react";
-import { Button, FlatList, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, FlatList, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { kidsFromUser } from "../../api/kids.api";
 import { KidItem, Container, Label } from "../../components";
 import { useIsFocused } from "@react-navigation/native";
+import { Util } from "../../common/utils";
 
 interface IScreenProps {
     navigation: any

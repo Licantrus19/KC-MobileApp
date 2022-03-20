@@ -1,5 +1,7 @@
-import React, { FC, useEffect, useState } from "react";
+import { useIsFocused } from "@react-navigation/native";
+import React, { FC, useCallback, useEffect, useState } from "react";
 import { Button, Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { getUserInformation } from "../../api/user.api";
 import { AvatarItem, Container, Label } from "../../components";
 
 interface IScreenProps {
@@ -31,7 +33,15 @@ const AVATAR_IMAGES_DATA: any = [
         id: 6,
         imageUri: require('../../assets/avatars/profile/avatar_profile_6.png')
     }
-]
+];
+
+interface UserProfileDTO {
+    firstName: any,
+    lastName: any,
+    identificationNumber: any,
+    avatarImage: any,
+    selectedAvatar: any
+}
 
 const ProfileScreen: FC<IScreenProps> = ({ navigation }) => {
 
@@ -39,7 +49,17 @@ const ProfileScreen: FC<IScreenProps> = ({ navigation }) => {
     const [lastName, setLastName] = useState('');
     const [identificationNumber, setIdentificationNumber] = useState('');
 
-    const [avatar, setAvatar] = useState('');
+    const [avatarImage, setAvatarImage] = useState(1);
+
+    const [user, setUser] = useState<UserProfileDTO>({
+        firstName: '',
+        lastName: '',
+        identificationNumber: '',
+        avatarImage: '',
+        selectedAvatar: ''
+    });
+
+    const isFocused = useIsFocused();
 
     const saveChanges = () => {
         console.log();
@@ -53,11 +73,20 @@ const ProfileScreen: FC<IScreenProps> = ({ navigation }) => {
         console.log();
     }
 
-    const user = {
-        firstName: 'Marcelo',
-        lastName: 'Rios',
-        identificationNumber: '00000000',
-        selectedAvatar: 1
+    const loadUserInfo = useCallback(async () => {
+        getUserInformation().then((result) => {
+            const userInfo = result.data;
+            userInfo.selectedAvatar = userInfo.avatarImage.charAt(15);
+            setUser(userInfo);
+        })
+    }, [navigation, isFocused]);
+
+    useEffect(() => {
+        loadUserInfo();
+    }, [loadUserInfo]);
+
+    const selectAvatarImage = (val: any) => {
+        setAvatarImage(val);
     }
 
     return (
@@ -66,7 +95,7 @@ const ProfileScreen: FC<IScreenProps> = ({ navigation }) => {
                 <View style={styles.firstName}>
                     <Text style={styles.boldText}>Nombres:</Text>
                     <View style={styles.editPropertyContainer}>
-                        <Text style={styles.userPropertyText}>{user.firstName}</Text>
+                        <Text style={styles.userPropertyText}>{user!.firstName}</Text>
                         <TouchableOpacity style={styles.editPropertyButton}>
                             <Image
                                 source={require('../../assets/profile_icons/edit_button_icon.png')}
@@ -78,7 +107,7 @@ const ProfileScreen: FC<IScreenProps> = ({ navigation }) => {
                 <View style={styles.lastName}>
                     <Text style={styles.boldText}>Apellidos:</Text>
                     <View style={styles.editPropertyContainer}>
-                        <Text style={styles.userPropertyText}>{user.lastName}</Text>
+                        <Text style={styles.userPropertyText}>{user!.lastName}</Text>
                         <TouchableOpacity style={styles.editPropertyButton}>
                             <Image
                                 source={require('../../assets/profile_icons/edit_button_icon.png')}
@@ -90,7 +119,7 @@ const ProfileScreen: FC<IScreenProps> = ({ navigation }) => {
                 <View style={styles.identificationNumber}>
                     <Text style={styles.boldText}>DNI:</Text>
                     <View style={styles.editPropertyContainer}>
-                        <Text style={styles.userPropertyText}>{user.identificationNumber}</Text>
+                        <Text style={styles.userPropertyText}>{user!.identificationNumber}</Text>
                         <TouchableOpacity style={styles.editPropertyButton}>
                             <Image
                                 source={require('../../assets/profile_icons/edit_button_icon.png')}
@@ -101,14 +130,15 @@ const ProfileScreen: FC<IScreenProps> = ({ navigation }) => {
                 </View>
                 <View style={styles.avatar}>
                     <Text style={styles.boldText}>Avatar:</Text>
-                    <ScrollView
+                    {user.selectedAvatar != '' && <ScrollView
                         horizontal={true}
                         showsHorizontalScrollIndicator={false}>
                         <AvatarItem
                             data={AVATAR_IMAGES_DATA}
-                            selectedItem={user.selectedAvatar}
+                            selectedItem={user!.selectedAvatar}
+                            onPress={selectAvatarImage}
                         />
-                    </ScrollView>
+                    </ScrollView>}
                 </View>
             </View>
             <View style={styles.bottomButtons}>

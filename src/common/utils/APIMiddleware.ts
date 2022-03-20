@@ -45,7 +45,6 @@ export const APIMiddleware = {
 
 async function getHeaders(): Promise<any> {
     const token = await AsyncStorage.getItem(storageKeys.AUTH_TOKEN);
-    console.log('token: ', token);
     const headers = {
         Authorization: 'Bearer ' + token,
     }

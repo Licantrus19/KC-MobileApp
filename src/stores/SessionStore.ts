@@ -2,8 +2,9 @@ import { observable, action, decorate } from "mobx";
 import { ISessionStore } from "./interfaces";
 import { User } from "../common/types";
 import users from "./data/users.json";
-import { cleanTokenData, getTokenData, setTokenData } from "../common/storage";
+import { cleanTokenData, getTokenData, setProfileImageData, setTokenData } from "../common/storage";
 import { login } from "../api/auth.api";
+import { getUserInformation } from "../api/user.api";
 
 class SessionStore implements ISessionStore {
     token: any;
@@ -11,20 +12,27 @@ class SessionStore implements ISessionStore {
     loading: boolean = false;
     chekingSession: boolean = true;
     error: any = null;
+    profileImage: string = '';
 
     loginUser = async (email: string, password: string) => {
         this.loading = true;
-        login(email, password).then(async (result: any) => {
-            if (result.data.token != null) {
-                this.token = result.data.token;
-                await setTokenData(result.data.token);
-            } else {
-                this.error = {
-                    message: "Usuario o contraseña incorrecta"
-                }
-            }
-            this.loading = false;
-        });
+        setTimeout(async () => {
+            login(email, password)
+                .then(async (result: any) => {
+                    if (result.data.token != null) {
+                        this.setToken(result.data.token);
+                        this.setProfileImage(result.data.profileImage);
+                        setTokenData(result.data.token);
+                        setProfileImageData(result.data.profileImage);
+                    } else {
+                        this.error = {
+                            message: "Usuario o contraseña incorrecta"
+                        }
+                    }
+                    this.loading = false;
+                })
+        }, 4000)
+
     }
 
     checkSession = async () => {
@@ -47,6 +55,7 @@ class SessionStore implements ISessionStore {
     }
 
     setToken = (token: string) => { this.token = token; }
+    setProfileImage = (profileImage: string) => { this.profileImage = profileImage; }
     setUser = (user: any) => { this.user = user; }
     setError = (error: any) => { this.error = error; }
     cleanError = () => { this.error = null; }
