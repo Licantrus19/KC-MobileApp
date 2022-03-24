@@ -23,6 +23,7 @@ const KidsScreen: FC<IScreenProps> = ({ navigation }) => {
                     id: item.id,
                     type: 1,
                     data: {
+                        id: item.id,
                         firstName: item.firstName,
                         lastName: item.lastName,
                         avatarImage: item.avatarImage,
@@ -36,6 +37,7 @@ const KidsScreen: FC<IScreenProps> = ({ navigation }) => {
                 id: '000',
                 type: 2,
                 data: {
+                    id: '0',
                     firstName: '',
                     lastName: '',
                     avatarImage: '',

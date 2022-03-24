@@ -48,7 +48,7 @@ const mainScreenOptions: StackNavigationOptions = {
 export const ProfileStack = () => {
     return (
         <Stack.Navigator initialRouteName="Profile" screenOptions={mainScreenOptions}>
-            <Stack.Screen options={{ headerTitle: "Profile" }} name="Profile" component={Profile} />
+            <Stack.Screen options={{ headerTitle: "Perfil" }} name="Profile" component={Profile} />
         </Stack.Navigator>
     )
 }

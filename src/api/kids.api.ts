@@ -8,6 +8,11 @@ export function kidsFromUser() {
     return APIMiddleware.get<any>(url);
 }
 
+export function questionnaireFromKid(kidId: string) {
+    const url = `${KID_URL}/questionnaire/${kidId}`;
+    return APIMiddleware.get<any>(url);
+}
+
 export function addKid(kidDTO: any) {
     const url = `${KID_URL}/`;
     return APIMiddleware.post<any>(url, { data: kidDTO });

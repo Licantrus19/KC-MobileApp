@@ -44,7 +44,7 @@ const KidItem: FC<IComponentProps> = ({ width = '50%', position = 1, onPress, ty
                         </View>
                     </TouchableOpacity>
                 </View>
-                <View style={{ marginHorizontal: 20 }}>
+                <View style={{ marginHorizontal: 40 }}>
                     <Label size={13}>
                         Nombres: {data.firstName}
                     </Label>

@@ -10,9 +10,11 @@ const TestButton: FC<IScreenProps> = ({ onPress, item }) => {
 
     const bgColor = item.backgroundColor;
     const imagePath = item.imageUri;
+    const status = item.status;
+    const opacity = status == 1 ? 0.7 : 1;
 
     return (
-        <TouchableOpacity onPress={onPress} activeOpacity={0.7} style={[styleContainer(bgColor).container]}>
+        <TouchableOpacity disabled={status == 1} onPress={onPress} activeOpacity={0.7} style={[styleContainer(bgColor, opacity).container]}>
             <Image
                 resizeMode='contain'
                 style={styles.image}
@@ -24,7 +26,7 @@ const TestButton: FC<IScreenProps> = ({ onPress, item }) => {
 
 export default TestButton
 
-const styleContainer = (bgColor: any) => StyleSheet.create({
+const styleContainer = (bgColor: any, opacity: any) => StyleSheet.create({
     container: {
         flex: 1,
         marginStart: 25,
@@ -34,7 +36,8 @@ const styleContainer = (bgColor: any) => StyleSheet.create({
         backgroundColor: bgColor,
         borderRadius: 10,
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+        opacity: opacity
     }
 });
 
