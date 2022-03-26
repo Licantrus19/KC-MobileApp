@@ -1,6 +1,6 @@
 import { inject, observer } from 'mobx-react';
 import React, { useState, FC } from 'react';
-import { Button, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, ScrollView, StyleSheet, Text, TextInput, ToastAndroid, View } from 'react-native';
 import { registerUser } from '../../api/user.api';
 import { AvatarItem } from '../../components';
 import { ISessionStore } from '../../stores/interfaces';
@@ -60,14 +60,19 @@ const RegisterAvatar: FC<IScreenProps> = ({ navigation, route, sessionStore }) =
     const register = () => {
         // create user
         const userDTO = buildUserDTO(user);
-
+        console.log(userDTO);
         registerUser(userDTO).then((result) => {
             if (result.data.id != null) {
                 // login user
                 sessionStore.loginUser(userDTO.username, userDTO.password);
             } else {
                 // show error message
+                console.log('error');
+                ToastAndroid.show('Server error', ToastAndroid.SHORT);
             }
+        }).catch((error) => {
+            console.log('error2');
+            ToastAndroid.show('Server error', ToastAndroid.SHORT);
         });
     }
 

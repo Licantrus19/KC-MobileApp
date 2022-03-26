@@ -7,6 +7,8 @@ import { Util } from '../../common/utils';
 import { Label } from '../../components';
 import TestButton from './TestButton.view';
 
+const asd =  require('./test/test_questions/27_months/fine_motor');
+
 const initialEvaluation = [
     {
         id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
@@ -67,7 +69,7 @@ interface IScreenProps {
 
 const KidTestScreen: FC<IScreenProps> = ({ navigation, route }) => {
 
-    const kidData = route.params ? route.params.kidData : {};
+    const kidData = route.params ? route.params.kidData : {};    
 
     const [evaluations, setEvaluations] = useState<any>();
 

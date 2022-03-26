@@ -1,7 +1,6 @@
 import { observable, action, decorate } from "mobx";
 import { ISessionStore } from "./interfaces";
 import { User } from "../common/types";
-import users from "./data/users.json";
 import { cleanTokenData, getTokenData, setProfileImageData, setTokenData } from "../common/storage";
 import { login } from "../api/auth.api";
 import { getUserInformation } from "../api/user.api";
@@ -26,8 +25,13 @@ class SessionStore implements ISessionStore {
                         setProfileImageData(result.data.profileImage);
                     } else {
                         this.error = {
-                            message: "Usuario o contraseña incorrecta"
+                            message: 'Usuario o contraseña incorrectos'
                         }
+                    }
+                    this.loading = false;
+                }).catch(() => {
+                    this.error = {
+                        message: 'Usuario o contraseña incorrectos'
                     }
                     this.loading = false;
                 })
