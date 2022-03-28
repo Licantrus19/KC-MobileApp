@@ -1,11 +1,16 @@
-import { useIsFocused } from "@react-navigation/native";
+import { StackActions, useIsFocused } from "@react-navigation/native";
+import { inject, observer } from "mobx-react";
 import React, { FC, useCallback, useEffect, useState } from "react";
-import { Button, Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import { getUserInformation } from "../../api/user.api";
+import { Button, Image, ScrollView, StyleSheet, Text, TextInput, ToastAndroid, TouchableOpacity, View } from 'react-native';
+import { getUserInformation, updateUser } from "../../api/user.api";
 import { AvatarItem, Container, Label } from "../../components";
 
+import { ISessionStore } from "../../stores/interfaces";
+import SessionStore from "../../stores/SessionStore";
+
 interface IScreenProps {
-    navigation: any
+    navigation: any,
+    sessionStore: ISessionStore
 }
 
 const AVATAR_IMAGES_DATA: any = [
@@ -35,49 +40,66 @@ const AVATAR_IMAGES_DATA: any = [
     }
 ];
 
-interface UserProfileDTO {
-    firstName: any,
-    lastName: any,
-    identificationNumber: any,
-    avatarImage: any,
-    selectedAvatar: any
-}
-
-const ProfileScreen: FC<IScreenProps> = ({ navigation }) => {
+const ProfileScreen: FC<IScreenProps> = ({ navigation, sessionStore }) => {
 
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [identificationNumber, setIdentificationNumber] = useState('');
 
-    const [avatarImage, setAvatarImage] = useState(1);
+    const [editFirstName, setEditFirstName] = useState(false);
+    const [editLastName, setEditLastName] = useState(false);
+    const [editIdentificationNumber, setEditIdentificationNumber] = useState(false);
 
-    const [user, setUser] = useState<UserProfileDTO>({
-        firstName: '',
-        lastName: '',
-        identificationNumber: '',
-        avatarImage: '',
-        selectedAvatar: ''
-    });
+    const [avatarImage, setAvatarImage] = useState(-1);
 
     const isFocused = useIsFocused();
 
+    const buildUserDTO = () => {
+        const userDTO = {
+            firstName: firstName,
+            lastName: lastName,
+            identificationNumber: identificationNumber,
+            avatarImage: "avatar_profile_" + avatarImage + ".png"
+        };
+        return userDTO;
+    }
+
     const saveChanges = () => {
-        console.log();
+        const userDTO = buildUserDTO();
+        console.log(userDTO);
+        updateUser(userDTO).then((result) => {
+            if (result.data.username != null) {
+                // update profile image
+                SessionStore.setProfileImage("avatar_profile_" + avatarImage + ".png");
+
+                // notify user
+                ToastAndroid.show('Información actualizada', ToastAndroid.SHORT);
+            } else {
+                ToastAndroid.show('Server error', ToastAndroid.SHORT);
+            }
+        }).catch((error: any) => {
+            console.log('error: ', error);
+            ToastAndroid.show('Server error', ToastAndroid.SHORT);
+        });
     }
 
     const cancelChanges = () => {
         navigation.goBack();
     }
 
-    const logout = () => {
-        console.log();
+    const logoutSession = () => {
+        sessionStore.logout().then(() => {
+
+        })
     }
 
     const loadUserInfo = useCallback(async () => {
         getUserInformation().then((result) => {
             const userInfo = result.data;
-            userInfo.selectedAvatar = userInfo.avatarImage.charAt(15);
-            setUser(userInfo);
+            setFirstName(userInfo.firstName);
+            setLastName(userInfo.lastName);
+            setIdentificationNumber(userInfo.identificationNumber);
+            setAvatarImage(userInfo.avatarImage.charAt(15));
         })
     }, [navigation, isFocused]);
 
@@ -95,47 +117,98 @@ const ProfileScreen: FC<IScreenProps> = ({ navigation }) => {
                 <View style={styles.firstName}>
                     <Text style={styles.boldText}>Nombres:</Text>
                     <View style={styles.editPropertyContainer}>
-                        <Text style={styles.userPropertyText}>{user!.firstName}</Text>
-                        <TouchableOpacity style={styles.editPropertyButton}>
-                            <Image
-                                source={require('../../assets/profile_icons/edit_button_icon.png')}
-                                style={styles.editIcon}
-                            />
-                        </TouchableOpacity>
+                        {!editFirstName ?
+                            <>
+                                <Text style={styles.userPropertyText}>{firstName}</Text>
+                                <TouchableOpacity onPress={() => setEditFirstName(true)} style={styles.editPropertyButton}>
+                                    <Image
+                                        source={require('../../assets/profile_icons/edit_button_icon.png')}
+                                        style={styles.editIcon}
+                                    />
+                                </TouchableOpacity>
+                            </> :
+                            <>
+                                <TextInput
+                                    style={styles.inputText}
+                                    onChangeText={firstName => setFirstName(firstName)}
+                                    defaultValue={firstName}
+                                />
+                                <TouchableOpacity onPress={() => setEditFirstName(false)} style={styles.editPropertyButton}>
+                                    <Image
+                                        source={require('../../assets/profile_icons/save_button_icon.png')}
+                                        style={styles.editIcon}
+                                    />
+                                </TouchableOpacity>
+                            </>
+                        }
                     </View>
                 </View>
                 <View style={styles.lastName}>
                     <Text style={styles.boldText}>Apellidos:</Text>
                     <View style={styles.editPropertyContainer}>
-                        <Text style={styles.userPropertyText}>{user!.lastName}</Text>
-                        <TouchableOpacity style={styles.editPropertyButton}>
-                            <Image
-                                source={require('../../assets/profile_icons/edit_button_icon.png')}
-                                style={styles.editIcon}
-                            />
-                        </TouchableOpacity>
+                        {!editLastName ?
+                            <>
+                                <Text style={styles.userPropertyText}>{lastName}</Text>
+                                <TouchableOpacity onPress={() => setEditLastName(true)} style={styles.editPropertyButton}>
+                                    <Image
+                                        source={require('../../assets/profile_icons/edit_button_icon.png')}
+                                        style={styles.editIcon}
+                                    />
+                                </TouchableOpacity>
+                            </> :
+                            <>
+                                <TextInput
+                                    style={styles.inputText}
+                                    onChangeText={lastName => setLastName(lastName)}
+                                    defaultValue={lastName}
+                                />
+                                <TouchableOpacity onPress={() => setEditLastName(false)} style={styles.editPropertyButton}>
+                                    <Image
+                                        source={require('../../assets/profile_icons/save_button_icon.png')}
+                                        style={styles.editIcon}
+                                    />
+                                </TouchableOpacity>
+                            </>
+                        }
                     </View>
                 </View>
                 <View style={styles.identificationNumber}>
                     <Text style={styles.boldText}>DNI:</Text>
                     <View style={styles.editPropertyContainer}>
-                        <Text style={styles.userPropertyText}>{user!.identificationNumber}</Text>
-                        <TouchableOpacity style={styles.editPropertyButton}>
-                            <Image
-                                source={require('../../assets/profile_icons/edit_button_icon.png')}
-                                style={styles.editIcon}
-                            />
-                        </TouchableOpacity>
+                        {!editIdentificationNumber ?
+                            <>
+                                <Text style={styles.userPropertyText}>{identificationNumber}</Text>
+                                <TouchableOpacity onPress={() => setEditIdentificationNumber(true)} style={styles.editPropertyButton}>
+                                    <Image
+                                        source={require('../../assets/profile_icons/edit_button_icon.png')}
+                                        style={styles.editIcon}
+                                    />
+                                </TouchableOpacity>
+                            </> :
+                            <>
+                                <TextInput
+                                    style={styles.inputText}
+                                    onChangeText={identificationNumber => setIdentificationNumber(identificationNumber)}
+                                    defaultValue={identificationNumber}
+                                />
+                                <TouchableOpacity onPress={() => setEditIdentificationNumber(false)} style={styles.editPropertyButton}>
+                                    <Image
+                                        source={require('../../assets/profile_icons/save_button_icon.png')}
+                                        style={styles.editIcon}
+                                    />
+                                </TouchableOpacity>
+                            </>
+                        }
                     </View>
                 </View>
                 <View style={styles.avatar}>
                     <Text style={styles.boldText}>Avatar:</Text>
-                    {user.selectedAvatar != '' && <ScrollView
+                    {avatarImage != -1 && <ScrollView
                         horizontal={true}
                         showsHorizontalScrollIndicator={false}>
                         <AvatarItem
                             data={AVATAR_IMAGES_DATA}
-                            selectedItem={user!.selectedAvatar}
+                            selectedItem={avatarImage}
                             onPress={selectAvatarImage}
                         />
                     </ScrollView>}
@@ -156,7 +229,7 @@ const ProfileScreen: FC<IScreenProps> = ({ navigation }) => {
                 </View>
                 <View style={styles.logoutButton}>
                     <Button
-                        onPress={logout}
+                        onPress={logoutSession}
                         title="Cerrar Sesión"
                         color="#E95656"></Button>
                 </View>
@@ -165,7 +238,7 @@ const ProfileScreen: FC<IScreenProps> = ({ navigation }) => {
     );
 }
 
-export default ProfileScreen;
+export default inject('sessionStore')(observer(ProfileScreen));
 
 const styles = StyleSheet.create({
     container: {
@@ -220,12 +293,13 @@ const styles = StyleSheet.create({
         height: 15
     },
     inputText: {
-        marginTop: 10,
+        marginTop: 8.5,
+        marginBottom: -1.5,
         marginEnd: 25,
-        padding: 10,
-        height: 40,
-        borderWidth: 1,
-        borderRadius: 5
+        borderWidth: 0,
+        fontSize: 18,
+        flex: 1,
+        padding: 0
     },
     bottomButtons: {
         marginBottom: 30

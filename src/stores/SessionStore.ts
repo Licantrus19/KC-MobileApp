@@ -1,7 +1,7 @@
 import { observable, action, decorate } from "mobx";
 import { ISessionStore } from "./interfaces";
 import { User } from "../common/types";
-import { cleanTokenData, getTokenData, setProfileImageData, setTokenData } from "../common/storage";
+import { cleanProfileImageData, cleanTokenData, getTokenData, setProfileImageData, setTokenData } from "../common/storage";
 import { login } from "../api/auth.api";
 import { getUserInformation } from "../api/user.api";
 
@@ -35,7 +35,7 @@ class SessionStore implements ISessionStore {
                     }
                     this.loading = false;
                 })
-        }, 4000)
+        }, 3000)
 
     }
 
@@ -53,9 +53,10 @@ class SessionStore implements ISessionStore {
     logout = async () => {
         this.loading = true;
         setTimeout(async () => {
-            await cleanTokenData();
+            cleanTokenData();
+            cleanProfileImageData();
             this.loading = false;
-        }, 1000)
+        }, 2000)
     }
 
     setToken = (token: string) => { this.token = token; }

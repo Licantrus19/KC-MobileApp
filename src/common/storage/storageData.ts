@@ -20,3 +20,7 @@ export const getProfileImageData = () => {
 export const setProfileImageData = (profileImage: string) => {
     return AsyncStorage.setItem(storageKeys.PROFILE_IMAGE, profileImage);
 }
+
+export const cleanProfileImageData = () => {
+    return AsyncStorage.removeItem(storageKeys.PROFILE_IMAGE);
+}

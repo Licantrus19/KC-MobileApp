@@ -8,6 +8,11 @@ export function registerUser(userDTO: any) {
     return APIMiddleware.post<any>(url, { data: userDTO, noAuthToken: true });
 }
 
+export function updateUser(userDTO: any) {
+    const url = `${USER_URL}`;
+    return APIMiddleware.put<any>(url, { data: userDTO });
+}
+
 export function getUserInformation() {
     const url = `${USER_URL}`;
     return APIMiddleware.get<any>(url);

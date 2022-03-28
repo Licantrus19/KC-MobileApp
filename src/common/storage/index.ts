@@ -2,6 +2,7 @@ export {
     cleanTokenData,
     getTokenData,
     setTokenData,
+    cleanProfileImageData,
     getProfileImageData,
-    setProfileImageData
+    setProfileImageData,
 } from './storageData';

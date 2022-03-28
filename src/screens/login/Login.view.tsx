@@ -212,7 +212,6 @@ const LoginScreen: FC<IScreenProps> = ({ navigation, sessionStore }) => {
                             <Text>Usuario</Text>
                             <TextInput
                                 style={styles.inputText}
-                                placeholder="email@example.com"
                                 onChangeText={user => setUser(user)}
                                 defaultValue={user}
                             />
@@ -220,8 +219,8 @@ const LoginScreen: FC<IScreenProps> = ({ navigation, sessionStore }) => {
                         <Animated.View style={styles.password}>
                             <Text>Contraseña</Text>
                             <TextInput
+                                secureTextEntry={true}
                                 style={styles.inputText}
-                                placeholder="****"
                                 onChangeText={password => setPassword(password)}
                                 defaultValue={password}
                             />
