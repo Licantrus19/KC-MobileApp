@@ -13,6 +13,11 @@ export function questionnaireFromKid(kidId: string) {
     return APIMiddleware.get<any>(url);
 }
 
+export function completeQuestionnaire(kidId: string, body: any) {
+    const url = `${KID_URL}/evaluation/${kidId}`;
+    return APIMiddleware.post<any>(url, { data: body });
+}
+
 export function addKid(kidDTO: any) {
     const url = `${KID_URL}/`;
     return APIMiddleware.post<any>(url, { data: kidDTO });

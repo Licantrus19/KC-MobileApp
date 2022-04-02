@@ -11,17 +11,7 @@ interface IScreenProps {
 const TestInformation: FC<IScreenProps> = ({ route, navigation }) => {
 
     const test = route.params ? route.params.test : null;
-
-    useEffect(() => {
-        /* navigation.dangerouslyGetParent().setOptions({
-            tabBarVisible: false
-        }); */
-    }, []);
-
-    //Handle Error
-    useEffect(() => {
-
-    }, []);
+    const kid = route.params ? route.params.kid : null;
 
     return (
         <>
@@ -72,7 +62,7 @@ const TestInformation: FC<IScreenProps> = ({ route, navigation }) => {
                         </Label>
                     </View>
                     <MaterialButton
-                        onPress={() => { navigation.navigate("TestQuestion", { index: 1, test: test }) }}
+                        onPress={() => { navigation.navigate("TestQuestion", { index: 1, test: test, max: test.data.questions.length * 10, kid }) }}
                         title="Empezar"
                         buttonColor="secondary"
                         buttonStyle={{ marginVertical: 5, width: '80%', backgroundColor: test.backgroundColor, borderColor: test.backgroundColor }} />

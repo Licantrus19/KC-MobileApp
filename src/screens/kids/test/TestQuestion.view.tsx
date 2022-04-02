@@ -1,9 +1,10 @@
 import React, { FC, useEffect, useState } from "react";
-import { Dimensions, Image, ScrollView, StyleSheet, TouchableOpacity, View } from "react-native";
+import { Dimensions, Image, ScrollView, StyleSheet, ToastAndroid, TouchableOpacity, View } from "react-native";
 import { colors } from "../../../common/constants";
 import { Container, Label, MaterialButton } from "../../../components";
 import Lightbox from 'react-native-lightbox-v2';
 import CheckBox from "@react-native-community/checkbox";
+import { completeQuestionnaire } from "../../../api/kids.api";
 
 interface IScreenProps {
     route: any,
@@ -14,6 +15,10 @@ const TestQuestion: FC<IScreenProps> = ({ route, navigation }) => {
 
     const test = route.params ? route.params.test : null;
     const index = route.params ? route.params.index : null;
+    const max = route.params ? route.params.max : null;
+    const kid = route.params ? route.params.kid : null;
+
+    const result = index == 1 ? 0 : route.params.points;
 
     const [MAIN_STAGE, EXPLANATION_STAGE, CONTENT_STAGE] = [1, 2, 3];
 
@@ -24,23 +29,73 @@ const TestQuestion: FC<IScreenProps> = ({ route, navigation }) => {
 
     const [selectedImageCheckbox, setSelectedImageCheckbox] = useState(undefined);
 
-    const [selected, setSelected] = useState([]);
+    const [selectedList, setSelectedList] = useState(
+        test.data.questions[index - 1].type === "checklist" ?
+            new Array(test.data.questions[index - 1].options.length).fill(false)
+            : new Array(0).fill(false)
+    );
 
     //Call API
     useEffect(() => {
+        clearStates();
+    }, [index]); //cada vez que cambia de pregunta
 
-    }, []);
-
-    //Handle Error
-    useEffect(() => {
-
-    }, []);
-
-    const nextQuestion = () => {
+    const clearStates = () => {
         setStage(MAIN_STAGE);
+        setSelectedList(
+            test.data.questions[index - 1].type === "checklist" ?
+                new Array(test.data.questions[index - 1].options.length).fill(false)
+                : new Array(0).fill(false)
+        );
+    }
+
+    const handleSelection = (pos: any) => {
+        const temp = selectedList.map((item, index) => {
+            return index === pos ? !item : item;
+        });
+        setSelectedList(temp);
+    }
+
+    const endTest = (result: any) => {
+        console.log('max ' + max);
+
+        const body = {
+            type: test.type,
+            score: result,
+            answers: {}
+        }
+        completeQuestionnaire(kid, body).then((result) => {
+            if (result) {
+                console.log(result.data);
+            }
+        }).finally(() => {
+            ToastAndroid.show('Test Completado con éxito', ToastAndroid.SHORT);
+            navigation.navigate("ResultTest", { test: test, result, max, kid })
+        })
+
+    }
+
+    const nextQuestion = (points?: any) => {
+        let answers = 0;
+        let otherPoints = 0;
+        if (test.data.questions[index - 1].type === "checklist") {
+            answers = selectedList.filter((i) => { return i }).length;
+            if (answers == 0) {
+                otherPoints = 0;
+            } else if (answers < test.data.questions[index - 1].rangeAnswer) {
+                otherPoints = 5;
+            } else if (answers >= test.data.questions[index - 1].rangeAnswer) {
+                otherPoints = 10;
+            }
+        }
         index == test.data.questions.length
-            ? navigation.navigate("ResultTest", { test: test })
-            : navigation.navigate("TestQuestion", { test: test, index: index + 1 })
+            ? endTest(points ? points : otherPoints)
+            : navigation.navigate("TestQuestion", { test: test, index: index + 1, points: points ? points : otherPoints, max, kid })
+    }
+
+    const answerAction = (pos: any) => {
+        const points = test.data.questions[index - 1].answer[pos] ? test.data.questions[index - 1].answer[pos].points : 0;
+        nextQuestion(result + points);
     }
 
     const renderMainStage = () => {
@@ -57,16 +112,14 @@ const TestQuestion: FC<IScreenProps> = ({ route, navigation }) => {
                     </Label>
                 </View>
                 {test.data.questions[index - 1].type === "checklist" && (
-                    <ScrollView style={{ marginTop: 5, marginHorizontal: 20, maxHeight: '43%' }}>
-                        {test.data.questions[index - 1].options.map((item: any) => {
+                    <ScrollView showsVerticalScrollIndicator={false} style={{ marginTop: 5, marginHorizontal: 20, maxHeight: '43%' }}>
+                        {test.data.questions[index - 1].options.map((item: any, pos: any) => {
                             return <>
                                 <View style={{ flexDirection: 'row', marginBottom: 5 }}>
                                     <View>
                                         <CheckBox
-                                            value={false}
-                                            onValueChange={(value) => {
-                                                
-                                            }}
+                                            value={selectedList[pos]}
+                                            onValueChange={() => { handleSelection(pos); }}
                                             tintColors={{ true: 'black', false: 'white' }}
                                             style={{ borderRadius: 50 }}
                                         />
@@ -94,8 +147,8 @@ const TestQuestion: FC<IScreenProps> = ({ route, navigation }) => {
                                             )}
                                             {selectedImageCheckbox && (
                                                 <Image
-                                                    resizeMode={customResize}
-                                                    style={{ width: Dimensions.get('window').width, height: Dimensions.get('screen').height * 0.9 }}
+                                                    resizeMode={'center'}
+                                                    style={{ width: 300, height: 300, alignSelf: 'center' }}
                                                     source={test.data.questions[index - 1].imageUrls[selectedImageCheckbox - 1].url} />
                                             )}
                                         </>
@@ -123,7 +176,7 @@ const TestQuestion: FC<IScreenProps> = ({ route, navigation }) => {
                             buttonStyle={{ marginVertical: 5, width: '80%', backgroundColor: "white", borderColor: test.backgroundColor }} />
                     )}
                     <MaterialButton
-                        onPress={nextQuestion}
+                        onPress={() => { nextQuestion() }}
                         title="Siguiente Pregunta"
                         titleStyle={{ color: test.backgroundColor }}
                         buttonStyle={{ marginVertical: 5, width: '80%', backgroundColor: "white", borderColor: test.backgroundColor }} />
@@ -300,19 +353,19 @@ const TestQuestion: FC<IScreenProps> = ({ route, navigation }) => {
                 <View style={{ position: 'absolute', bottom: 20, width: '100%', alignItems: 'center' }}>
                     <View style={{ flexDirection: 'row', width: '80%' }}>
                         <MaterialButton
-                            onPress={() => { }}
+                            onPress={() => { answerAction(0) }}
                             title="Sí"
                             buttonColor="secondary"
                             titleStyle={{ color: test.backgroundColor }}
                             buttonStyle={{ marginVertical: 5, flex: 1, backgroundColor: "white", borderColor: test.backgroundColor }} />
                         <MaterialButton
-                            onPress={() => { }}
+                            onPress={() => { answerAction(1) }}
                             title="A veces"
                             buttonColor="secondary"
                             titleStyle={{ color: test.backgroundColor }}
                             buttonStyle={{ marginVertical: 5, flex: 10, marginHorizontal: 10, backgroundColor: "white", borderColor: test.backgroundColor }} />
                         <MaterialButton
-                            onPress={() => { }}
+                            onPress={() => { answerAction(2) }}
                             title="No"
                             buttonColor="secondary"
                             titleStyle={{ color: test.backgroundColor }}
@@ -325,7 +378,7 @@ const TestQuestion: FC<IScreenProps> = ({ route, navigation }) => {
                         titleStyle={{ color: test.backgroundColor }}
                         buttonStyle={{ marginVertical: 5, width: '80%', backgroundColor: "white", borderColor: test.backgroundColor }} />
                     <MaterialButton
-                        onPress={nextQuestion}
+                        onPress={() => { nextQuestion() }}
                         title="Siguiente Pregunta"
                         titleStyle={{ color: test.backgroundColor }}
                         buttonStyle={{ marginVertical: 5, width: '80%', backgroundColor: "white", borderColor: test.backgroundColor }} />

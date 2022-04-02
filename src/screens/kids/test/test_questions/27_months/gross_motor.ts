@@ -1,7 +1,7 @@
 export const questions = [
     {
         id: 1,
-        generalQuestion: "¿Su niñosaddas sube o baja al menos dos escalones sin ayuda? Puede agarrarse de la pared o de la barandilla. (Ud. puede hacer esta observación en la tienda, en el parque, o en casa.)",
+        generalQuestion: "¿Su niño sube o baja al menos dos escalones sin ayuda? Puede agarrarse de la pared o de la barandilla. (Ud. puede hacer esta observación en la tienda, en el parque, o en casa.)",
         specificQuestions: [],
         type: "select",
         hasAudio: false,

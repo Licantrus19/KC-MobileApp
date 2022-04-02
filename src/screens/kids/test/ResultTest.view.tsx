@@ -11,7 +11,7 @@ interface IScreenProps {
 const ResultTest: FC<IScreenProps> = ({ route, navigation }) => {
 
     const test = route.params ? route.params.test : null;
-
+    const result = route.params ? route.params.result : 0;
     //Call API
     useEffect(() => {
 
@@ -46,13 +46,13 @@ const ResultTest: FC<IScreenProps> = ({ route, navigation }) => {
                         </View>
                         <View style={{ flex: 1, alignItems: 'flex-end' }}>
                             <Label center size={25} textStyle={{ color: "yellow", fontWeight: 'bold' }}>
-                                15
+                                {result}
                             </Label>
                         </View>
                     </View>
                     <View style={{ position: 'absolute', bottom: 20, width: '100%', alignItems: 'center' }}>
                         <MaterialButton
-                            onPress={() => { navigation.navigate("KidProfileTest") }}
+                            onPress={() => { navigation.navigate("Kids") }}
                             title="Salir"
                             titleStyle={{ color: test.backgroundColor }}
                             buttonStyle={{ marginVertical: 5, width: '80%', backgroundColor: "white", borderColor: test.backgroundColor }} />
