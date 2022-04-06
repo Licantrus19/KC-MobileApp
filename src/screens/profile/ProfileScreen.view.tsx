@@ -4,6 +4,7 @@ import React, { FC, useCallback, useEffect, useState } from "react";
 import { Button, Image, ScrollView, StyleSheet, Text, TextInput, ToastAndroid, TouchableOpacity, View } from 'react-native';
 import { getUserInformation, updateUser } from "../../api/user.api";
 import { AvatarItem, Container, Label } from "../../components";
+import { navigate } from "../../navigation/rootNavigation";
 
 import { ISessionStore } from "../../stores/interfaces";
 import SessionStore from "../../stores/SessionStore";
@@ -89,7 +90,6 @@ const ProfileScreen: FC<IScreenProps> = ({ navigation, sessionStore }) => {
 
     const logoutSession = () => {
         sessionStore.logout().then(() => {
-
         })
     }
 
