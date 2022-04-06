@@ -8,8 +8,8 @@ import {
   View,
   StyleProp,
   ViewStyle,
-  TouchableWithoutFeedback,
   TouchableOpacity,
+  TextStyle,
 } from 'react-native';
 import {TextInputProps} from 'react-native-paper/lib/typescript/components/TextInput/TextInput';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -19,6 +19,7 @@ interface ICustomInputText extends Partial<TextInputProps> {
   errorMessage?: string;
   label?: string;
   name: string;
+  labelStyle?: StyleProp<TextStyle>;
   containerStyle?: StyleProp<ViewStyle>;
 }
 
@@ -30,43 +31,46 @@ const CustomInputText: FC<ICustomInputText> = ({
   placeholder,
   secureTextEntry,
   containerStyle,
+  labelStyle,
   ...props
 }) => {
   const [showPassword, setShowPassword] = useState<boolean>(
-    secureTextEntry || true,
+    secureTextEntry || false,
   );
 
   return (
     <View style={containerStyle}>
-      {label && <Text>{label}</Text>}
-      <Controller
-        name={name}
-        control={control}
-        render={({field: {onChange, onBlur, value}}) => (
-          <View style={styles.inputContainer}>
-            <TextInput
-              secureTextEntry={showPassword}
-              style={{...styles.inputText}}
-              onBlur={onBlur}
-              onChangeText={onChange}
-              value={value}
-              placeholder={placeholder}
-              {...props}
-            />
-            {secureTextEntry && (
-              <TouchableOpacity
-                style={styles.iconContainer}
-                activeOpacity={1}
-                onPress={setShowPassword.bind(this, !showPassword)}>
-                <Ionicons
-                  name={showPassword ? 'eye-outline' : 'eye-off-outline'}
-                  size={20}
-                />
-              </TouchableOpacity>
-            )}
-          </View>
-        )}
-      />
+      {label && <Text style={labelStyle}>{label}</Text>}
+      <View style={styles.inputContainer}>
+        <Controller
+          name={name}
+          control={control}
+          render={({field: {onChange, onBlur, value}}) => (
+            <>
+              <TextInput
+                secureTextEntry={showPassword}
+                style={{...styles.inputText}}
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+                placeholder={placeholder}
+                {...props}
+              />
+              {secureTextEntry && (
+                <TouchableOpacity
+                  style={styles.iconContainer}
+                  activeOpacity={1}
+                  onPress={setShowPassword.bind(this, !showPassword)}>
+                  <Ionicons
+                    name={showPassword ? 'eye-outline' : 'eye-off-outline'}
+                    size={20}
+                  />
+                </TouchableOpacity>
+              )}
+            </>
+          )}
+        />
+      </View>
       {errorMessage && <Text style={styles.errorMessage}>{errorMessage}</Text>}
     </View>
   );

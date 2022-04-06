@@ -1,32 +1,82 @@
-import { Picker } from '@react-native-picker/picker';
 import React, { useState, FC } from 'react';
-import { Button, StyleSheet, Text, TextInput, View, Image, Platform, ScrollView } from 'react-native';
+import { Button, StyleSheet, View, Image, Platform, ScrollView } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import Icon from 'react-native-vector-icons/FontAwesome5';
 
+import { useForm } from 'react-hook-form';
+import * as yup from 'yup';
+import { yupResolver } from "@hookform/resolvers/yup";
+import { CustomInputText, CustomSelect } from '../../../components';
 interface IScreenProps {
     navigation: any
 }
 
+interface KidData {
+    firstName: string;
+    lastName: string;
+    dni: string;
+    birthDate: string;
+    gender: 'Niño' | 'Niña' | '';
+    relationship: string;
+}
+
+const schema = yup
+    .object({
+        firstName: yup
+            .string()
+            .min(3, 'Mínimo 3 caracteres')
+            .max(30, 'Máximo 30 caracteres')
+            .required('Nombres son requeridos'),
+        lastName: yup
+            .string()
+            .min(3, 'Mínimo 3 caracteres')
+            .max(30, 'Máximo 30 caracteres')
+            .required('Apellidos son requeridos'),
+        dni: yup
+            .string()
+            .max(8, 'Se requiere 8 caracteres')
+            .min(8, 'Se requiere 8 caracteres')
+            .required('DNI es requerido'),
+        birthDate: yup.string().required('Fecha de nacimiento es requerida'),
+        gender: yup.string().required('Género es requerido'),
+        relationship: yup.string().required('Parentesco es requerido'),
+    })
+    .required();
+
 const AddKidInformationScreen: FC<IScreenProps> = ({ navigation }) => {
 
     //form variables
+    const { control, handleSubmit, setValue, formState: { errors }, clearErrors } = useForm<KidData>({
+        defaultValues: {
+            firstName: '',
+            lastName: '',
+            dni: '',
+            birthDate: '',
+            gender: '',
+            relationship: '',
+        },
+        resolver: yupResolver(schema)
+    })
 
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [identificationNumber, setIdentificationNumber] = useState('');
-    const [birthDate, setBirthDate] = useState('');
-    const [gender, setGender] = useState('');
-    const [relationship, setRelationship] = useState('');
+    const childMaxDate = () => {
+        let maxDate = new Date();
+        maxDate.setFullYear(maxDate.getFullYear() - 2);
+        return maxDate;
+    };
+
+    const childMinDate = () => {
+        let minDate = new Date();
+        minDate.setFullYear(minDate.getFullYear() - 5);
+        return minDate;
+    };
 
     // screen events
-
-    const [date, setDate] = useState(new Date());
+    const [date, setDate] = useState(childMaxDate());
     const [mode, setMode] = useState('date');
     const [show, setShow] = useState(false);
 
     const onChange = (event: any, selectedDate: any) => {
+        clearErrors('birthDate');
         const birthDateSelected = selectedDate || date;
         setShow(Platform.OS === 'ios');
         setDate(birthDateSelected);
@@ -34,7 +84,8 @@ const AddKidInformationScreen: FC<IScreenProps> = ({ navigation }) => {
         let tempDate = new Date(birthDateSelected);
         let birthDateText = ('0' + tempDate.getDate()).slice(-2) + '/' + ('0' + (tempDate.getMonth() + 1)).slice(-2) + '/' + tempDate.getFullYear();
 
-        setBirthDate(birthDateText);
+        // setBirthDate(birthDateText);
+        setValue('birthDate', birthDateText);
         setShow(false);
     }
 
@@ -44,34 +95,40 @@ const AddKidInformationScreen: FC<IScreenProps> = ({ navigation }) => {
     }
 
     // flow events
-
-    const nextStep = () => {
+    const nextStep = ({
+        firstName,
+        lastName,
+        dni,
+        birthDate,
+        gender,
+        relationship,
+    }: KidData) => {
         const kidData = {
-            firstName: firstName,
-            lastName: lastName,
-            identificationNumber: identificationNumber,
-            birthDate: birthDate,
-            gender: gender,
-            relationship: relationship,
-            avatarImage: 1
-        }
+            firstName,
+            lastName,
+            identificationNumber: dni,
+            birthDate,
+            gender,
+            relationship,
+            avatarImage: 1,
+        };
         navigation.push("AddKidAvatar", kidData);
     }
 
     const cancel = () => {
-        console.log();
         navigation.goBack();
     }
 
     return (
         <View style={styles.container}>
-
             {show && (
                 <DateTimePicker
                     testID="dateTimePicker"
                     value={date}
                     display="default"
                     onChange={onChange}
+                    maximumDate={childMaxDate()}
+                    minimumDate={childMinDate()}
                 />
             )}
 
@@ -80,31 +137,34 @@ const AddKidInformationScreen: FC<IScreenProps> = ({ navigation }) => {
                 showsVerticalScrollIndicator={false}
             >
                 <View style={styles.firstName}>
-                    <Text>Nombres</Text>
-                    <TextInput
-                        style={styles.inputText}
-                        placeholder="Ingrese nombre completo"
-                        onChangeText={firstName => setFirstName(firstName)}
-                        defaultValue={firstName}
+                    <CustomInputText
+                        label="Nombres"
+                        placeholder="Ingrese nombres completo"
+                        control={control}
+                        name="firstName"
+                        errorMessage={errors.firstName?.message}
                     />
                 </View>
                 <View style={styles.lastName}>
-                    <Text>Apellidos</Text>
-                    <TextInput
-                        style={styles.inputText}
+                    <CustomInputText
+                        label="Apellidos"
                         placeholder="Ingrese apellido completo"
-                        onChangeText={lastName => setLastName(lastName)}
-                        defaultValue={lastName}
+                        control={control}
+                        name="lastName"
+                        errorMessage={errors.lastName?.message}
                     />
                 </View>
                 <View style={styles.identificationNumber}>
-                    <Text>DNI</Text>
                     <View style={styles.identificationNumberContainer}>
-                        <TextInput
-                            style={styles.inputDNIText}
+                        <CustomInputText
+                            label="DNI"
                             placeholder="Ingrese DNI"
-                            onChangeText={identificationNumber => setIdentificationNumber(identificationNumber)}
-                            defaultValue={identificationNumber}
+                            control={control}
+                            name="dni"
+                            errorMessage={errors.dni?.message}
+                            keyboardType="number-pad"
+                            containerStyle={{ marginEnd: 30, flex: 3 }}
+                            maxLength={8}
                         />
                         <Image
                             resizeMode='contain'
@@ -114,13 +174,24 @@ const AddKidInformationScreen: FC<IScreenProps> = ({ navigation }) => {
                     </View>
                 </View>
                 <View style={styles.birthDate}>
-                    <Text>Fecha de nacimiento</Text>
                     <View style={styles.birthDateContainer}>
-                        <TextInput
-                            style={styles.inputBirthDateText}
-                            editable={false}
-                            selectTextOnFocus={false}
-                            defaultValue={birthDate} />
+                        <TouchableOpacity
+                            onPress={() => showMode('date')}
+                            containerStyle={{ flex: 1 }}
+                            activeOpacity={1}
+                        >
+                            <View
+                                pointerEvents="none"
+                            >
+                                <CustomInputText
+                                    control={control}
+                                    label="Fecha de nacimiento"
+                                    placeholder="dd/mm/aaaa"
+                                    name="birthDate"
+                                    errorMessage={errors.birthDate?.message}
+                                />
+                            </View>
+                        </TouchableOpacity>
                         <View style={styles.datePickerIcon}>
                             <TouchableOpacity
                                 onPress={() => showMode('date')} >
@@ -133,31 +204,31 @@ const AddKidInformationScreen: FC<IScreenProps> = ({ navigation }) => {
                     </View>
                 </View>
                 <View style={styles.gender}>
-                    <Text>Género</Text>
-                    <Picker
-                        selectedValue={gender}
-                        onValueChange={(gender, index) => setGender(gender)}
-                        mode="dropdown" // Android only
-                        style={styles.picker}
-                    >
-                        <Picker.Item label="Seleccione sexo del menor" value="Unknown" />
-                        <Picker.Item label="Niña" value="Niña" />
-                        <Picker.Item label="Niño" value="Niño" />
-                    </Picker>
+                    <CustomSelect
+                        label="Género"
+                        control={control}
+                        options={[
+                            { label: 'Seleccione sexo del menor', value: '' },
+                            { label: 'Niña', value: 'Niña' },
+                            { label: 'Niño', value: 'Niño' },
+                        ]}
+                        name="gender"
+                        errorMessage={errors.gender?.message}
+                    />
                 </View>
                 <View style={styles.relationship}>
-                    <Text>Parentesco</Text>
-                    <TextInput
-                        style={styles.inputText}
+                    <CustomInputText
+                        label="Parentesco"
                         placeholder="Parentesco con el menor"
-                        onChangeText={relationship => setRelationship(relationship)}
-                        defaultValue={relationship}
+                        control={control}
+                        name="relationship"
+                        errorMessage={errors.relationship?.message}
                     />
                 </View>
                 <View style={styles.bottomButtons}>
                     <View style={styles.nextButton}>
                         <Button
-                            onPress={nextStep}
+                            onPress={handleSubmit(nextStep)}
                             title="Siguiente"
                             color="#5680E9"></Button>
                     </View>
@@ -183,24 +254,22 @@ const styles = StyleSheet.create({
     },
     contentContainer: {
         flex: 1,
-        marginBottom: 10
+        marginBottom: 10,
+        paddingHorizontal: 50,
     },
     firstName: {
         marginTop: 20,
         marginBottom: 10,
-        marginStart: 50,
         fontSize: 18
     },
     lastName: {
         marginTop: 10,
         marginBottom: 10,
-        marginStart: 50,
         fontSize: 18
     },
     identificationNumber: {
         marginTop: 10,
         marginBottom: 10,
-        marginStart: 50,
         fontSize: 18,
     },
     identificationNumberContainer: {
@@ -208,7 +277,6 @@ const styles = StyleSheet.create({
     },
     inputDNIText: {
         marginTop: 10,
-        marginEnd: 20,
         padding: 10,
         height: 40,
         borderWidth: 1,
@@ -218,15 +286,14 @@ const styles = StyleSheet.create({
     identificationNumberIcon: {
         flex: 1,
         alignItems: 'flex-end',
-        marginEnd: 50,
         width: 80,
         height: 40,
-        marginTop: 10
+        marginTop: 28,
+
     },
     birthDate: {
         marginTop: 10,
         marginBottom: 10,
-        marginStart: 50,
         fontSize: 18
     },
     birthDateContainer: {
@@ -234,7 +301,6 @@ const styles = StyleSheet.create({
     },
     inputBirthDateText: {
         marginTop: 10,
-        marginEnd: 20,
         padding: 10,
         height: 40,
         borderWidth: 1,
@@ -243,36 +309,24 @@ const styles = StyleSheet.create({
         color: 'black'
     },
     datePickerIcon: {
-        flex: 1,
+        width: 80,
         alignItems: 'flex-end',
-        marginEnd: 50,
     },
     calendarIcon: {
         alignItems: 'flex-end',
-        marginEnd: 20,
         width: 40,
         height: 40,
-        marginTop: 10
+        marginTop: 28,
     },
     gender: {
         marginTop: 10,
         marginBottom: 10,
-        marginStart: 50,
-        fontSize: 18
+        fontSize: 18,
     },
     relationship: {
         marginTop: 10,
         marginBottom: 10,
-        marginStart: 50,
         fontSize: 18
-    },
-    inputText: {
-        marginTop: 10,
-        marginEnd: 50,
-        padding: 10,
-        height: 40,
-        borderWidth: 1,
-        borderRadius: 5
     },
     picker: {
         marginTop: 10,
@@ -290,13 +344,9 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     nextButton: {
-        marginStart: 50,
-        marginEnd: 50,
         marginBottom: 10
     },
     cancelButton: {
-        marginStart: 50,
-        marginEnd: 50,
         marginBottom: 10
     }
 });

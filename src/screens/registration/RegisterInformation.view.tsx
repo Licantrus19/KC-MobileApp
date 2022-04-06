@@ -21,8 +21,16 @@ interface RegisterData {
 
 const schema = yup
   .object({
-    firstName: yup.string().required('Nombres son requeridos'),
-    lastName: yup.string().required('Apellidos son requeridos'),
+    firstName: yup
+      .string()
+      .min(3, 'Mínimo 3 caracteres')
+      .max(30, 'Máximo 30 caracteres')
+      .required('Nombres son requeridos'),
+    lastName: yup
+      .string()
+      .min(3, 'Mínimo 3 caracteres')
+      .max(30, 'Máximo 30 caracteres')
+      .required('Apellidos son requeridos'),
     dni: yup
       .string()
       .max(8, 'Se requiere 8 caracteres')
@@ -115,6 +123,7 @@ const RegisterScreen: FC<IScreenProps> = ({ navigation }) => {
                 </View>
                 <View style={styles.emailAddress}>
                     <CustomInputText 
+                        keyboardType="email-address"
                         placeholder='Ingrese correo electrónico'
                         control={control}
                         name="email"
