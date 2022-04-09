@@ -21,6 +21,47 @@ interface IQuestionnaireProps {
     index: number;
 }
 
+interface IEvaluationItemProps {
+    data?: any;
+}
+
+const EvaluationItem: FC<IEvaluationItemProps> = ({ data }) => {
+
+    let evaluationType = '';
+    let evaluationDiagnosis = '';
+    let evaluationDiagnosisColor = '';
+
+    switch (data.type) {
+        case 'communication': evaluationType = 'Comunicación'; break;
+        case 'fine_motor': evaluationType = 'Motora-Gruesa'; break;
+        case 'gross_motor': evaluationType = 'Motora-Fina'; break;
+        case 'problem_solving': evaluationType = 'Resolución de Problemas'; break;
+        case 'individual_social': evaluationType = 'Socio Individual'; break;
+        default: break;
+    }
+
+    switch (data.rating) {
+        case 1: evaluationDiagnosis = 'Se presenta riesgo'; evaluationDiagnosisColor = '#FF0000'; break;
+        case 2: evaluationDiagnosis = 'Se presenta posible riesgo'; evaluationDiagnosisColor = '#C6A522'; break;
+        case 3: evaluationDiagnosis = 'No se presenta posible riesgo'; evaluationDiagnosisColor = '#188422'; break;
+        default: evaluationDiagnosis = 'Se presenta riesgo'; evaluationDiagnosisColor = '#FF0000'; break;
+    }
+
+    return (
+        <View style={styles.evaluationContent}>
+            <View style={styles.blueCircle}></View>
+            <View style={styles.evaluationTypeContainer}>
+                <Text style={styles.evaluationType}>{evaluationType}:</Text>
+            </View>
+            <View style={styles.evaluationDiagnosisContainer}>
+                <Text style={[styleContainer(evaluationDiagnosisColor).evaluationType]}>
+                    {evaluationDiagnosis}
+                </Text>
+            </View>
+        </View>
+    )
+}
+
 const QuestionnairesCompleted: FC<IQuestionnaireProps> = ({ index, data }) => {
 
     const [collapsed, setCollapsed] = useState(true);
@@ -30,17 +71,23 @@ const QuestionnairesCompleted: FC<IQuestionnaireProps> = ({ index, data }) => {
     };
 
     return (
-        <View>
+        <View style={styles.headerQuestionnaire}>
             <TouchableOpacity onPress={toggleExpanded}>
-                <View style={styles.headerQuestionnaire}>
+                <View>
                     <Text style={styles.headerTextQuestionnaire}>{'PS-0' + (index + 1) + ' ' + Util.getFormatedDate(data.updatedDate)}</Text>
                 </View>
             </TouchableOpacity>
             <Collapsible collapsed={collapsed} align="center">
                 <View style={styles.collapsedContent}>
-                    <Text style={{ textAlign: 'center' }}>
-                        This is a dummy text of Single Collapsible View
-                    </Text>
+                    {data.evaluations.map((evaluation: any) => {
+                        return (
+                            <View
+                                key={evaluation.id}>
+                                <EvaluationItem
+                                    data={evaluation} />
+                            </View>
+                        )
+                    })}
                 </View>
             </Collapsible>
         </View>
@@ -148,6 +195,13 @@ const OutcomesScreen: FC<IScreenProps> = ({ navigation }) => {
 /* export default inject('sessionStore')(observer(OutcomesScreen)); */
 export default OutcomesScreen;
 
+const styleContainer = (textColor: any) => StyleSheet.create({
+    evaluationType: {
+        color: textColor,
+        fontSize: 15
+    }
+});
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -179,12 +233,39 @@ const styles = StyleSheet.create({
         height: 40,
     },
     headerQuestionnaire: {
-
+        marginStart: 15,
+        marginEnd: 15,
+        paddingStart: 10,
+        borderColor: '#5680E9',
+        borderRadius: 5,
+        borderWidth: 2
     },
     headerTextQuestionnaire: {
-
+        fontSize: 18
     },
     collapsedContent: {
 
+    },
+    evaluationContent: {
+        flexDirection: 'row'
+    },
+    blueCircle: {
+        marginTop: 6,
+        width: 12,
+        height: 12,
+        borderRadius: 6,
+        backgroundColor: '#5680E9',
+    },
+    evaluationTypeContainer: {
+        paddingStart: 20,
+        flex: 3
+    },
+    evaluationType: {
+        fontSize: 18
+    },
+    evaluationDiagnosisContainer: {
+        paddingStart: 20,
+        paddingEnd: 20,
+        flex: 2
     }
 });
