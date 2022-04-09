@@ -1,4 +1,10 @@
+import moment from 'moment';
+
 export const Util = {
+
+    getFormatedDate(date: Date) {
+        return (moment(date)).format('DD-MM-YYYY')
+    },
 
     avatarImage(avatarImage: any) {
         switch (avatarImage) {

@@ -8,6 +8,11 @@ export function kidsFromUser() {
     return APIMiddleware.get<any>(url);
 }
 
+export function kidsWithQuestionnairesCompletedFromUser() {
+    const url = `${KID_URL}/questionnaires-completed`;
+    return APIMiddleware.get<any>(url);
+}
+
 export function questionnaireFromKid(kidId: string) {
     const url = `${KID_URL}/questionnaire/${kidId}`;
     return APIMiddleware.get<any>(url);
