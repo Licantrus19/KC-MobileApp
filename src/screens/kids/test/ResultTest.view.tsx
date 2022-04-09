@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 import { colors } from "../../../common/constants";
 import { Container, Label, MaterialButton } from "../../../components";
 
@@ -12,6 +12,8 @@ const ResultTest: FC<IScreenProps> = ({ route, navigation }) => {
 
     const test = route.params ? route.params.test : null;
     const result = route.params ? route.params.result : 0;
+    const rating = route.params ? route.params.rating : 1;
+    const MAX_STARTS = 3;
     //Call API
     useEffect(() => {
 
@@ -46,9 +48,31 @@ const ResultTest: FC<IScreenProps> = ({ route, navigation }) => {
                         </View>
                         <View style={{ flex: 1, alignItems: 'flex-end' }}>
                             <Label center size={25} textStyle={{ color: "yellow", fontWeight: 'bold' }}>
-                                {result}
+                                {result ? result : '0'}
                             </Label>
                         </View>
+                    </View>
+                    <View style={{ flexDirection: "row", marginHorizontal: 40, marginTop: 45, justifyContent: 'center' }}>
+                        {Array(rating).fill(true).map((t, index) => {
+                            return (
+                                <View key={index} style={{ marginHorizontal: 10 }}>
+                                    <Image
+                                        source={require('../../../assets/icons/yellow_star.png')}
+                                        style={{ width: 80, height: 80 }}
+                                    />
+                                </View>
+                            )
+                        })}
+                        {Array(MAX_STARTS - rating).fill(true).map((t, index) => {
+                            return (
+                                <View key={index} style={{ marginHorizontal: 10 }}>
+                                    <Image
+                                        source={require('../../../assets/icons/white_star.png')}
+                                        style={{ width: 80, height: 80 }}
+                                    />
+                                </View>
+                            )
+                        })}
                     </View>
                     <View style={{ position: 'absolute', bottom: 20, width: '100%', alignItems: 'center' }}>
                         <MaterialButton
