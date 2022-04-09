@@ -104,7 +104,7 @@ const KidTestScreen: FC<IScreenProps> = ({ navigation, route }) => {
         return (
             <TestButton
                 item={item}
-                onPress={() => { navigation.navigate("TestInformation", { test: item, kid: kidData.id }) }}
+                onPress={() => { navigation.navigate("TestInformation", { test: item, kid: kidData }) }}
             />
         );
     };

@@ -55,7 +55,9 @@ class SessionStore implements ISessionStore {
         setTimeout(async () => {
             cleanTokenData();
             cleanProfileImageData();
+            this.token = null;
             this.loading = false;
+            console.log('login out');
         }, 2000)
     }
 

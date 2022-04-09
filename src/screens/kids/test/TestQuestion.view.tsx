@@ -5,6 +5,7 @@ import { Container, Label, MaterialButton } from "../../../components";
 import Lightbox from 'react-native-lightbox-v2';
 import CheckBox from "@react-native-community/checkbox";
 import { completeQuestionnaire } from "../../../api/kids.api";
+import { Util } from "../../../common/utils";
 
 interface IScreenProps {
     route: any,
@@ -35,6 +36,8 @@ const TestQuestion: FC<IScreenProps> = ({ route, navigation }) => {
             : new Array(0).fill(false)
     );
 
+    const [MIN_SCORE, MAX_SCORE] = [0, 60];
+
     //Call API
     useEffect(() => {
         clearStates();
@@ -57,22 +60,37 @@ const TestQuestion: FC<IScreenProps> = ({ route, navigation }) => {
     }
 
     const endTest = (result: any) => {
-        console.log('max ' + max);
+        const limits = Util.getRatingLimits(kid.months, test.type);
+        let rating = 0;
+
+        console.log(limits);
+        
+        if (result > MIN_SCORE && result < limits.one) { //1 star
+            console.log(`${MIN_SCORE} < ${result} < ${limits.one}`);
+            rating = 1;
+        } else if (result > limits.one && result <= limits.second) { //2 stars
+            console.log(`${limits.one} < ${result} < ${limits.second}`);
+            rating = 2;
+        } else if (result > limits.second && result <= MAX_SCORE) { //3 stars
+            console.log(`${limits.second} < ${result} < ${MAX_SCORE}`);
+            rating = 3;
+        }
 
         const body = {
             type: test.type,
             score: result,
-            answers: {}
+            answers: {},
+            rating
         }
-        completeQuestionnaire(kid, body).then((result) => {
+
+        completeQuestionnaire(kid.id, body).then((result) => {
             if (result) {
                 console.log(result.data);
             }
         }).finally(() => {
             ToastAndroid.show('Test Completado con éxito', ToastAndroid.SHORT);
-            navigation.navigate("ResultTest", { test: test, result, max, kid })
+            navigation.navigate("ResultTest", { test: test, result, max, kid, rating })
         })
-
     }
 
     const nextQuestion = (points?: any) => {
@@ -114,47 +132,45 @@ const TestQuestion: FC<IScreenProps> = ({ route, navigation }) => {
                 {test.data.questions[index - 1].type === "checklist" && (
                     <ScrollView showsVerticalScrollIndicator={false} style={{ marginTop: 5, marginHorizontal: 20, maxHeight: '43%' }}>
                         {test.data.questions[index - 1].options.map((item: any, pos: any) => {
-                            return <>
-                                <View style={{ flexDirection: 'row', marginBottom: 5 }}>
-                                    <View>
-                                        <CheckBox
-                                            value={selectedList[pos]}
-                                            onValueChange={() => { handleSelection(pos); }}
-                                            tintColors={{ true: 'black', false: 'white' }}
-                                            style={{ borderRadius: 50 }}
-                                        />
-                                    </View>
-                                    <View style={{ flex: 6 }}>
-                                        <Label center size={18} color='white' textStyle={{ textAlign: 'justify' }}>
-                                            {item.value}
-                                        </Label>
-                                    </View>
-                                    <Lightbox
-                                        onOpen={() => {
-                                            setSelectedImageCheckbox(item.id);
-                                        }}
-                                        willClose={() => {
-                                            setCustomResize('cover');
-                                            setSelectedImageCheckbox(undefined);
-                                        }}
-                                        underlayColor="white">
-                                        <>
-                                            {!selectedImageCheckbox && (
-                                                <Image
-                                                    style={{ height: 20, width: 20, }}
-                                                    source={require("../../../assets/icons/picture-icon.png")}
-                                                />
-                                            )}
-                                            {selectedImageCheckbox && (
-                                                <Image
-                                                    resizeMode={'center'}
-                                                    style={{ width: 300, height: 300, alignSelf: 'center' }}
-                                                    source={test.data.questions[index - 1].imageUrls[selectedImageCheckbox - 1].url} />
-                                            )}
-                                        </>
-                                    </Lightbox>
+                            return <View key={pos} style={{ flexDirection: 'row', marginBottom: 5 }}>
+                                <View>
+                                    <CheckBox
+                                        value={selectedList[pos]}
+                                        onValueChange={() => { handleSelection(pos); }}
+                                        tintColors={{ true: 'black', false: 'white' }}
+                                        style={{ borderRadius: 50 }}
+                                    />
                                 </View>
-                            </>
+                                <View style={{ flex: 6 }}>
+                                    <Label center size={18} color='white' textStyle={{ textAlign: 'justify' }}>
+                                        {item.value}
+                                    </Label>
+                                </View>
+                                <Lightbox
+                                    onOpen={() => {
+                                        setSelectedImageCheckbox(item.id);
+                                    }}
+                                    willClose={() => {
+                                        setCustomResize('cover');
+                                        setSelectedImageCheckbox(undefined);
+                                    }}
+                                    underlayColor="white">
+                                    <>
+                                        {!selectedImageCheckbox && (
+                                            <Image
+                                                style={{ height: 20, width: 20, }}
+                                                source={require("../../../assets/icons/picture-icon.png")}
+                                            />
+                                        )}
+                                        {selectedImageCheckbox && (
+                                            <Image
+                                                resizeMode={'center'}
+                                                style={{ width: 300, height: 300, alignSelf: 'center' }}
+                                                source={test.data.questions[index - 1].imageUrls[selectedImageCheckbox - 1].url} />
+                                        )}
+                                    </>
+                                </Lightbox>
+                            </View>
                         })}
                     </ScrollView>
                 )}

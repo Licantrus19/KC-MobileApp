@@ -3,7 +3,8 @@ import { inject, observer } from "mobx-react";
 import React, { FC, useCallback, useEffect, useState } from "react";
 import { Button, Image, ScrollView, StyleSheet, Text, TextInput, ToastAndroid, TouchableOpacity, View } from 'react-native';
 import { getUserInformation, updateUser } from "../../api/user.api";
-import { AvatarItem, Container, Label } from "../../components";
+import { colors } from "../../common/constants";
+import { AvatarItem, Container, Label, Loading } from "../../components";
 
 import { ISessionStore } from "../../stores/interfaces";
 import SessionStore from "../../stores/SessionStore";
@@ -88,9 +89,7 @@ const ProfileScreen: FC<IScreenProps> = ({ navigation, sessionStore }) => {
     }
 
     const logoutSession = () => {
-        sessionStore.logout().then(() => {
-
-        })
+        sessionStore.logout();
     }
 
     const loadUserInfo = useCallback(async () => {
@@ -228,10 +227,18 @@ const ProfileScreen: FC<IScreenProps> = ({ navigation, sessionStore }) => {
                         color="#E95656"></Button>
                 </View>
                 <View style={styles.logoutButton}>
-                    <Button
+                    {/* <Button
                         onPress={logoutSession}
                         title="Cerrar Sesión"
-                        color="#E95656"></Button>
+                        color="#E95656"></Button> */}
+                    <TouchableOpacity disabled={sessionStore.loading} activeOpacity={0.7} onPress={logoutSession} style={styles.logoutButtonAction}>
+                        {!sessionStore.loading && (
+                            <Text style={{ color: 'white' }}>CERRAR SESIÓN</Text>
+                        )}
+                        {sessionStore.loading && (
+                            <Loading color={colors.white} />
+                        )}
+                    </TouchableOpacity>
                 </View>
             </View>
         </ScrollView>
@@ -318,5 +325,14 @@ const styles = StyleSheet.create({
         marginStart: 25,
         marginEnd: 25,
         marginBottom: 40
-    }
+    },
+    logoutButtonAction: {
+        backgroundColor: colors.red,
+        color: colors.white,
+        borderRadius: 4,
+        height: 40,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginVertical: 5
+    },
 });
