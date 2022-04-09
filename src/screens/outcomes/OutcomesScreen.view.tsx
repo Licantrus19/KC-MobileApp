@@ -1,10 +1,10 @@
 import { useIsFocused } from "@react-navigation/native";
 import React, { FC, useCallback, useEffect, useState } from "react";
-import { FlatList, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Button, FlatList, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Collapsible from "react-native-collapsible";
 import { kidsWithQuestionnairesCompletedFromUser } from "../../api/kids.api";
 import { Util } from "../../common/utils";
-import { Container, Label } from "../../components";
+import { Container, Label, MaterialButton } from "../../components";
 
 interface IScreenProps {
     navigation: any
@@ -70,6 +70,10 @@ const QuestionnairesCompleted: FC<IQuestionnaireProps> = ({ index, data }) => {
         setCollapsed(!collapsed);
     };
 
+    const viewDetail = () => {
+        console.log('view detail');
+    }
+
     return (
         <View style={styles.headerQuestionnaire}>
             <TouchableOpacity onPress={toggleExpanded}>
@@ -88,6 +92,18 @@ const QuestionnairesCompleted: FC<IQuestionnaireProps> = ({ index, data }) => {
                             </View>
                         )
                     })}
+                </View>
+                <View style={styles.bottomButtons}>
+                    <MaterialButton
+                        onPress={viewDetail}
+                        title="Detalle"
+                        titleStyle={{ color: 'white', fontSize: 15 }}
+                        buttonStyle={{ margin: 5, flex: 1, backgroundColor: "#5680E9", borderColor: "#5680E9" }} />
+                    <MaterialButton
+                        onPress={toggleExpanded}
+                        title="Cerrar"
+                        titleStyle={{ color: 'white', fontSize: 15 }}
+                        buttonStyle={{ margin: 5, flex: 1, backgroundColor: "#FF0000", borderColor: "#FF0000" }} />
                 </View>
             </Collapsible>
         </View>
@@ -238,16 +254,18 @@ const styles = StyleSheet.create({
         paddingStart: 10,
         borderColor: '#5680E9',
         borderRadius: 5,
-        borderWidth: 2
+        borderWidth: 2,
+        marginTop: 5,
+        marginBottom: 5,
     },
     headerTextQuestionnaire: {
         fontSize: 18
     },
     collapsedContent: {
-
     },
     evaluationContent: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        marginTop: 10
     },
     blueCircle: {
         marginTop: 6,
@@ -267,5 +285,9 @@ const styles = StyleSheet.create({
         paddingStart: 20,
         paddingEnd: 20,
         flex: 2
+    },
+    bottomButtons: {
+        flexDirection: 'row',
+        margin: 10
     }
 });
