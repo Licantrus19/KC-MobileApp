@@ -72,26 +72,18 @@ const AddKidInformationScreen: FC<IScreenProps> = ({ navigation }) => {
 
     // screen events
     const [date, setDate] = useState(childMaxDate());
-    const [mode, setMode] = useState('date');
     const [show, setShow] = useState(false);
 
     const onChange = (event: any, selectedDate: any) => {
-        clearErrors('birthDate');
-        const birthDateSelected = selectedDate || date;
-        setShow(Platform.OS === 'ios');
-        setDate(birthDateSelected);
+        const birthDateSelected = selectedDate;
 
+        setShow(false);
+        if(!birthDateSelected) return;
         let tempDate = new Date(birthDateSelected);
         let birthDateText = ('0' + tempDate.getDate()).slice(-2) + '/' + ('0' + (tempDate.getMonth() + 1)).slice(-2) + '/' + tempDate.getFullYear();
-
-        // setBirthDate(birthDateText);
         setValue('birthDate', birthDateText);
-        setShow(false);
-    }
-
-    const showMode = (currentMode: any) => {
-        setShow(true);
-        setMode(currentMode);
+        setDate(birthDateSelected);
+        clearErrors('birthDate');
     }
 
     // flow events
@@ -126,6 +118,7 @@ const AddKidInformationScreen: FC<IScreenProps> = ({ navigation }) => {
                     testID="dateTimePicker"
                     value={date}
                     display="default"
+                    mode="date"
                     onChange={onChange}
                     maximumDate={childMaxDate()}
                     minimumDate={childMinDate()}
@@ -176,7 +169,7 @@ const AddKidInformationScreen: FC<IScreenProps> = ({ navigation }) => {
                 <View style={styles.birthDate}>
                     <View style={styles.birthDateContainer}>
                         <TouchableOpacity
-                            onPress={() => showMode('date')}
+                            onPress={setShow.bind(this, true)}
                             containerStyle={{ flex: 1 }}
                             activeOpacity={1}
                         >
@@ -194,7 +187,8 @@ const AddKidInformationScreen: FC<IScreenProps> = ({ navigation }) => {
                         </TouchableOpacity>
                         <View style={styles.datePickerIcon}>
                             <TouchableOpacity
-                                onPress={() => showMode('date')} >
+                                onPress={setShow.bind(this, true)}
+                            >
                                 <Image
                                     source={require('../../../assets/icons/calendar_icon.png')}
                                     style={styles.calendarIcon}
