@@ -57,6 +57,7 @@ const ResultTest: FC<IScreenProps> = ({ route, navigation }) => {
                             return (
                                 <View key={index} style={{ marginHorizontal: 10 }}>
                                     <Image
+                                        resizeMode='contain'
                                         source={require('../../../assets/icons/yellow_star.png')}
                                         style={{ width: 80, height: 80 }}
                                     />
@@ -65,8 +66,9 @@ const ResultTest: FC<IScreenProps> = ({ route, navigation }) => {
                         })}
                         {Array(MAX_STARTS - rating).fill(true).map((t, index) => {
                             return (
-                                <View key={index+3} style={{ marginHorizontal: 10 }}>
+                                <View key={index + 3} style={{ marginHorizontal: 10 }}>
                                     <Image
+                                        resizeMode='contain'
                                         source={require('../../../assets/icons/white_star.png')}
                                         style={{ width: 80, height: 80 }}
                                     />

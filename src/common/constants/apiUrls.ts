@@ -1,4 +1,4 @@
-const BASE_URL = 'http://c70e-2001-1388-64-2051-4fb-bd65-8fb1-8e80.ngrok.io'
+const BASE_URL = 'http://ea41-2001-1388-64-2051-e16b-4196-e787-534f.ngrok.io'
 
 export const apiUrls = {
     BASE_URL,
