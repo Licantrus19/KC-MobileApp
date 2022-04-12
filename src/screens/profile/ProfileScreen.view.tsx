@@ -1,10 +1,17 @@
 import { StackActions, useIsFocused } from "@react-navigation/native";
 import { inject, observer } from "mobx-react";
 import React, { FC, useCallback, useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import { Button, Image, ScrollView, StyleSheet, Text, TextInput, ToastAndroid, TouchableOpacity, View } from 'react-native';
+import { string } from "yup";
 import { getUserInformation, updateUser } from "../../api/user.api";
 import { colors } from "../../common/constants";
 import { AvatarItem, Container, Label, Loading } from "../../components";
+import { navigate } from "../../navigation/rootNavigation";
+
+import * as yup from 'yup';
+import { CustomInputText } from "../../components";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 import { ISessionStore } from "../../stores/interfaces";
 import SessionStore from "../../stores/SessionStore";
@@ -41,33 +48,55 @@ const AVATAR_IMAGES_DATA: any = [
     }
 ];
 
+interface ProfileData {
+    firstName: string;
+    lastName: string;
+    dni: string;
+}
+
+const schema = yup
+    .object({
+        firstName: yup
+            .string()
+            .min(3, 'Mínimo 3 caracteres')
+            .max(30, 'Máximo 30 caracteres')
+            .required('Nombres son requeridos'),
+        lastName: yup
+            .string()
+            .min(3, 'Mínimo 3 caracteres')
+            .max(30, 'Máximo 30 caracteres')
+            .required('Apellidos son requeridos'),
+        dni: yup
+            .string()
+            .max(8, 'Se requiere 8 caracteres')
+            .min(8, 'Se requiere 8 caracteres')
+            .required('DNI es requerido'),
+    })
+    .required();
+
 const ProfileScreen: FC<IScreenProps> = ({ navigation, sessionStore }) => {
 
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [identificationNumber, setIdentificationNumber] = useState('');
-
-    const [editFirstName, setEditFirstName] = useState(false);
-    const [editLastName, setEditLastName] = useState(false);
-    const [editIdentificationNumber, setEditIdentificationNumber] = useState(false);
+    const { control, handleSubmit, setValue: setProfileValue, formState: { errors } } = useForm<ProfileData>({
+        defaultValues: {
+            firstName: '',
+            lastName: '',
+            dni: '',
+        },
+        resolver: yupResolver(schema),
+    })
 
     const [avatarImage, setAvatarImage] = useState(-1);
 
     const isFocused = useIsFocused();
 
-    const buildUserDTO = () => {
+    const saveChanges = ({ firstName, lastName, dni }: ProfileData) => {
         const userDTO = {
-            firstName: firstName,
-            lastName: lastName,
-            identificationNumber: identificationNumber,
-            avatarImage: "avatar_profile_" + avatarImage + ".png"
+            firstName,
+            lastName,
+            identificationNumber: dni,
+            avatarImage: "avatar_profile_" + avatarImage + ".png",
         };
-        return userDTO;
-    }
 
-    const saveChanges = () => {
-        const userDTO = buildUserDTO();
-        console.log(userDTO);
         updateUser(userDTO).then((result) => {
             if (result.data.username != null) {
                 // update profile image
@@ -95,9 +124,10 @@ const ProfileScreen: FC<IScreenProps> = ({ navigation, sessionStore }) => {
     const loadUserInfo = useCallback(async () => {
         getUserInformation().then((result) => {
             const userInfo = result.data;
-            setFirstName(userInfo.firstName);
-            setLastName(userInfo.lastName);
-            setIdentificationNumber(userInfo.identificationNumber);
+            setProfileValue('firstName', userInfo.firstName);
+            setProfileValue('lastName', userInfo.lastName);
+            setProfileValue('dni', userInfo.identificationNumber);
+
             setAvatarImage(userInfo.avatarImage.charAt(15));
         })
     }, [navigation, isFocused]);
@@ -114,90 +144,41 @@ const ProfileScreen: FC<IScreenProps> = ({ navigation, sessionStore }) => {
         <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
             <View style={styles.contentContainer}>
                 <View style={styles.firstName}>
-                    <Text style={styles.boldText}>Nombres:</Text>
-                    <View style={styles.editPropertyContainer}>
-                        {!editFirstName ?
-                            <>
-                                <Text style={styles.userPropertyText}>{firstName}</Text>
-                                <TouchableOpacity onPress={() => setEditFirstName(true)} style={styles.editPropertyButton}>
-                                    <Image
-                                        source={require('../../assets/profile_icons/edit_button_icon.png')}
-                                        style={styles.editIcon}
-                                    />
-                                </TouchableOpacity>
-                            </> :
-                            <>
-                                <TextInput
-                                    style={styles.inputText}
-                                    onChangeText={firstName => setFirstName(firstName)}
-                                    defaultValue={firstName}
-                                />
-                                <TouchableOpacity onPress={() => setEditFirstName(false)} style={styles.editPropertyButton}>
-                                    <Image
-                                        source={require('../../assets/profile_icons/save_button_icon.png')}
-                                        style={styles.editIcon}
-                                    />
-                                </TouchableOpacity>
-                            </>
-                        }
+                    <View>
+                        <CustomInputText
+                            labelStyle={styles.boldText}
+                            label="Nombres:"
+                            placeholder='Ingrese nombres completo'
+                            control={control}
+                            name="firstName"
+                            errorMessage={errors.firstName?.message}
+                        />
                     </View>
                 </View>
                 <View style={styles.lastName}>
-                    <Text style={styles.boldText}>Apellidos:</Text>
-                    <View style={styles.editPropertyContainer}>
-                        {!editLastName ?
-                            <>
-                                <Text style={styles.userPropertyText}>{lastName}</Text>
-                                <TouchableOpacity onPress={() => setEditLastName(true)} style={styles.editPropertyButton}>
-                                    <Image
-                                        source={require('../../assets/profile_icons/edit_button_icon.png')}
-                                        style={styles.editIcon}
-                                    />
-                                </TouchableOpacity>
-                            </> :
-                            <>
-                                <TextInput
-                                    style={styles.inputText}
-                                    onChangeText={lastName => setLastName(lastName)}
-                                    defaultValue={lastName}
-                                />
-                                <TouchableOpacity onPress={() => setEditLastName(false)} style={styles.editPropertyButton}>
-                                    <Image
-                                        source={require('../../assets/profile_icons/save_button_icon.png')}
-                                        style={styles.editIcon}
-                                    />
-                                </TouchableOpacity>
-                            </>
-                        }
+                    <View>
+                        <CustomInputText
+                            labelStyle={styles.boldText}
+                            label="Apellidos:"
+                            placeholder='Ingrese apellidos completo'
+                            control={control}
+                            name="lastName"
+                            errorMessage={errors.lastName?.message}
+                        />
                     </View>
                 </View>
                 <View style={styles.identificationNumber}>
-                    <Text style={styles.boldText}>DNI:</Text>
-                    <View style={styles.editPropertyContainer}>
-                        {!editIdentificationNumber ?
-                            <>
-                                <Text style={styles.userPropertyText}>{identificationNumber}</Text>
-                                <TouchableOpacity onPress={() => setEditIdentificationNumber(true)} style={styles.editPropertyButton}>
-                                    <Image
-                                        source={require('../../assets/profile_icons/edit_button_icon.png')}
-                                        style={styles.editIcon}
-                                    />
-                                </TouchableOpacity>
-                            </> :
-                            <>
-                                <TextInput
-                                    style={styles.inputText}
-                                    onChangeText={identificationNumber => setIdentificationNumber(identificationNumber)}
-                                    defaultValue={identificationNumber}
-                                />
-                                <TouchableOpacity onPress={() => setEditIdentificationNumber(false)} style={styles.editPropertyButton}>
-                                    <Image
-                                        source={require('../../assets/profile_icons/save_button_icon.png')}
-                                        style={styles.editIcon}
-                                    />
-                                </TouchableOpacity>
-                            </>
-                        }
+                    <View>
+                        <CustomInputText
+                            labelStyle={styles.boldText}
+                            label="DNI:"
+                            placeholder='Ingrese DNI'
+                            control={control}
+                            name="dni"
+                            errorMessage={errors.dni?.message}
+                            keyboardType="number-pad"
+                            maxLength={8}
+                        />
                     </View>
                 </View>
                 <View style={styles.avatar}>
@@ -216,7 +197,7 @@ const ProfileScreen: FC<IScreenProps> = ({ navigation, sessionStore }) => {
             <View style={styles.bottomButtons}>
                 <View style={styles.nextButton}>
                     <Button
-                        onPress={saveChanges}
+                        onPress={handleSubmit(saveChanges)}
                         title="Guardar"
                         color="#5680E9"></Button>
                 </View>
@@ -253,36 +234,31 @@ const styles = StyleSheet.create({
         backgroundColor: 'white'
     },
     contentContainer: {
-        flex: 1
+        flex: 1,
+        paddingHorizontal: 25
     },
     firstName: {
         marginTop: 20,
         marginBottom: 10,
-        marginStart: 25
     },
     boldText: {
         fontWeight: 'bold',
         fontSize: 18
     },
-    editPropertyContainer: {
-        flexDirection: 'row'
-    },
     lastName: {
         marginTop: 10,
         marginBottom: 10,
-        marginStart: 25,
         fontSize: 18
     },
     identificationNumber: {
         marginTop: 10,
         marginBottom: 10,
-        marginStart: 25,
         fontSize: 18
     },
     avatar: {
         marginTop: 10,
         marginBottom: 10,
-        marginStart: 25,
+        // marginStart: 25,
         fontSize: 18
     },
     userPropertyText: {
@@ -293,20 +269,6 @@ const styles = StyleSheet.create({
     },
     editPropertyButton: {
         flex: 1
-    },
-    editIcon: {
-        marginTop: 15,
-        width: 15,
-        height: 15
-    },
-    inputText: {
-        marginTop: 8.5,
-        marginBottom: -1.5,
-        marginEnd: 25,
-        borderWidth: 0,
-        fontSize: 18,
-        flex: 1,
-        padding: 0
     },
     bottomButtons: {
         marginBottom: 30

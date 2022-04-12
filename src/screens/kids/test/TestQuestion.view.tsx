@@ -64,7 +64,7 @@ const TestQuestion: FC<IScreenProps> = ({ route, navigation }) => {
         let rating = 0;
 
         console.log(limits);
-        
+
         if (result > MIN_SCORE && result < limits.one) { //1 star
             console.log(`${MIN_SCORE} < ${result} < ${limits.one}`);
             rating = 1;
@@ -246,7 +246,7 @@ const TestQuestion: FC<IScreenProps> = ({ route, navigation }) => {
             return <>
                 <View style={{ flexDirection: "row", justifyContent: 'center' }}>
                     {images.map((i: any) => {
-                        return <>
+                        return (
                             <Lightbox
                                 key={i.id}
                                 onOpen={() => {
@@ -273,7 +273,7 @@ const TestQuestion: FC<IScreenProps> = ({ route, navigation }) => {
                                     )}
                                 </>
                             </Lightbox>
-                        </>
+                        )
                     })}
                 </View>
             </>
@@ -282,7 +282,7 @@ const TestQuestion: FC<IScreenProps> = ({ route, navigation }) => {
                 return <>
                     <View style={{ flexDirection: "row", justifyContent: 'center', marginBottom: 10 }}>
                         {images.slice(0, 2).map((i: any) => {
-                            return <>
+                            return (
                                 <Lightbox
                                     key={i.id}
                                     style={{ marginHorizontal: 5 }}
@@ -310,12 +310,12 @@ const TestQuestion: FC<IScreenProps> = ({ route, navigation }) => {
                                         )}
                                     </>
                                 </Lightbox>
-                            </>
+                            )
                         })}
                     </View>
                     <View style={{ flexDirection: "row", justifyContent: 'center' }}>
                         {images.slice(2, maxlength).map((i: any) => {
-                            return <>
+                            return (
                                 <Lightbox
                                     key={i.id}
                                     style={{ marginHorizontal: 5 }}
@@ -343,7 +343,7 @@ const TestQuestion: FC<IScreenProps> = ({ route, navigation }) => {
                                         )}
                                     </>
                                 </Lightbox>
-                            </>
+                            )
                         })}
                     </View>
                 </>

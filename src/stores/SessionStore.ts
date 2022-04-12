@@ -53,6 +53,7 @@ class SessionStore implements ISessionStore {
     logout = async () => {
         this.loading = true;
         setTimeout(async () => {
+            this.setToken('');
             cleanTokenData();
             cleanProfileImageData();
             this.token = null;

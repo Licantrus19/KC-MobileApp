@@ -2,34 +2,85 @@ import CheckBox from "@react-native-community/checkbox";
 import React, { FC, useEffect, useState } from "react";
 import { Button, Image, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
+import {useForm} from 'react-hook-form';
+import * as yup from 'yup';
+import {CustomInputText} from "../../components";
+import { yupResolver } from "@hookform/resolvers/yup";
 interface IScreenProps {
     navigation: any
 }
 
+interface RegisterData {
+  firstName: string;
+  lastName: string;
+  dni: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
+
+const schema = yup
+  .object({
+    firstName: yup
+      .string()
+      .min(3, 'Mínimo 3 caracteres')
+      .max(30, 'Máximo 30 caracteres')
+      .required('Nombres son requeridos'),
+    lastName: yup
+      .string()
+      .min(3, 'Mínimo 3 caracteres')
+      .max(30, 'Máximo 30 caracteres')
+      .required('Apellidos son requeridos'),
+    dni: yup
+      .string()
+      .max(8, 'Se requiere 8 caracteres')
+      .min(8, 'Se requiere 8 caracteres')
+      .required('DNI es requerido'),
+    email: yup
+      .string()
+      .email('Ingrese un correo válido')
+      .required('Correo es requerido'),
+    password: yup.string().required('Contraseña es requerida'),
+    confirmPassword: yup
+      .string()
+      .oneOf([yup.ref('password'), null], 'Las contraseñas no coinciden'),
+  })
+  .required();
+
 const RegisterScreen: FC<IScreenProps> = ({ navigation }) => {
 
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [identificationNumber, setIdentificationNumber] = useState('');
-    const [emailAddress, setEmailAddress] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
+    const { control, handleSubmit, formState: { errors } } = useForm<RegisterData>({
+        defaultValues: {
+            confirmPassword: '',
+            dni: '',
+            email: '',
+            lastName: '',
+            firstName: '',
+            password: '',
+        }, resolver: yupResolver(schema)
+    })
 
     const [termsAccepted, setTermsAccepted] = useState(false);
 
     const isNextButtonDisabled = !termsAccepted;
 
-    const saveChanges = () => {
+    const saveChanges = ({
+        firstName,
+        lastName,
+        dni,
+        email,
+        password,
+    }: RegisterData) => {
         const profileData = {
-            firstName: firstName,
-            lastName: lastName,
-            identificationNumber: identificationNumber,
-            emailAddress: emailAddress,
-            password: password,
-            avatarImage: 1
-        }
-        navigation.push("RegisterAvatar", profileData);
-    }
+          firstName,
+          lastName,
+          identificationNumber: dni,
+          emailAddress: email,
+          password,
+          avatarImage: 1,
+        };
+        navigation.push('RegisterAvatar', profileData);
+    };
 
     const cancelChanges = () => {
         navigation.goBack();
@@ -39,24 +90,30 @@ const RegisterScreen: FC<IScreenProps> = ({ navigation }) => {
         <ScrollView style={styles.container}>
             <View style={styles.contentContainer}>
                 <View style={styles.firstName}>
-                    <TextInput
-                        style={styles.inputText}
-                        placeholder={'Ingrese nombres completo'}
-                        onChangeText={firstName => setFirstName(firstName)}
+                    <CustomInputText 
+                        placeholder='Ingrese nombres completo'
+                        control={control}
+                        name="firstName"
+                        errorMessage={errors.firstName?.message}
                     />
                 </View>
                 <View style={styles.lastName}>
-                    <TextInput
-                        style={styles.inputText}
-                        placeholder={'Ingrese apellidos completo'}
-                        onChangeText={lastName => setLastName(lastName)}
+                    <CustomInputText 
+                        placeholder='Ingrese apellidos completo'
+                        control={control}
+                        name="lastName"
+                        errorMessage={errors.lastName?.message}
                     />
                 </View>
                 <View style={styles.identificationNumber}>
-                    <TextInput
-                        style={styles.inputDNIText}
-                        placeholder={'Ingrese DNI'}
-                        onChangeText={identificationNumber => setIdentificationNumber(identificationNumber)}
+                    <CustomInputText 
+                        placeholder='Ingrese DNI'
+                        control={control}
+                        name="dni"
+                        errorMessage={errors.dni?.message}
+                        keyboardType="number-pad"
+                        containerStyle={{ marginEnd: 30, flex: 3 }}
+                        maxLength={8}
                     />
                     <Image
                         resizeMode='contain'
@@ -65,24 +122,30 @@ const RegisterScreen: FC<IScreenProps> = ({ navigation }) => {
                     />
                 </View>
                 <View style={styles.emailAddress}>
-                    <TextInput
-                        style={styles.inputText}
-                        placeholder={'Ingrese correo electrónico'}
-                        onChangeText={emailAddress => setEmailAddress(emailAddress)}
+                    <CustomInputText 
+                        keyboardType="email-address"
+                        placeholder='Ingrese correo electrónico'
+                        control={control}
+                        name="email"
+                        errorMessage={errors.email?.message}
                     />
                 </View>
                 <View style={styles.password}>
-                    <TextInput
-                        style={styles.inputText}
-                        placeholder={'Ingrese contraseña'}
-                        onChangeText={password => setPassword(password)}
+                    <CustomInputText 
+                        placeholder='Ingrese contraseña'
+                        control={control}
+                        name="password"
+                        errorMessage={errors.password?.message}
+                        secureTextEntry={true}
                     />
                 </View>
                 <View style={styles.confirmPassword}>
-                    <TextInput
-                        style={styles.inputText}
-                        placeholder={'Confirmar contraseña'}
-                        onChangeText={confirmPassword => setConfirmPassword(confirmPassword)}
+                    <CustomInputText 
+                        placeholder='Confirmar contraseña'
+                        control={control}
+                        name="confirmPassword"
+                        errorMessage={errors.confirmPassword?.message}
+                        secureTextEntry={true}
                     />
                 </View>
                 <View style={styles.checkboxContainer}>
@@ -98,7 +161,7 @@ const RegisterScreen: FC<IScreenProps> = ({ navigation }) => {
             <View style={styles.bottomButtons}>
                 <View style={styles.nextButton}>
                     <Button
-                        onPress={saveChanges}
+                        onPress={handleSubmit(saveChanges)}
                         disabled={isNextButtonDisabled}
                         title="Siguiente"
                         color="#5680E9"></Button>
@@ -122,12 +185,12 @@ const styles = StyleSheet.create({
         backgroundColor: 'white'
     },
     contentContainer: {
-        flex: 1
+        flex: 1,
+        paddingHorizontal: 25
     },
     firstName: {
         marginTop: 20,
         marginBottom: 10,
-        marginStart: 25,
         fontSize: 18
     },
     boldText: {
@@ -136,19 +199,18 @@ const styles = StyleSheet.create({
     lastName: {
         marginTop: 10,
         marginBottom: 10,
-        marginStart: 25,
         fontSize: 18
     },
     identificationNumber: {
         marginTop: 10,
         marginBottom: 10,
-        marginStart: 25,
         fontSize: 18,
         flexDirection: 'row',
     },
     identificationNumberIcon: {
         flex: 1,
         alignItems: 'flex-end',
+        alignSelf: 'flex-start',
         marginEnd: 50,
         width: 80,
         height: 40,
@@ -156,7 +218,6 @@ const styles = StyleSheet.create({
     },
     checkboxContainer: {
         marginTop: 10,
-        marginStart: 25,
         flexDirection: "row",
     },
     checkbox: {
@@ -165,39 +226,26 @@ const styles = StyleSheet.create({
     confirmTermsText: {
         marginTop: 5,
         fontSize: 15,
-        marginEnd: 25,
     },
     emailAddress: {
         marginTop: 10,
         marginBottom: 10,
-        marginStart: 25,
         fontSize: 18
     },
     password: {
         marginTop: 10,
         marginBottom: 10,
-        marginStart: 25,
         fontSize: 18
     },
     confirmPassword: {
         marginTop: 10,
         marginBottom: 10,
-        marginStart: 25,
         fontSize: 18
     },
     avatar: {
         marginTop: 10,
         marginBottom: 10,
-        marginStart: 25,
         fontSize: 18
-    },
-    inputText: {
-        marginTop: 10,
-        marginEnd: 25,
-        padding: 10,
-        height: 40,
-        borderWidth: 1,
-        borderRadius: 5
     },
     inputDNIText: {
         marginTop: 10,

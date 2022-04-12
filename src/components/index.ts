@@ -6,3 +6,5 @@ export { default as Label } from './label/Label.view';
 export { default as KidItem } from './kidItem/KidItem.view';
 export { default as TipItem } from './tipItem/TipItem.view';
 export { default as AvatarItem } from './avatarItem/AvatarItem.view';
+export { default as CustomInputText } from './customInputText/CustomInputText';
+export { default as CustomSelect } from './customSelect/CustomSelect';
