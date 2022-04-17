@@ -164,7 +164,7 @@ const OutcomesScreen: FC<IScreenProps> = ({ navigation }) => {
             });
         }).finally(() => {
             setKids(kidsArray);
-            setKidSelected(kidsArray[0]);
+            if (kidsArray.length > 0) setKidSelected(kidsArray[0]);
         });
     }, [navigation, isFocused]);
 
@@ -188,9 +188,9 @@ const OutcomesScreen: FC<IScreenProps> = ({ navigation }) => {
                     onPress={selectKid}
                 />
             </ScrollView>}
-            {kidSelected != '' && <Text style={styles.kidFullName}>{kidSelected.firstName + " " + kidSelected.lastName}</Text>}
+            {kidSelected == '' ? <Text style={styles.errorMessage}>Aún no tiene un menor registrado</Text> : <Text style={styles.kidFullName}>{kidSelected.firstName + " " + kidSelected.lastName}</Text>}
             {kidSelected != '' && (kidSelected.questionnaires.length == 0 ?
-                <Text>No se ha completado ningún cuestionario</Text> :
+                <Text style={styles.errorMessage}>No se ha completado ningún cuestionario</Text> :
 
                 kidSelected.questionnaires.map((questionnaire: any, index: number) => {
                     return (
@@ -289,5 +289,10 @@ const styles = StyleSheet.create({
     bottomButtons: {
         flexDirection: 'row',
         margin: 10
+    },
+    errorMessage: {
+        fontSize: 18,
+        padding: 5,
+        paddingStart: 20
     }
 });
