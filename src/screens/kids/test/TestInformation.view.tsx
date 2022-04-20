@@ -62,7 +62,7 @@ const TestInformation: FC<IScreenProps> = ({ route, navigation }) => {
                         </Label>
                     </View>
                     <MaterialButton
-                        onPress={() => { navigation.navigate("TestQuestion", { index: 1, test: test, max: test.data.questions.length * 10, kid }) }}
+                        onPress={() => { navigation.navigate("TestQuestion", { index: 1, test: test, max: test.data.questions.length * 10, kid, answers: [] }) }}
                         title="Empezar"
                         buttonColor="secondary"
                         buttonStyle={{ marginVertical: 5, width: '80%', backgroundColor: test.backgroundColor, borderColor: test.backgroundColor }} />

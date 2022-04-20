@@ -18,6 +18,7 @@ const TestQuestion: FC<IScreenProps> = ({ route, navigation }) => {
     const index = route.params ? route.params.index : null;
     const max = route.params ? route.params.max : null;
     const kid = route.params ? route.params.kid : null;
+    const answers = route.params ? route.params.answers : null;
 
     const result = index == 1 ? 0 : route.params.points;
 
@@ -79,7 +80,7 @@ const TestQuestion: FC<IScreenProps> = ({ route, navigation }) => {
         const body = {
             type: test.type,
             score: result,
-            answers: {},
+            answers: JSON.stringify(answers),
             rating
         }
 
@@ -93,26 +94,44 @@ const TestQuestion: FC<IScreenProps> = ({ route, navigation }) => {
         })
     }
 
-    const nextQuestion = (points?: any) => {
-        let answers = 0;
+    const nextQuestion = (points?: any, myAnswer?: any) => {
+        let answersNum = 0;
         let otherPoints = 0;
-        if (test.data.questions[index - 1].type === "checklist") {
-            answers = selectedList.filter((i) => { return i }).length;
-            if (answers == 0) {
-                otherPoints = 0;
-            } else if (answers < test.data.questions[index - 1].rangeAnswer) {
-                otherPoints = 5;
-            } else if (answers >= test.data.questions[index - 1].rangeAnswer) {
-                otherPoints = 10;
+        let tempAnswer = {
+            questionText: test.data.questions[index - 1].generalQuestion,
+            questionNumber: index,
+            questionAnswer: ' '
+        }
+        if(myAnswer) {
+             answers.push(myAnswer);
+        }else {
+            if (test.data.questions[index - 1].type === "checklist") {
+                answersNum = selectedList.filter((i) => { return i }).length;
+                if (answersNum == 0) {
+                    otherPoints = 0;
+                    tempAnswer.questionAnswer = 'No';
+                } else if (answersNum < test.data.questions[index - 1].rangeAnswer) {
+                    otherPoints = 5;
+                    tempAnswer.questionAnswer = 'A veces';
+                } else if (answersNum >= test.data.questions[index - 1].rangeAnswer) {
+                    otherPoints = 10;
+                    tempAnswer.questionAnswer = 'Sí';
+                }
             }
+            answers.push(tempAnswer);
         }
         index == test.data.questions.length
             ? endTest(points ? points : otherPoints)
-            : navigation.navigate("TestQuestion", { test: test, index: index + 1, points: points ? points : otherPoints, max, kid })
+            : navigation.navigate("TestQuestion", { test: test, index: index + 1, points: points ? points : otherPoints, max, kid, answers })
     }
 
-    const answerAction = (pos: any) => {
+    const answerAction = (pos: any, text: string) => {
         const points = test.data.questions[index - 1].answer[pos] ? test.data.questions[index - 1].answer[pos].points : 0;
+        let myAnswer = {
+            questionText: test.data.questions[index - 1].generalQuestion,
+            questionNumber: index,
+            questionAnswer: text
+        }
         nextQuestion(result + points);
     }
 
@@ -369,19 +388,19 @@ const TestQuestion: FC<IScreenProps> = ({ route, navigation }) => {
                 <View style={{ position: 'absolute', bottom: 20, width: '100%', alignItems: 'center' }}>
                     <View style={{ flexDirection: 'row', width: '80%' }}>
                         <MaterialButton
-                            onPress={() => { answerAction(0) }}
+                            onPress={() => { answerAction(0, "Sí") }}
                             title="Sí"
                             buttonColor="secondary"
                             titleStyle={{ color: test.backgroundColor }}
                             buttonStyle={{ marginVertical: 5, flex: 1, backgroundColor: "white", borderColor: test.backgroundColor }} />
                         <MaterialButton
-                            onPress={() => { answerAction(1) }}
+                            onPress={() => { answerAction(1, "A veces") }}
                             title="A veces"
                             buttonColor="secondary"
                             titleStyle={{ color: test.backgroundColor }}
                             buttonStyle={{ marginVertical: 5, flex: 10, marginHorizontal: 10, backgroundColor: "white", borderColor: test.backgroundColor }} />
                         <MaterialButton
-                            onPress={() => { answerAction(2) }}
+                            onPress={() => { answerAction(2, "No") }}
                             title="No"
                             buttonColor="secondary"
                             titleStyle={{ color: test.backgroundColor }}
