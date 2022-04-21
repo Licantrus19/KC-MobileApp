@@ -80,7 +80,7 @@ const ResultTest: FC<IScreenProps> = ({ route, navigation }) => {
                     </View>
                     <View style={{ position: 'absolute', bottom: 20, width: '100%', alignItems: 'center' }}>
                         <MaterialButton
-                            onPress={() => { navigation.navigate('KidProfileTest', { kidData: kid }) }}
+                            onPress={() => { navigation.navigate('Kids') }}
                             title="Salir"
                             titleStyle={{ color: test.backgroundColor }}
                             buttonStyle={{ marginVertical: 5, width: '80%', backgroundColor: "white", borderColor: test.backgroundColor }} />
