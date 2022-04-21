@@ -102,7 +102,7 @@ export const questions = [
             },
             {
                 id: 2,
-                url: require("../../../../../assets/questions/1st_test/fine_motor/kid_toys_3_2.jpg")
+                url: require("../../../../../assets/questions/1st_test/fine_motor/kid_toys_3_2.jpeg")
             },
             {
                 id: 3,

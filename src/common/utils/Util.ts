@@ -44,11 +44,11 @@ export const Util = {
     fromAgeToQuestionnaire(age: number, testType: string) {
         if (age < 27) {
             switch (testType) {
-                case 'communication': return require('../../screens/kids/test/test_questions/24_months/communication.json');
-                case 'fine_motor': return require('../../screens/kids/test/test_questions/24_months/fine_motor.json');
-                case 'gross_motor': return require('../../screens/kids/test/test_questions/24_months/gross_motor.json');
-                case 'individual_social': return require('../../screens/kids/test/test_questions/24_months/individual_social.json');
-                case 'problem_solving': return require('../../screens/kids/test/test_questions/24_months/problem_solving.json');
+                case 'communication': return require('../../screens/kids/test/test_questions/24_months/communication.ts');
+                case 'fine_motor': return require('../../screens/kids/test/test_questions/24_months/fine_motor.ts');
+                case 'gross_motor': return require('../../screens/kids/test/test_questions/24_months/gross_motor.ts');
+                case 'individual_social': return require('../../screens/kids/test/test_questions/24_months/individual_social.ts');
+                case 'problem_solving': return require('../../screens/kids/test/test_questions/24_months/problem_solving.ts');
             }
         }
         else {

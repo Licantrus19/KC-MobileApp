@@ -13,6 +13,8 @@ const ResultTest: FC<IScreenProps> = ({ route, navigation }) => {
     const test = route.params ? route.params.test : null;
     const result = route.params ? route.params.result : 0;
     const rating = route.params ? route.params.rating : 1;
+    const kid = route.params ? route.params.kid : null;
+
     const MAX_STARTS = 3;
     //Call API
     useEffect(() => {
@@ -78,7 +80,7 @@ const ResultTest: FC<IScreenProps> = ({ route, navigation }) => {
                     </View>
                     <View style={{ position: 'absolute', bottom: 20, width: '100%', alignItems: 'center' }}>
                         <MaterialButton
-                            onPress={() => { navigation.navigate("Kids") }}
+                            onPress={() => { navigation.navigate('KidProfileTest', { kidData: kid });}}
                             title="Salir"
                             titleStyle={{ color: test.backgroundColor }}
                             buttonStyle={{ marginVertical: 5, width: '80%', backgroundColor: "white", borderColor: test.backgroundColor }} />

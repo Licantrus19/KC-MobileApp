@@ -1,4 +1,4 @@
-import { useIsFocused } from '@react-navigation/native';
+import { useFocusEffect, useIsFocused } from '@react-navigation/native';
 import React, { useState, FC, useCallback, useEffect } from 'react';
 import { Button, FlatList, Image, StyleSheet, Text, TextInput, View } from 'react-native';
 import { questionnaireFromKid } from '../../api/kids.api';
@@ -75,7 +75,8 @@ const KidTestScreen: FC<IScreenProps> = ({ navigation, route }) => {
 
     const isFocused = useIsFocused();
 
-    const evaluationsAvailableForKid = useCallback(async () => {
+    const evaluationsAvailableForKid = async () => {    
+        console.log('research'); 
         let evaluationStatus: any[] = [];
         let evaluationsAvailable: any[] = [];
         questionnaireFromKid(kidData.id).then((result) => {
@@ -94,11 +95,13 @@ const KidTestScreen: FC<IScreenProps> = ({ navigation, route }) => {
         }).finally(() => {
             setEvaluations(evaluationsAvailable);
         });
-    }, [navigation, isFocused]);
+    }
 
-    useEffect(() => {
-        evaluationsAvailableForKid();
-    }, [evaluationsAvailableForKid]);
+    useFocusEffect(
+        useCallback(() => {
+            evaluationsAvailableForKid();
+        }, []),
+    );
 
     const renderItem = ({ item }: { item: any }) => {
         return (
