@@ -132,6 +132,7 @@ const styles = StyleSheet.create({
         fontSize: 18
     },
     bottomButtons: {
+        backgroundColor: 'white',
         marginBottom: 30
     },
     nextButton: {

@@ -26,6 +26,6 @@ const styles = StyleSheet.create({
     },
     text: {
         textAlign: 'justify',
-        fontSize: 18,
+        fontSize: 16,
     },
 });

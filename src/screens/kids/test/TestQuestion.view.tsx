@@ -102,9 +102,9 @@ const TestQuestion: FC<IScreenProps> = ({ route, navigation }) => {
             questionNumber: index,
             questionAnswer: ' '
         }
-        if(myAnswer) {
-             answers.push(myAnswer);
-        }else {
+        if (myAnswer) {
+            answers.push(myAnswer);
+        } else {
             if (test.data.questions[index - 1].type === "checklist") {
                 answersNum = selectedList.filter((i) => { return i }).length;
                 if (answersNum == 0) {
@@ -120,7 +120,7 @@ const TestQuestion: FC<IScreenProps> = ({ route, navigation }) => {
             }
             answers.push(tempAnswer);
         }
-        
+
         index == test.data.questions.length
             ? endTest(points ? points : otherPoints)
             : navigation.navigate("TestQuestion", { test: test, index: index + 1, points: points ? points : otherPoints, max, kid, answers })
@@ -145,7 +145,7 @@ const TestQuestion: FC<IScreenProps> = ({ route, navigation }) => {
                     </Label>
                 </View>
                 <View style={{ marginTop: 15, marginHorizontal: 20 }}>
-                    <Label center size={18} color='white' textStyle={{ textAlign: 'justify' }}>
+                    <Label center size={16} color='white' textStyle={{ textAlign: 'justify' }}>
                         {test.data.questions[index - 1].generalQuestion}
                     </Label>
                 </View>

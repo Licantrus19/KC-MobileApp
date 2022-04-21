@@ -7,8 +7,6 @@ import { Util } from '../../common/utils';
 import { Label } from '../../components';
 import TestButton from './TestButton.view';
 
-const asd = require('./test/test_questions/27_months/fine_motor');
-
 const initialEvaluation = [
     {
         id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
@@ -75,11 +73,11 @@ const KidTestScreen: FC<IScreenProps> = ({ navigation, route }) => {
 
     const isFocused = useIsFocused();
 
-    const evaluationsAvailableForKid = async () => {    
-        console.log('research'); 
+    const evaluationsAvailableForKid = useCallback(async () => {
         let evaluationStatus: any[] = [];
         let evaluationsAvailable: any[] = [];
         questionnaireFromKid(kidData.id).then((result) => {
+            console.log('evaluations: ', result.data.evaluations);
             evaluationStatus = result.data.evaluations;
             evaluationsAvailable = initialEvaluation;
             evaluationStatus.forEach((evaluationStatusItem) => {
@@ -95,15 +93,13 @@ const KidTestScreen: FC<IScreenProps> = ({ navigation, route }) => {
         }).finally(() => {
             setEvaluations(evaluationsAvailable);
         });
-    }
+    }, [navigation, isFocused])
 
-    useFocusEffect(
-        useCallback(() => {
-            evaluationsAvailableForKid();
-        }, []),
-    );
+    useEffect(() => {
+        evaluationsAvailableForKid()
+    }, [evaluationsAvailableForKid]);
 
-    const renderItem = ({ item }: { item: any }) => {
+    const renderEvaluations = (item: any) => {
         return (
             <TestButton
                 item={item}
@@ -144,7 +140,8 @@ const KidTestScreen: FC<IScreenProps> = ({ navigation, route }) => {
                 <View style={styles.flatListView}>
                     <FlatList
                         data={evaluations}
-                        renderItem={renderItem}
+                        renderItem={({ item }) => { return renderEvaluations(item) }}
+                        extraData={evaluations}
                         keyExtractor={item => item.id}
                     ></FlatList>
                 </View>
