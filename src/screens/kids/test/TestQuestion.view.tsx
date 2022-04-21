@@ -120,6 +120,7 @@ const TestQuestion: FC<IScreenProps> = ({ route, navigation }) => {
             }
             answers.push(tempAnswer);
         }
+        
         index == test.data.questions.length
             ? endTest(points ? points : otherPoints)
             : navigation.navigate("TestQuestion", { test: test, index: index + 1, points: points ? points : otherPoints, max, kid, answers })
@@ -132,7 +133,7 @@ const TestQuestion: FC<IScreenProps> = ({ route, navigation }) => {
             questionNumber: index,
             questionAnswer: text
         }
-        nextQuestion(result + points);
+        nextQuestion(result + points, myAnswer);
     }
 
     const renderMainStage = () => {
